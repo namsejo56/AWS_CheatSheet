@@ -1,0 +1,59 @@
+# GitHub Pages Jekyll configuration
+# This file tells GitHub Pages how to build and serve the site
+
+# Site settings
+title: "AWS CheatSheet"
+description: "Complete reference guide for Amazon Web Services"
+url: "https://namsejo56.github.io"
+baseurl: "/AWS_CheatSheet"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: minima
+
+# Exclude files from processing
+exclude:
+  - README.md
+  - LICENSE
+  - .gitignore
+  - .git/
+
+# Include files that start with underscores
+include:
+  - _pages
+  - _posts
+
+# Plugin settings
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# SEO settings
+lang: en_US
+author: AWS Community
+twitter:
+  username: aws
+social:
+  links:
+    - https://github.com/namsejo56/AWS_CheatSheet
+
+# Collections
+collections:
+  services:
+    output: true
+    permalink: /:collection/:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"

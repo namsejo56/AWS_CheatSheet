@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS CheatSheet - Complete Reference Guide</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☁️</text></svg>">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>🚀 AWS CheatSheet</h1>
+            <p>Your complete reference guide for Amazon Web Services</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#compute">Compute</a></li>
+                <li><a href="#storage">Storage</a></li>
+                <li><a href="#database">Database</a></li>
+                <li><a href="#networking">Networking</a></li>
+                <li><a href="#security">Security</a></li>
+                <li><a href="#monitoring">Monitoring</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section id="compute" class="service-section">
+            <h2>🖥️ Compute Services</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <h3>EC2 (Elastic Compute Cloud)</h3>
+                    <p>Virtual servers in the cloud</p>
+                    <ul>
+                        <li>Instance types: t3, m5, c5, r5, etc.</li>
+                        <li>On-Demand, Reserved, Spot instances</li>
+                        <li>Auto Scaling Groups</li>
+                        <li>Load Balancers (ALB, NLB, CLB)</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>Lambda</h3>
+                    <p>Serverless compute service</p>
+                    <ul>
+                        <li>Event-driven execution</li>
+                        <li>15-minute max execution time</li>
+                        <li>Supports multiple runtimes</li>
+                        <li>Pay per invocation</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>ECS/EKS</h3>
+                    <p>Container orchestration</p>
+                    <ul>
+                        <li>ECS: AWS managed containers</li>
+                        <li>EKS: Managed Kubernetes</li>
+                        <li>Fargate: Serverless containers</li>
+                        <li>ECR: Container registry</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="storage" class="service-section">
+            <h2>💾 Storage Services</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <h3>S3 (Simple Storage Service)</h3>
+                    <p>Object storage service</p>
+                    <ul>
+                        <li>Storage classes: Standard, IA, Glacier</li>
+                        <li>Bucket policies and ACLs</li>
+                        <li>Versioning and lifecycle policies</li>
+                        <li>Cross-region replication</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>EBS (Elastic Block Store)</h3>
+                    <p>Block storage for EC2</p>
+                    <ul>
+                        <li>Volume types: gp2, gp3, io1, io2</li>
+                        <li>Snapshots and encryption</li>
+                        <li>Multi-Attach capability</li>
+                        <li>Elastic Volumes</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>EFS (Elastic File System)</h3>
+                    <p>Managed NFS file system</p>
+                    <ul>
+                        <li>POSIX-compliant</li>
+                        <li>Scalable performance</li>
+                        <li>Multiple availability zones</li>
+                        <li>Backup and encryption</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="database" class="service-section">
+            <h2>🗄️ Database Services</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <h3>RDS (Relational Database Service)</h3>
+                    <p>Managed relational databases</p>
+                    <ul>
+                        <li>MySQL, PostgreSQL, Oracle, SQL Server</li>
+                        <li>Multi-AZ deployments</li>
+                        <li>Read replicas</li>
+                        <li>Automated backups</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>DynamoDB</h3>
+                    <p>NoSQL database service</p>
+                    <ul>
+                        <li>Key-value and document database</li>
+                        <li>Serverless and provisioned modes</li>
+                        <li>Global tables</li>
+                        <li>DynamoDB Streams</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>ElastiCache</h3>
+                    <p>In-memory caching</p>
+                    <ul>
+                        <li>Redis and Memcached</li>
+                        <li>Cluster mode</li>
+                        <li>Backup and restore</li>
+                        <li>Multi-AZ failover</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="networking" class="service-section">
+            <h2>🌐 Networking & CDN</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <h3>VPC (Virtual Private Cloud)</h3>
+                    <p>Isolated cloud network</p>
+                    <ul>
+                        <li>Subnets (public/private)</li>
+                        <li>Route tables and gateways</li>
+                        <li>NACLs and Security Groups</li>
+                        <li>VPC Peering and Transit Gateway</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>CloudFront</h3>
+                    <p>Content delivery network</p>
+                    <ul>
+                        <li>Global edge locations</li>
+                        <li>Custom SSL certificates</li>
+                        <li>Lambda@Edge</li>
+                        <li>Origin access identity</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>Route 53</h3>
+                    <p>DNS web service</p>
+                    <ul>
+                        <li>Domain registration</li>
+                        <li>Health checks</li>
+                        <li>Routing policies</li>
+                        <li>Private hosted zones</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="security" class="service-section">
+            <h2>🔒 Security & Identity</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <h3>IAM (Identity and Access Management)</h3>
+                    <p>Access control service</p>
+                    <ul>
+                        <li>Users, groups, and roles</li>
+                        <li>Policies and permissions</li>
+                        <li>MFA and access keys</li>
+                        <li>Cross-account access</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>Cognito</h3>
+                    <p>User authentication service</p>
+                    <ul>
+                        <li>User pools and identity pools</li>
+                        <li>Social identity providers</li>
+                        <li>SAML and OIDC</li>
+                        <li>MFA and custom authentication</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>KMS (Key Management Service)</h3>
+                    <p>Encryption key management</p>
+                    <ul>
+                        <li>Customer managed keys</li>
+                        <li>Envelope encryption</li>
+                        <li>Key rotation</li>
+                        <li>CloudHSM integration</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="monitoring" class="service-section">
+            <h2>📊 Monitoring & Logging</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <h3>CloudWatch</h3>
+                    <p>Monitoring and observability</p>
+                    <ul>
+                        <li>Metrics and dashboards</li>
+                        <li>Alarms and notifications</li>
+                        <li>Logs and log groups</li>
+                        <li>Custom metrics</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>CloudTrail</h3>
+                    <p>API call logging</p>
+                    <ul>
+                        <li>Management and data events</li>
+                        <li>Multi-region trails</li>
+                        <li>Log file integrity</li>
+                        <li>CloudWatch integration</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>X-Ray</h3>
+                    <p>Distributed tracing</p>
+                    <ul>
+                        <li>Service maps</li>
+                        <li>Trace analysis</li>
+                        <li>Performance insights</li>
+                        <li>Lambda integration</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 AWS CheatSheet. This is an educational resource for learning AWS services.</p>
+            <p>Made with ❤️ for the AWS community</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
