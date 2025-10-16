@@ -1,0 +1,3745 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS DVA-C02 Study Guide - Core Services</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+    <div class="content-wrapper">
+        <nav class="toc" aria-label="Mục lục">
+            <h2>Mục lục</h2>
+            <ul id="toc-list" role="list"></ul>
+        </nav>
+        <div class="container">
+        <h1>🎓 AWS DVA-C02 STUDY GUIDE - COMPREHENSIVE EDITION</h1>
+        
+        <!-- EXECUTIVE SUMMARY -->
+        <div class="executive-summary">
+            <h2>📊 EXECUTIVE SUMMARY - Tổng quan bài thi</h2>
+            
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <h3>🎯 Exam Overview</h3>
+                    <ul>
+                        <li><strong>Thời gian:</strong> 130 phút</li>
+                        <li><strong>Câu hỏi:</strong> 65 câu</li>
+                        <li><strong>Điểm đạt:</strong> 720/1000</li>
+                        <li><strong>Format:</strong> Multiple choice + Multiple response</li>
+                        <li><strong>Giá:</strong> $150 USD</li>
+                    </ul>
+                </div>
+                
+                <div class="summary-card">
+                    <h3>📈 Score Distribution</h3>
+                    <ul>
+                        <li><strong>Domain 1:</strong> Development (32%)</li>
+                        <li><strong>Domain 2:</strong> Security (26%)</li>
+                        <li><strong>Domain 3:</strong> Deployment (24%)</li>
+                        <li><strong>Domain 4:</strong> Troubleshooting (18%)</li>
+                    </ul>
+                </div>
+                
+                <div class="summary-card">
+                    <h3>⚡ Top 5 Services (80% Score)</h3>
+                    <ul>
+                        <li><strong>Lambda:</strong> 15-18% câu hỏi</li>
+                        <li><strong>DynamoDB:</strong> 12-15%</li>
+                        <li><strong>API Gateway:</strong> 10-12%</li>
+                        <li><strong>IAM:</strong> 10-12%</li>
+                        <li><strong>CloudWatch:</strong> 8-10%</li>
+                    </ul>
+                </div>
+                
+                <div class="summary-card">
+                    <h3>🎓 Study Strategy</h3>
+                    <ul>
+                        <li><strong>Week 1-3:</strong> TIER 1 (deep dive)</li>
+                        <li><strong>Week 4:</strong> TIER 2 (focused)</li>
+                        <li><strong>Week 5:</strong> TIER 3 + Integration</li>
+                        <li><strong>Week 6:</strong> Practice exams + review</li>
+                        <li><strong>Target:</strong> 85%+ on practice tests</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="margin-top: 25px; padding-top: 20px; border-top: 2px solid rgba(255,255,255,0.3);">
+                <h3 style="color: #ffd700; border: none; padding: 0; margin: 0 0 15px 0;">🔑 Service Dependency Map</h3>
+                <pre class="ascii-diagram">
+┌──────────────────────────────────────────────────────────────────┐
+│                        APPLICATION LAYER                         │
+│  ┌──────────────┐    ┌──────────────┐    ┌──────────────┐        │
+│  │ API Gateway  │───▶│   Lambda     │───▶│  DynamoDB   │        │
+│  │  (Frontend)  │    │  (Compute)   │    │   (Data)     │        │
+│  └──────────────┘    └──────┬───────┘    └──────────────┘        │
+│         │                    │                    │              │
+└─────────┼────────────────────┼────────────────────┼──────────────┘
+          │                    │                    │
+┌─────────┼────────────────────┼────────────────────┼──────────────┐
+│         ▼         SECURITY & OBSERVABILITY        ▼              │
+│  ┌──────────────┐    ┌──────────────┐    ┌──────────────┐        │
+│  │  Cognito     │    │     IAM      │    │ CloudWatch   │        │
+│  │   (Auth)     │    │  (Access)    │    │  (Monitor)   │        │
+│  └──────────────┘    └──────────────┘    └──────────────┘        │
+└──────────────────────────────────────────────────────────────────┘
+          │                    │                    │
+┌─────────┼────────────────────┼────────────────────┼──────────────┐
+│         ▼        INTEGRATION & DELIVERY           ▼              │
+│  ┌──────────────┐    ┌──────────────┐    ┌──────────────┐        │
+│  │  SQS/SNS     │    │  CodePipeline│    │      S3      │        │
+│  │ (Messaging)  │    │   (CI/CD)    │    │  (Storage)   │        │
+│  └──────────────┘    └──────────────┘    └──────────────┘        │
+└──────────────────────────────────────────────────────────────────┘
+                </pre>
+            </div>
+        </div>
+        
+        <!-- NAVIGATION HUB -->
+        <div class="nav-hub">
+            <h2>🧭 NAVIGATION HUB - Lộ trình học tập</h2>
+            
+            <div class="progress-tracker">
+                <h3>📊 Study Progress Tracker</h3>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="overall-progress">0%</div>
+                </div>
+                <p style="text-align: center; margin-top: 10px; color: #666;">
+                    <span id="completed-count">0</span> / <span id="total-count">15</span> topics completed
+                </p>
+            </div>
+            
+            <div class="topic-checklist">
+                <div class="topic-item" data-tier="1">
+                    <input type="checkbox" id="topic-lambda" onchange="updateProgress()">
+                    <label for="topic-lambda">
+                        <strong>🔷 Lambda</strong><br>
+                        <small>⭐⭐⭐⭐⭐ Critical | Est: 8-10h</small>
+                    </label>
+                </div>
+                
+                <div class="topic-item" data-tier="1">
+                    <input type="checkbox" id="topic-dynamodb" onchange="updateProgress()">
+                    <label for="topic-dynamodb">
+                        <strong>🔷 DynamoDB</strong><br>
+                        <small>⭐⭐⭐⭐⭐ Critical | Est: 8-10h</small>
+                    </label>
+                </div>
+                
+                <div class="topic-item" data-tier="1">
+                    <input type="checkbox" id="topic-apigateway" onchange="updateProgress()">
+                    <label for="topic-apigateway">
+                        <strong>🔷 API Gateway</strong><br>
+                        <small>⭐⭐⭐⭐⭐ Critical | Est: 6-8h</small>
+                    </label>
+                </div>
+                
+                <div class="topic-item" data-tier="1">
+                    <input type="checkbox" id="topic-iam" onchange="updateProgress()">
+                    <label for="topic-iam">
+                        <strong>🔷 IAM</strong><br>
+                        <small>⭐⭐⭐⭐⭐ Critical | Est: 6-8h</small>
+                    </label>
+                </div>
+                
+                <div class="topic-item" data-tier="1">
+                    <input type="checkbox" id="topic-cloudwatch" onchange="updateProgress()">
+                    <label for="topic-cloudwatch">
+                        <strong>🔷 CloudWatch</strong><br>
+                        <small>⭐⭐⭐⭐⭐ Critical | Est: 5-6h</small>
+                    </label>
+                </div>
+                
+                <div class="topic-item" data-tier="2">
+                    <input type="checkbox" id="topic-s3" onchange="updateProgress()">
+                    <label for="topic-s3">
+                        <strong>🔶 S3</strong><br>
+                        <small>⭐⭐⭐⭐ Important | Est: 4-5h</small>
+                    </label>
+                </div>
+                
+                <div class="topic-item" data-tier="2">
+                    <input type="checkbox" id="topic-sqs" onchange="updateProgress()">
+                    <label for="topic-sqs">
+                        <strong>🔶 SQS</strong><br>
+                        <small>⭐⭐⭐⭐ Important | Est: 3-4h</small>
+                    </label>
+                </div>
+                
+                <div class="topic-item" data-tier="2">
+                    <input type="checkbox" id="topic-sns" onchange="updateProgress()">
+                    <label for="topic-sns">
+                        <strong>🔶 SNS</strong><br>
+                        <small>⭐⭐⭐⭐ Important | Est: 2-3h</small>
+                    </label>
+                </div>
+                
+                <div class="topic-item" data-tier="2">
+                    <input type="checkbox" id="topic-cicd" onchange="updateProgress()">
+                    <label for="topic-cicd">
+                        <strong>🔶 CI/CD Services</strong><br>
+                        <small>⭐⭐⭐⭐ Important | Est: 4-5h</small>
+                    </label>
+                </div>
+                
+                <div class="topic-item" data-tier="3">
+                    <input type="checkbox" id="topic-ecs" onchange="updateProgress()">
+                    <label for="topic-ecs">
+                        <strong>🔵 ECS</strong><br>
+                        <small>⭐⭐⭐ Good to know | Est: 3h</small>
+                    </label>
+                </div>
+                
+                <div class="topic-item" data-tier="3">
+                    <input type="checkbox" id="topic-cognito" onchange="updateProgress()">
+                    <label for="topic-cognito">
+                        <strong>🔵 Cognito</strong><br>
+                        <small>⭐⭐⭐ Good to know | Est: 2-3h</small>
+                    </label>
+                </div>
+                
+                <div class="topic-item" data-tier="3">
+                    <input type="checkbox" id="topic-elasticache" onchange="updateProgress()">
+                    <label for="topic-elasticache">
+                        <strong>🔵 ElastiCache</strong><br>
+                        <small>⭐⭐⭐ Good to know | Est: 2-3h</small>
+                    </label>
+                </div>
+                
+                <div class="topic-item" data-tier="3">
+                    <input type="checkbox" id="topic-integration" onchange="updateProgress()">
+                    <label for="topic-integration">
+                        <strong>🔗 Integration Patterns</strong><br>
+                        <small>⭐⭐⭐⭐ Important | Est: 4h</small>
+                    </label>
+                </div>
+                
+                <div class="topic-item" data-tier="3">
+                    <input type="checkbox" id="topic-exam-strategy" onchange="updateProgress()">
+                    <label for="topic-exam-strategy">
+                        <strong>🎯 Exam Strategy</strong><br>
+                        <small>⭐⭐⭐⭐⭐ Critical | Est: 2h</small>
+                    </label>
+                </div>
+                
+                <div class="topic-item" data-tier="3">
+                    <input type="checkbox" id="topic-practice" onchange="updateProgress()">
+                    <label for="topic-practice">
+                        <strong>📝 Practice Exams</strong><br>
+                        <small>⭐⭐⭐⭐⭐ Critical | Est: 10h</small>
+                    </label>
+                </div>
+            </div>
+            
+            <div class="info-box" style="margin-top: 20px;">
+                <h4>💡 Tip: Sử dụng checklist này</h4>
+                <ul>
+                    <li>Tick ✓ sau khi hoàn thành mỗi topic</li>
+                    <li>Progress tự động save trong browser (localStorage)</li>
+                    <li>Review lại các topic chưa tick trước khi thi</li>
+                    <li>Aim for 100% completion 1 tuần trước exam</li>
+                </ul>
+            </div>
+        </div>
+        
+        
+
+        <h2><span class="tier-badge tier-1">TIER 1 - CRITICAL SERVICES (65-70% điểm)</span></h2>
+
+        <hr>
+
+        <!-- ============================================ -->
+        <!-- LAMBDA SERVICE SECTION - ENHANCED           -->
+        <!-- ============================================ -->
+        
+        <h2 id="lambda">1. AWS LAMBDA</h2>
+        
+        <!-- SERVICE CARD -->
+        <div class="service-card tier-1">
+            <h2>🔷 AWS LAMBDA - Core Overview</h2>
+            
+            <div class="card-grid">
+                <div class="card-item">
+                    <h4>🎯 Exam Weight</h4>
+                    <p><strong>15-18%</strong> of total exam</p>
+                    <p><small>~10-12 câu hỏi</small></p>
+                </div>
+                
+                <div class="card-item">
+                    <h4>⚡ Core Purpose</h4>
+                    <p>Serverless compute - event-driven code execution</p>
+                    <p><small>Không cần quản lý servers</small></p>
+                </div>
+                
+                <div class="card-item">
+                    <h4>🔑 Must-Know Topics</h4>
+                    <ul>
+                        <li>Invocation types & triggers</li>
+                        <li>Concurrency models</li>
+                        <li>Error handling & retries</li>
+                        <li>VPC integration</li>
+                    </ul>
+                </div>
+                
+                <div class="card-item">
+                    <h4>🎓 Study Priority</h4>
+                    <p><strong>⭐⭐⭐⭐⭐ CRITICAL</strong></p>
+                    <p>Est. time: <strong>8-10 hours</strong></p>
+                    <p><small>Spend most time here!</small></p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- MENTAL MODEL -->
+        <div class="mental-model-box">
+            <h3>💡 Mental Model: Lambda như "Function Vending Machine"</h3>
+            <pre class="ascii-diagram">
+┌──────────────────────────────────────────────────────────────┐
+│   EVENT arrives (API call, S3 upload, Schedule, etc)        │
+└─────────────────────┬────────────────────────────────────────┘
+                      ↓
+┌─────────────────────────────────────────────────────────────┐
+│  Lambda Container Pool                                       │
+│  ┌────────────┐  ┌────────────┐  ┌────────────┐            │
+│  │   WARM     │  │   COLD     │  │ PROVISIONED│            │
+│  │  Container │  │  Container │  │  Container │            │
+│  │  (Ready)   │  │  (Setup)   │  │  (Always)  │            │
+│  └──────┬─────┘  └──────┬─────┘  └──────┬─────┘            │
+└─────────┼────────────────┼────────────────┼──────────────────┘
+          ↓                ↓                ↓
+      <10ms            100-300ms         Always warm
+      Reuse            Cold Start        (Pre-warmed)
+      existing         Initialize        Cost: $$$
+      container        everything
+            </pre>
+            
+            <div class="analogy">
+                <h4>🎭 Analogy dễ hiểu:</h4>
+                <p><strong>Lambda = Nhân viên làm việc theo giờ:</strong></p>
+                <ul>
+                    <li><strong>Warm start</strong>: Nhân viên đang ở văn phòng, sẵn sàng làm ngay (< 10ms)</li>
+                    <li><strong>Cold start</strong>: Phải gọi nhân viên tới, mở cửa, setup bàn làm việc (100-300ms delay)</li>
+                    <li><strong>Provisioned</strong>: Trả lương giữ nhân viên luôn ở văn phòng (đắt hơn nhưng không delay)</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3>📚 Core Concepts</h3>
+        <ul>
+            <li><strong>Serverless compute service</strong>: chạy code không cần quản lý server</li>
+            <li><strong>Event-driven</strong>: code chỉ chạy khi có trigger</li>
+            <li><strong>Pay per use</strong>: tính tiền theo số request + compute time</li>
+            <li><strong>Auto-scaling</strong>: tự động scale based on incoming requests</li>
+            <li><strong>Stateless</strong>: mỗi invocation độc lập, không share state</li>
+        </ul>
+
+        <h3>⚙️ Function Configuration</h3>
+        <pre><code>Runtime: Node.js, Python, Java, Go, .NET, Ruby, Custom Runtime
+Memory: 128MB - 10,240MB (tăng memory = tăng CPU tương ứng)
+Timeout: max 900s (15 phút)
+Ephemeral storage: /tmp (512MB - 10GB)
+Environment variables: 4KB total size limit
+Handler: entry point function (e.g., index.handler)</code></pre>
+
+        <h3>🔄 Execution Environment</h3>
+        <ul>
+            <li><strong>Cold Start</strong>: lần đầu invoke function, AWS phải setup environment (~100-300ms)</li>
+            <li><strong>Warm Start</strong>: function đã chạy gần đây, reuse container</li>
+            <li><strong>Optimization</strong>:
+                <ul>
+                    <li>Minimize package size</li>
+                    <li>Use layers cho shared code</li>
+                    <li>Keep functions warm bằng scheduled events</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>Environment Variables</h3>
+        <ul>
+            <li>Key-value pairs available trong function code</li>
+            <li>Có thể encrypt bằng KMS</li>
+            <li>Use case: DB connection strings, API keys, configuration</li>
+        </ul>
+
+        <h3>Layers</h3>
+        <ul>
+            <li>Shared code/libraries dùng chung cho nhiều functions</li>
+            <li>Max 5 layers per function</li>
+            <li>Max 250MB unzipped (all layers + function)</li>
+            <li>Use case: common dependencies, libraries, custom runtimes</li>
+        </ul>
+
+        <h3>Versions & Aliases</h3>
+        <h4>Versions:</h4>
+        <ul>
+            <li>Immutable snapshot của function code + configuration</li>
+            <li>$LATEST = version mới nhất (mutable)</li>
+            <li>Published versions: v1, v2, v3... (immutable)</li>
+        </ul>
+
+        <h4>Aliases:</h4>
+        <ul>
+            <li>Pointer trỏ đến version cụ thể</li>
+            <li>Mutable (có thể change version mà alias trỏ tới)</li>
+            <li>Use case: dev, staging, prod environments</li>
+            <li>Weighted aliases: Blue/Green deployment (70% v1, 30% v2)</li>
+        </ul>
+
+        <h3>Concurrency</h3>
+        <h4>Reserved Concurrency:</h4>
+        <ul>
+            <li>Đặt trước số concurrent executions cho function</li>
+            <li>Đảm bảo function luôn có capacity</li>
+            <li>Giới hạn function không vượt quá X executions</li>
+        </ul>
+
+        <h4>Provisioned Concurrency:</h4>
+        <ul>
+            <li>Giữ X instances luôn warm (không cold start)</li>
+            <li>Đắt hơn nhưng performance tốt hơn</li>
+            <li>Use case: latency-sensitive applications</li>
+        </ul>
+
+        <p><strong>Account limit:</strong> 1000 concurrent executions/region (có thể tăng)</p>
+
+        <h3>Error Handling</h3>
+        <h4>Synchronous invocation:</h4>
+        <ul>
+            <li>API Gateway, ALB, Cognito</li>
+            <li>Error trả về ngay cho client</li>
+            <li>Client phải retry</li>
+        </ul>
+
+        <h4>Asynchronous invocation:</h4>
+        <ul>
+            <li>S3, SNS, EventBridge</li>
+            <li>Lambda tự retry 2 lần (total 3 attempts)</li>
+            <li>Có thể config destination:
+                <ul>
+                    <li>On Success: SQS, SNS, Lambda, EventBridge</li>
+                    <li>On Failure: SQS, SNS (hoặc DLQ)</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h4>Stream-based invocation:</h4>
+        <ul>
+            <li>DynamoDB Streams, Kinesis</li>
+            <li>Lambda retry until success hoặc data expire</li>
+            <li>Failed batches block shard processing</li>
+        </ul>
+
+        <h3>Dead Letter Queue (DLQ)</h3>
+        <ul>
+            <li>SQS hoặc SNS nhận failed events</li>
+            <li>Chỉ cho async invocations</li>
+            <li>Phải config IAM permissions</li>
+        </ul>
+
+        <h3>Common Triggers</h3>
+        <table>
+            <tr>
+                <th>Trigger</th>
+                <th>Type</th>
+                <th>Use Case</th>
+            </tr>
+            <tr>
+                <td>API Gateway</td>
+                <td>Sync</td>
+                <td>REST APIs</td>
+            </tr>
+            <tr>
+                <td>S3</td>
+                <td>Async</td>
+                <td>File processing</td>
+            </tr>
+            <tr>
+                <td>DynamoDB Streams</td>
+                <td>Stream</td>
+                <td>Data replication</td>
+            </tr>
+            <tr>
+                <td>SQS</td>
+                <td>Poll-based</td>
+                <td>Queue processing</td>
+            </tr>
+            <tr>
+                <td>EventBridge</td>
+                <td>Async</td>
+                <td>Scheduled tasks, event routing</td>
+            </tr>
+            <tr>
+                <td>SNS</td>
+                <td>Async</td>
+                <td>Fan-out notifications</td>
+            </tr>
+            <tr>
+                <td>CloudWatch Logs</td>
+                <td>Async</td>
+                <td>Log processing</td>
+            </tr>
+        </table>
+
+        <h3>IAM Permissions</h3>
+        <h4>Execution Role: Lambda needs này để access AWS resources</h4>
+        <pre><code>{
+  "Effect": "Allow",
+  "Action": [
+    "logs:CreateLogGroup",
+    "logs:CreateLogStream",
+    "logs:PutLogEvents",
+    "dynamodb:GetItem"
+  ],
+  "Resource": "*"
+}</code></pre>
+
+        <h4>Resource-based Policy: Who can invoke Lambda</h4>
+        <pre><code>{
+  "Effect": "Allow",
+  "Principal": {"Service": "s3.amazonaws.com"},
+  "Action": "lambda:InvokeFunction"
+}</code></pre>
+
+        <!-- MNEMONICS & MEMORY TRICKS -->
+        <div class="mnemonic-box">
+            <h3>🧠 Mnemonics & Memory Tricks</h3>
+            
+            <h4>Lambda Limits - "LAMBDA TIME"</h4>
+            <ul>
+                <li><strong>L</strong>ayers: max <strong>5</strong> layers per function</li>
+                <li><strong>A</strong>ccount concurrent: <strong>1000</strong> default limit</li>
+                <li><strong>M</strong>emory: <strong>128MB - 10,240MB</strong> (10GB)</li>
+                <li><strong>B</strong>urst storage: /tmp <strong>512MB - 10GB</strong></li>
+                <li><strong>D</strong>uration: max <strong>900s = 15 minutes</strong></li>
+                <li><strong>A</strong>ll code size: <strong>250MB</strong> unzipped (function + layers)</li>
+                <li><strong>T</strong>riggers: <strong>20+</strong> AWS services can invoke</li>
+                <li><strong>I</strong>nvocations: <strong>3 types</strong> - Sync, Async, Stream</li>
+                <li><strong>M</strong>inimum memory: <strong>128MB</strong></li>
+                <li><strong>E</strong>nvironment vars: <strong>4KB</strong> total size</li>
+            </ul>
+            
+            <h4>Invocation Types - "SAS Model"</h4>
+            <table>
+                <tr>
+                    <th>Type</th>
+                    <th>Retry Behavior</th>
+                    <th>Triggers</th>
+                    <th>Use When</th>
+                </tr>
+                <tr>
+                    <td><strong>S</strong>ync</td>
+                    <td>Client retries</td>
+                    <td>API Gateway, ALB, direct invoke</td>
+                    <td>Need immediate response</td>
+                </tr>
+                <tr>
+                    <td><strong>A</strong>sync</td>
+                    <td>Lambda retries 2x (3 total)</td>
+                    <td>S3, SNS, EventBridge, SES</td>
+                    <td>Fire-and-forget, background jobs</td>
+                </tr>
+                <tr>
+                    <td><strong>S</strong>tream</td>
+                    <td>Retry until success/expire</td>
+                    <td>Kinesis, DynamoDB Streams, SQS</td>
+                    <td>Ordered processing, queue polling</td>
+                </tr>
+            </table>
+            
+            <h4>Concurrency - "RIP" Model</h4>
+            <ul>
+                <li><strong>R</strong>eserved Concurrency: Giới hạn max executions, đảm bảo có capacity</li>
+                <li><strong>I</strong>ncremental scaling: +500 burst, then +500/minute</li>
+                <li><strong>P</strong>rovisioned Concurrency: Keep warm, no cold start (đắt hơn)</li>
+            </ul>
+            
+            <h4>VPC Lambda - "ENI" Rule</h4>
+            <p><strong>Remember:</strong> VPC Lambda needs ENI (Elastic Network Interface)</p>
+            <ul>
+                <li><strong>E</strong>NA setup takes time → slower cold start (1-2s thêm)</li>
+                <li><strong>N</strong>AT gateway needed for internet access</li>
+                <li><strong>I</strong>AM role cần EC2 network permissions</li>
+            </ul>
+        </div>
+
+        <!-- COMMON MISTAKES & TRAPS -->
+        <div class="mistake-box critical">
+            <h3>⚠️ Common Mistakes & Exam Traps</h3>
+            
+            <table>
+                <tr>
+                    <th>Mistake</th>
+                    <th>Why Wrong</th>
+                    <th>Correct Approach</th>
+                    <th>Exam Keyword</th>
+                </tr>
+                <tr>
+                    <td>Hardcode credentials in env vars</td>
+                    <td>Security risk, rotation breaks</td>
+                    <td>Use IAM roles + Secrets Manager/Systems Manager</td>
+                    <td>"Store DB password" → ❌ env vars</td>
+                </tr>
+                <tr>
+                    <td>Not setting timeout correctly</td>
+                    <td>Default 3s too short</td>
+                    <td>Set timeout > expected duration, max 15min</td>
+                    <td>"Silent failures" = timeout issue</td>
+                </tr>
+                <tr>
+                    <td>Ignoring cold starts</td>
+                    <td>Latency spikes hurt UX</td>
+                    <td>Provisioned concurrency OR optimize package size</td>
+                    <td>"Latency-sensitive" = provisioned</td>
+                </tr>
+                <tr>
+                    <td>VPC Lambda without NAT</td>
+                    <td>Cannot reach internet endpoints</td>
+                    <td>Add NAT gateway OR use VPC endpoints for AWS services</td>
+                    <td>"VPC + internet" = NAT gateway</td>
+                </tr>
+                <tr>
+                    <td>Not using DLQ for async</td>
+                    <td>Failed events lost after retries</td>
+                    <td>Configure SQS/SNS DLQ to capture failures</td>
+                    <td>"Prevent data loss" = DLQ</td>
+                </tr>
+                <tr>
+                    <td>Putting too much in /tmp</td>
+                    <td>/tmp cleaned between invocations</td>
+                    <td>Use S3 or EFS for persistent storage</td>
+                    <td>"Share data between invocations" = S3/EFS</td>
+                </tr>
+                <tr>
+                    <td>Not handling throttling</td>
+                    <td>429 errors crash application</td>
+                    <td>Exponential backoff + retry logic OR SQS buffer</td>
+                    <td>"Too many requests" = throttling</td>
+                </tr>
+                <tr>
+                    <td>Using wrong invocation type</td>
+                    <td>Sync when should be async</td>
+                    <td>Async for long-running, sync for immediate response</td>
+                    <td>"> 29s processing" = must use async</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- INTEGRATION PATTERNS -->
+        <div class="integration-patterns">
+            <h3>🔗 Integration Patterns với Lambda</h3>
+            
+            <h4>Pattern 1: API-Driven (Synchronous)</h4>
+            <pre class="architecture-diagram">
+┌─────────┐      ┌──────────────┐      ┌────────┐      ┌──────────┐
+│ Client  │────▶│ API Gateway  │─────▶│ Lambda │────▶│ DynamoDB │
+└─────────┘      │ (REST/HTTP)  │      │ (<29s) │      │  / RDS   │
+                 └──────────────┘      └────┬───┘      └──────────┘
+                                             │
+                                             ▼
+                                        Response back
+                                        
+✅ Use when: 
+   - Web/mobile API
+   - Need immediate response
+   - User waiting for result
+   
+⚠️ Watch out:
+   - API Gateway timeout: 29s max
+   - Lambda timeout must be < 29s
+   - Handle errors gracefully (return proper HTTP codes)
+   
+💰 Cost: API Gateway requests + Lambda compute time
+            </pre>
+            
+            <h4>Pattern 2: Event-Driven (Asynchronous)</h4>
+            <pre class="architecture-diagram">
+┌─────────┐      ┌────────┐      ┌────────────┐      ┌──────────┐
+│ User    │─────▶│   S3   │────▶│   Lambda   │─────▶│   SNS    │
+│ uploads │      │ Event  │      │ (Process)  │      │ Notify   │
+└─────────┘      └────────┘      └─────┬──────┘      └──────────┘
+                                        │
+                                        ▼ (On failure)
+                                  ┌──────────┐
+                                  │   DLQ    │
+                                  │  (SQS)   │
+                                  └──────────┘
+                                  
+✅ Use when:
+   - Background processing
+   - No immediate response needed
+   - Can tolerate eventual consistency
+   
+⚠️ Watch out:
+   - Configure DLQ to catch failures
+   - Idempotency (duplicates possible)
+   - Lambda retries 2x automatically
+   
+💰 Cost: S3 events (free) + Lambda compute only
+            </pre>
+            
+            <h4>Pattern 3: Queue-Driven (Poll-based)</h4>
+            <pre class="architecture-diagram">
+┌──────────┐      ┌─────────┐      ┌────────────────┐      ┌─────────┐
+│ Producer │─────▶│   SQS   │◀───▶│ Lambda (polls)│─────▶│ Process │
+│          │      │ (Buffer)│      │ Batch: 1-10    │      │ Delete  │
+└──────────┘      └─────────┘      └────────┬───────┘      └─────────┘
+                                             │
+                                             ▼ (Failed msgs)
+                                       ┌──────────┐
+                                       │ DLQ/Retry│
+                                       └──────────┘
+                                       
+✅ Use when:
+   - Decouple producer/consumer
+   - Throttle processing rate
+   - Need retry control
+   - Variable traffic patterns
+   
+⚠️ Watch out:
+   - Visibility timeout must be > Lambda timeout
+   - Failed messages go back to queue
+   - FIFO queue for ordering (lower throughput)
+   
+💰 Cost: SQS requests + Lambda compute time
+            </pre>
+            
+            <h4>Pattern 4: Stream Processing (Real-time)</h4>
+            <pre class="architecture-diagram">
+┌──────────┐      ┌─────────────┐      ┌────────┐      ┌──────────┐
+│ DynamoDB │─────▶│   Stream    │─────▶│ Lambda │─────▶│ Analytics│
+│  Table   │      │ (24h window)│      │(Ordered│      │ / Archive│
+└──────────┘      └─────────────┘      │per PK) │      └──────────┘
+                                        └────┬───┘
+                                             │
+                                             ▼ (Failed batch)
+                                        Blocks shard!
+                                        
+✅ Use when:
+   - Change Data Capture (CDC)
+   - Real-time analytics
+   - Data replication
+   - Audit trail
+   
+⚠️ Watch out:
+   - Failed batches BLOCK shard processing
+   - Configure bisect on error for Kinesis
+   - Ordering per partition key only
+   - Stream data expires (24h Kinesis, 24h DynamoDB)
+   
+💰 Cost: Stream charges + Lambda compute
+            </pre>
+            
+            <h4>Pattern 5: Scheduled Jobs (Cron-like)</h4>
+            <pre class="architecture-diagram">
+┌──────────────┐      ┌────────┐      ┌──────────────┐
+│ EventBridge  │─────▶│ Lambda │─────▶│ Cleanup old  │
+│ (Cron rule)  │      │  runs  │      │  S3 objects  │
+│ rate(1 day)  │      └────────┘      └──────────────┘
+└──────────────┘
+                                       
+✅ Use when:
+   - Periodic tasks
+   - Scheduled maintenance
+   - Report generation
+   
+⚠️ Watch out:
+   - EventBridge max 1 minute resolution
+   - Lambda timeout = 15min max
+   - Use Step Functions for longer jobs
+   
+💰 Cost: EventBridge rules (cheap) + Lambda compute
+            </pre>
+        </div>
+
+        <!-- SELF-CHECK QUESTIONS -->
+        <div class="self-check">
+            <h3>❓ Self-Check Questions - Lambda</h3>
+            
+            <div class="question">
+                <h4>Q1: Troubleshooting Scenario</h4>
+                <p><strong>Scenario:</strong> Your Lambda function processes S3 image uploads. Users report that some large images (> 5MB) aren't being processed, but CloudWatch shows no errors. What's the most likely issue?</p>
+                
+                <details>
+                    <summary>💭 Think first, then expand answer</summary>
+                    <div class="answer">
+                        <h5>🎯 Correct Answer:</h5>
+                        <p><strong>Lambda timeout is too short (default 3s)</strong></p>
+                        
+                        <h5>🔍 Why other answers wrong:</h5>
+                        <ul>
+                            <li><strong>IAM permissions:</strong> Would show errors in CloudWatch ❌</li>
+                            <li><strong>S3 event not configured:</strong> No images would be processed ❌</li>
+                            <li><strong>Memory too low:</strong> Would show OOM (Out of Memory) errors ❌</li>
+                            <li><strong>Concurrent limit:</strong> Would show throttling errors ❌</li>
+                        </ul>
+                        
+                        <h5>📝 Exam Tip:</h5>
+                        <p><strong>"Silent failures" in async Lambda = timeout issue</strong></p>
+                        <p>Large files take longer → timeout before completion → no error logged</p>
+                        
+                        <h5>🛠️ How to fix:</h5>
+                        <pre><code>1. CloudWatch Logs → Search "Task timed out"
+2. Lambda Configuration → Increase timeout (e.g., 60s)
+3. OR optimize code to process faster
+4. OR use Step Functions for long-running tasks</code></pre>
+                    </div>
+                </details>
+            </div>
+            
+            <div class="question">
+                <h4>Q2: Concurrency & Scaling</h4>
+                <p><strong>Scenario:</strong> Your application needs 1200 concurrent Lambda executions during peak hours. Current account limit is 1000. What should you do?</p>
+                
+                <details>
+                    <summary>💭 Think about options</summary>
+                    <div class="answer">
+                        <h5>🎯 Best Answers (Multiple correct):</h5>
+                        <ol>
+                            <li><strong>Request limit increase via AWS Support</strong> (Recommended)
+                                <ul>
+                                    <li>Simple, direct solution</li>
+                                    <li>Usually approved within 24-48h</li>
+                                    <li>Can request up to tens of thousands</li>
+                                </ul>
+                            </li>
+                            <li><strong>Use SQS to buffer requests</strong> (Alternative)
+                                <ul>
+                                    <li>Throttle processing rate</li>
+                                    <li>Lambda pulls from queue at manageable rate</li>
+                                    <li>Good for variable traffic</li>
+                                </ul>
+                            </li>
+                            <li><strong>Reserved concurrency for critical functions</strong>
+                                <ul>
+                                    <li>Guarantee capacity for important functions</li>
+                                    <li>Other functions share remaining capacity</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        
+                        <h5>❌ Wrong Answers:</h5>
+                        <ul>
+                            <li><strong>Split into multiple AWS accounts:</strong> Overkill, management overhead ❌</li>
+                            <li><strong>Use EC2 instead:</strong> Defeats serverless purpose ❌</li>
+                            <li><strong>Provisioned concurrency:</strong> Keeps warm, doesn't increase limit ❌</li>
+                        </ul>
+                        
+                        <h5>📝 Exam Keywords:</h5>
+                        <table>
+                            <tr>
+                                <th>If question says...</th>
+                                <th>Answer likely involves...</th>
+                            </tr>
+                            <tr>
+                                <td>"Exceeding concurrent limit"</td>
+                                <td>Request limit increase OR SQS buffer</td>
+                            </tr>
+                            <tr>
+                                <td>"Throttling errors 429"</td>
+                                <td>Increase limit OR reserved concurrency</td>
+                            </tr>
+                            <tr>
+                                <td>"Variable traffic patterns"</td>
+                                <td>SQS buffering</td>
+                            </tr>
+                        </table>
+                    </div>
+                </details>
+            </div>
+            
+            <div class="question">
+                <h4>Q3: Cost Optimization</h4>
+                <p><strong>Scenario:</strong> Lambda with 512MB memory runs 2 seconds, processing 1M requests/month. How to optimize cost while maintaining performance?</p>
+                
+                <details>
+                    <summary>💭 Calculate & think</summary>
+                    <div class="answer">
+                        <h5>💰 Current Cost:</h5>
+                        <pre><code>Compute: 1M × 2s × 512MB = 1M GB-seconds
+After free tier (400K): 600K GB-seconds
+Cost: 600K × $0.0000166667 = ~$10/month
+
+Requests: 1M requests (free tier covers 1M)
+Total: ~$10/month</code></pre>
+
+                        <h5>🎯 Optimization Strategies:</h5>
+                        <table>
+                            <tr>
+                                <th>Strategy</th>
+                                <th>Impact</th>
+                                <th>Trade-off</th>
+                            </tr>
+                            <tr>
+                                <td><strong>INCREASE memory to 1024MB</strong></td>
+                                <td>✅ Faster execution (1s) = 50% cost saving!</td>
+                                <td>Counterintuitive but works</td>
+                            </tr>
+                            <tr>
+                                <td>Optimize code</td>
+                                <td>✅ Reduce runtime directly</td>
+                                <td>Dev time investment</td>
+                            </tr>
+                            <tr>
+                                <td>Use Lambda Layers</td>
+                                <td>✅ Smaller package = faster cold start</td>
+                                <td>None, best practice</td>
+                            </tr>
+                            <tr>
+                                <td>Batch processing</td>
+                                <td>✅ Fewer invocations</td>
+                                <td>Higher latency per request</td>
+                            </tr>
+                            <tr>
+                                <td>❌ Decrease memory</td>
+                                <td>❌ Slower = MORE cost</td>
+                                <td>Don't do this!</td>
+                            </tr>
+                        </table>
+                        
+                        <h5>📝 Exam Answer:</h5>
+                        <p><strong>"Increase memory allocation"</strong> - more CPU = faster = cheaper overall</p>
+                        <p>Lambda pricing = memory × time, so reducing time can offset memory cost</p>
+                        
+                        <h5>🧮 Proof:</h5>
+                        <pre><code>512MB × 2s = 1024 MB-seconds
+1024MB × 1s = 1024 MB-seconds (same!)
+
+But 1024MB × 0.8s = 819 MB-seconds (20% cheaper!)</code></pre>
+                    </div>
+                </details>
+            </div>
+            
+            <div class="question">
+                <h4>Q4: VPC Integration</h4>
+                <p><strong>Scenario:</strong> Lambda needs to access RDS in private subnet AND call external API. What's required?</p>
+                
+                <details>
+                    <summary>💭 Think about networking</summary>
+                    <div class="answer">
+                        <h5>🎯 Complete Solution:</h5>
+                        <ol>
+                            <li><strong>Lambda in VPC</strong>
+                                <ul>
+                                    <li>Configure VPC, subnets, security groups</li>
+                                    <li>Lambda gets ENI in your VPC</li>
+                                </ul>
+                            </li>
+                            <li><strong>RDS Security Group</strong>
+                                <ul>
+                                    <li>Allow inbound from Lambda security group</li>
+                                    <li>Port 3306 (MySQL) or 5432 (PostgreSQL)</li>
+                                </ul>
+                            </li>
+                            <li><strong>NAT Gateway for internet</strong>
+                                <ul>
+                                    <li>Lambda in <strong>private subnet</strong></li>
+                                    <li>Route table: 0.0.0.0/0 → NAT Gateway</li>
+                                    <li>NAT Gateway in <strong>public subnet</strong></li>
+                                </ul>
+                            </li>
+                            <li><strong>IAM Execution Role</strong>
+                                <ul>
+                                    <li>EC2:CreateNetworkInterface</li>
+                                    <li>EC2:DescribeNetworkInterfaces</li>
+                                    <li>EC2:DeleteNetworkInterface</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        
+                        <h5>📊 Architecture:</h5>
+                        <pre class="architecture-diagram">
+┌─────────────────────────────────────────────┐
+│                 VPC                          │
+│  ┌──────────────────┐  ┌──────────────────┐│
+│  │ Public Subnet    │  │ Private Subnet   ││
+│  │                  │  │                  ││
+│  │  NAT Gateway ────┼──▶ Lambda ────────┐ ││
+│  │       │          │  │       │         │ ││
+│  └───────┼──────────┘  └───────┼─────────┼─┘│
+│          │                     │         │  │
+│     Internet                   ▼         ▼  │
+│     Gateway                   RDS    External│
+│                                         API  │
+└─────────────────────────────────────────────┘</pre>
+                        
+                        <h5>❌ Common Mistakes:</h5>
+                        <ul>
+                            <li><strong>Lambda in public subnet:</strong> Still can't reach internet without NAT ❌</li>
+                            <li><strong>No NAT Gateway:</strong> Can't call external API ❌</li>
+                            <li><strong>Missing IAM ENI permissions:</strong> Lambda can't create network interface ❌</li>
+                        </ul>
+                        
+                        <h5>💡 Cost Optimization:</h5>
+                        <p><strong>VPC Endpoints</strong> for AWS services (no NAT needed for S3, DynamoDB, etc.)</p>
+                        <pre><code>S3 VPC Endpoint → No NAT charges
+DynamoDB VPC Endpoint → No NAT charges
+Only external APIs need NAT Gateway</code></pre>
+                        
+                        <h5>📝 Exam Keywords:</h5>
+                        <ul>
+                            <li>"VPC + internet access" = <strong>NAT Gateway required</strong></li>
+                            <li>"Private RDS access" = <strong>Lambda in VPC, security group rules</strong></li>
+                            <li>"Minimize cost" = <strong>VPC Endpoints for AWS services</strong></li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+        </div>
+
+        <!-- EXAM-SPECIFIC NOTES -->
+        <div class="exam-notes-box">
+            <h3>📝 Exam-Specific Notes: Lambda</h3>
+            
+            <h4>🎯 High-Frequency Question Types:</h4>
+            <ol>
+                <li><strong>Timeout scenarios</strong> (8-10 questions per exam)
+                    <ul>
+                        <li>Always check timeout config first</li>
+                        <li>API Gateway max: 29s</li>
+                        <li>SQS visibility timeout must be > Lambda timeout</li>
+                        <li>Silent failures = timeout issue</li>
+                    </ul>
+                </li>
+                
+                <li><strong>Concurrency & throttling</strong> (5-7 questions)
+                    <ul>
+                        <li>Account limit: 1000 default (can increase)</li>
+                        <li>Reserved concurrency: dedicate X to function</li>
+                        <li>Provisioned concurrency: keep X warm (different!)</li>
+                        <li>Throttling error: 429 TooManyRequestsException</li>
+                    </ul>
+                </li>
+                
+                <li><strong>Error handling & retries</strong> (6-8 questions)
+                    <ul>
+                        <li>Sync: client retries</li>
+                        <li>Async: Lambda retries 2x (3 total attempts)</li>
+                        <li>Stream: retry until success or data expires</li>
+                        <li>DLQ only for async invocations</li>
+                    </ul>
+                </li>
+                
+                <li><strong>VPC integration</strong> (3-5 questions)
+                    <ul>
+                        <li>VPC = ENI required (slower cold start)</li>
+                        <li>Internet access = NAT Gateway needed</li>
+                        <li>VPC Endpoints for AWS services (no NAT)</li>
+                        <li>IAM needs EC2 network permissions</li>
+                    </ul>
+                </li>
+                
+                <li><strong>Security & permissions</strong> (4-6 questions)
+                    <ul>
+                        <li>Execution role: what Lambda can access</li>
+                        <li>Resource policy: who can invoke Lambda</li>
+                        <li>Never hardcode credentials</li>
+                        <li>Use Secrets Manager or Systems Manager</li>
+                    </ul>
+                </li>
+            </ol>
+            
+            <h4>🚩 Red Flag Keywords - Lambda</h4>
+            <div class="red-flag-box">
+                <h4>⚠️ If answer suggests these → Usually WRONG!</h4>
+                <table>
+                    <tr>
+                        <th>Red Flag</th>
+                        <th>Why Wrong</th>
+                        <th>Correct Answer</th>
+                    </tr>
+                    <tr>
+                        <td>"Store credentials in env vars"</td>
+                        <td>Security risk</td>
+                        <td>Use IAM roles + Secrets Manager</td>
+                    </tr>
+                    <tr>
+                        <td>"Store large files in /tmp"</td>
+                        <td>/tmp ephemeral, 512MB-10GB limit</td>
+                        <td>Use S3 or EFS</td>
+                    </tr>
+                    <tr>
+                        <td>"Use provisioned concurrency for cost"</td>
+                        <td>More expensive</td>
+                        <td>Provisioned = performance, not cost</td>
+                    </tr>
+                    <tr>
+                        <td>"Lambda in public subnet"</td>
+                        <td>Still need NAT for internet</td>
+                        <td>Private subnet + NAT Gateway</td>
+                    </tr>
+                    <tr>
+                        <td>"Increase memory to reduce cost"</td>
+                        <td>Sounds wrong but...</td>
+                        <td>✅ CORRECT! Faster = cheaper overall</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <h4>⏱️ Time Management Tips:</h4>
+            <ul>
+                <li><strong>Lambda questions:</strong> Average 90 seconds each</li>
+                <li><strong>Quick wins:</strong> Timeout, concurrency, invocation type questions (30-45s)</li>
+                <li><strong>Time sinks:</strong> Complex VPC + security scenarios (2-3 min)</li>
+                <li><strong>Strategy:</strong> Flag complex VPC questions, come back later</li>
+            </ul>
+            
+            <h4>🎓 Must Memorize Numbers:</h4>
+            <table>
+                <tr>
+                    <th>Limit</th>
+                    <th>Value</th>
+                    <th>Exam Frequency</th>
+                </tr>
+                <tr>
+                    <td>Max timeout</td>
+                    <td>900s (15 min)</td>
+                    <td>⭐⭐⭐⭐⭐ Very High</td>
+                </tr>
+                <tr>
+                    <td>Default timeout</td>
+                    <td>3s</td>
+                    <td>⭐⭐⭐⭐⭐ Very High</td>
+                </tr>
+                <tr>
+                    <td>Memory range</td>
+                    <td>128MB - 10GB</td>
+                    <td>⭐⭐⭐⭐ High</td>
+                </tr>
+                <tr>
+                    <td>Account concurrency</td>
+                    <td>1000 (default)</td>
+                    <td>⭐⭐⭐⭐ High</td>
+                </tr>
+                <tr>
+                    <td>Max layers</td>
+                    <td>5</td>
+                    <td>⭐⭐⭐ Medium</td>
+                </tr>
+                <tr>
+                    <td>Package size</td>
+                    <td>250MB unzipped</td>
+                    <td>⭐⭐⭐ Medium</td>
+                </tr>
+                <tr>
+                    <td>/tmp storage</td>
+                    <td>512MB - 10GB</td>
+                    <td>⭐⭐⭐ Medium</td>
+                </tr>
+                <tr>
+                    <td>Async retries</td>
+                    <td>2 (3 total attempts)</td>
+                    <td>⭐⭐⭐⭐ High</td>
+                </tr>
+                <tr>
+                    <td>API Gateway timeout</td>
+                    <td>29s</td>
+                    <td>⭐⭐⭐⭐⭐ Very High</td>
+                </tr>
+            </table>
+        </div>
+
+        <hr>
+
+        <h2>2. AMAZON DYNAMODB</h2>
+
+        <h3>Core Concepts</h3>
+        <ul>
+            <li><strong>NoSQL database</strong>: key-value & document store</li>
+            <li><strong>Fully managed</strong>: auto scaling, backup, replication</li>
+            <li><strong>Single-digit millisecond performance</strong></li>
+        </ul>
+
+        <h3>Table Structure</h3>
+        <h4>Primary Key Options:</h4>
+        <ol>
+            <li><strong>Partition Key only (Simple Primary Key)</strong>
+                <ul>
+                    <li>Must be unique</li>
+                    <li>Determines physical partition</li>
+                    <li>Ex: UserID</li>
+                </ul>
+            </li>
+            <li><strong>Partition Key + Sort Key (Composite Primary Key)</strong>
+                <ul>
+                    <li>Partition key groups items</li>
+                    <li>Sort key orders within partition</li>
+                    <li>Combination must be unique</li>
+                    <li>Ex: UserID (PK) + Timestamp (SK)</li>
+                </ul>
+            </li>
+        </ol>
+
+        <h3>Indexes</h3>
+        <h4>Local Secondary Index (LSI):</h4>
+        <ul>
+            <li>Same partition key, different sort key</li>
+            <li>Must create at table creation (cannot add later)</li>
+            <li>Max 5 LSIs per table</li>
+            <li>Shares RCU/WCU with base table</li>
+            <li>Use case: Query same partition key, different sort order</li>
+        </ul>
+
+        <h4>Global Secondary Index (GSI):</h4>
+        <ul>
+            <li>Different partition key và/hoặc sort key</li>
+            <li>Can add/delete anytime</li>
+            <li>Has own RCU/WCU (riêng biệt với base table)</li>
+            <li>Eventually consistent reads only</li>
+            <li>Max 20 GSIs per table</li>
+            <li>Use case: Query on non-primary key attributes</li>
+        </ul>
+
+        <div class="info-box">
+            <strong>Khi nào dùng GSI vs LSI:</strong>
+            <ul>
+                <li>GSI: cần query theo attribute khác (không phải PK)</li>
+                <li>LSI: cần query theo sort key khác trong cùng partition</li>
+                <li>Default: dùng GSI (flexible hơn)</li>
+            </ul>
+        </div>
+
+        <h3>Capacity Modes</h3>
+        <h4>Provisioned:</h4>
+        <ul>
+            <li>Specify RCU (Read Capacity Units) và WCU (Write Capacity Units)</li>
+            <li>1 RCU = 1 strongly consistent read/s cho item ≤4KB</li>
+            <li>1 RCU = 2 eventually consistent reads/s cho item ≤4KB</li>
+            <li>1 WCU = 1 write/s cho item ≤1KB</li>
+            <li>Cheaper nếu traffic predictable</li>
+            <li>Auto-scaling available</li>
+        </ul>
+
+        <h4>On-Demand:</h4>
+        <ul>
+            <li>Pay per request</li>
+            <li>No capacity planning needed</li>
+            <li>2.5x đắt hơn provisioned</li>
+            <li>Use case: unpredictable traffic, spiky workloads</li>
+        </ul>
+
+        <h3>Read Consistency</h3>
+        <h4>Eventually Consistent (default):</h4>
+        <ul>
+            <li>Fastest, cheapest</li>
+            <li>Có thể đọc stale data (< 1 second lag)</li>
+        </ul>
+
+        <h4>Strongly Consistent:</h4>
+        <ul>
+            <li>Always latest data</li>
+            <li>Higher latency, cost 2x RCU</li>
+            <li>Specify: <code>ConsistentRead=True</code></li>
+        </ul>
+
+        <h3>Operations</h3>
+        <h4>Query:</h4>
+        <ul>
+            <li>Requires partition key</li>
+            <li>Optionally filter by sort key</li>
+            <li>Efficient, uses indexes</li>
+            <li>Returns sorted results</li>
+            <li>Can reverse order: <code>ScanIndexForward=False</code></li>
+        </ul>
+
+        <h4>Scan:</h4>
+        <ul>
+            <li>Reads entire table</li>
+            <li>Inefficient, expensive</li>
+            <li>Can filter results (filter after read)</li>
+            <li>Parallel scans available</li>
+            <li>Avoid in production when possible</li>
+        </ul>
+
+        <h4>GetItem/PutItem/UpdateItem/DeleteItem:</h4>
+        <ul>
+            <li>Single item operations</li>
+            <li>GetItem: strongly or eventually consistent</li>
+            <li>UpdateItem: atomic operations (increment, decrement)</li>
+        </ul>
+
+        <h3>DynamoDB Streams</h3>
+        <ul>
+            <li><strong>Ordered record of item-level changes</strong> (insert, update, delete)</li>
+            <li><strong>Retention:</strong> 24 hours</li>
+            <li><strong>4 view types:</strong>
+                <ul>
+                    <li>KEYS_ONLY: chỉ key của item changed</li>
+                    <li>NEW_IMAGE: entire item sau khi changed</li>
+                    <li>OLD_IMAGE: entire item trước khi changed</li>
+                    <li>NEW_AND_OLD_IMAGES: both before và after</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h4>Use Cases:</h4>
+        <ul>
+            <li>Real-time analytics</li>
+            <li>Replicate data to other tables/regions</li>
+            <li>Trigger Lambda on data changes</li>
+            <li>Audit trail</li>
+        </ul>
+
+        <h4>Integration với Lambda:</h4>
+        <ul>
+            <li>Lambda polls stream</li>
+            <li>Batch size: 1-10,000 records</li>
+            <li>Ordered processing per partition key</li>
+            <li>Failed batches block shard</li>
+        </ul>
+
+        <h3>Advanced Features</h3>
+        <h4>Conditional Writes:</h4>
+        <pre><code># Only update if item exists
+table.put_item(
+    Item={'id': '123', 'status': 'active'},
+    ConditionExpression='attribute_exists(id)'
+)</code></pre>
+
+        <h4>Optimistic Locking:</h4>
+        <ul>
+            <li>Use version number attribute</li>
+            <li>Increment on each update</li>
+            <li>Condition: version = expected_version</li>
+        </ul>
+
+        <h4>TTL (Time To Live):</h4>
+        <ul>
+            <li>Auto delete items after expiry</li>
+            <li>Free (no WCU cost)</li>
+            <li>Attribute must be number (Unix timestamp)</li>
+            <li>Deletion within 48 hours (not immediate)</li>
+            <li>DynamoDB Streams captures deletes</li>
+        </ul>
+
+        <h4>Transactions:</h4>
+        <ul>
+            <li>ACID operations across multiple items/tables</li>
+            <li>All-or-nothing</li>
+            <li>TransactWriteItems: up to 100 items</li>
+            <li>TransactGetItems: up to 100 items</li>
+            <li>Cost: 2x RCU/WCU</li>
+        </ul>
+
+        <h4>Backup & Restore:</h4>
+        <ul>
+            <li>On-demand backups: manual, retained until deleted</li>
+            <li>Point-in-time recovery (PITR): continuous backups, restore any second in last 35 days</li>
+        </ul>
+
+        <hr>
+
+        <h2>3. AMAZON API GATEWAY</h2>
+
+        <h3>API Types</h3>
+        <h4>REST API:</h4>
+        <ul>
+            <li>Full-featured</li>
+            <li>Regional, Edge-optimized, Private endpoints</li>
+            <li>API keys, usage plans, request validation</li>
+            <li>Caching available</li>
+        </ul>
+
+        <h4>HTTP API:</h4>
+        <ul>
+            <li>Simpler, cheaper (70% cheaper)</li>
+            <li>Lower latency</li>
+            <li>OIDC, OAuth 2.0 support</li>
+            <li>No usage plans, API keys, caching</li>
+            <li>Use case: simple proxy to Lambda, HTTP backends</li>
+        </ul>
+
+        <h4>WebSocket API:</h4>
+        <ul>
+            <li>Bi-directional communication</li>
+            <li>Persistent connections</li>
+            <li>Use case: chat apps, real-time dashboards</li>
+        </ul>
+
+        <h3>Integration Types</h3>
+        <h4>Lambda Proxy (Recommended):</h4>
+        <pre><code>// API Gateway passes entire request to Lambda
+event = {
+  httpMethod: 'GET',
+  path: '/users/123',
+  headers: {...},
+  queryStringParameters: {...},
+  body: '...'
+}
+
+// Lambda returns formatted response
+return {
+  statusCode: 200,
+  headers: {'Content-Type': 'application/json'},
+  body: JSON.stringify({message: 'success'})
+}</code></pre>
+
+        <h4>Lambda Non-Proxy:</h4>
+        <ul>
+            <li>Manual mapping templates</li>
+            <li>Transform request/response</li>
+        </ul>
+
+        <h4>HTTP Proxy:</h4>
+        <ul>
+            <li>Forward request to HTTP endpoint</li>
+            <li>Minimal transformation</li>
+        </ul>
+
+        <h4>AWS Service:</h4>
+        <ul>
+            <li>Direct integration với AWS services (DynamoDB, S3, SNS)</li>
+            <li>No Lambda needed</li>
+        </ul>
+
+        <h4>Mock:</h4>
+        <ul>
+            <li>Return hardcoded response</li>
+            <li>Use case: testing, development</li>
+        </ul>
+
+        <h3>Stages & Deployments</h3>
+        <h4>Stage:</h4>
+        <ul>
+            <li>Environment pointer (dev, test, prod)</li>
+            <li>Each stage có own URL: <code>https://api-id.execute-api.region.amazonaws.com/stage-name</code></li>
+            <li>Stage variables: environment-specific config (Lambda alias, DB endpoint)</li>
+        </ul>
+
+        <h4>Deployment:</h4>
+        <ul>
+            <li>Snapshot of API configuration</li>
+            <li>Must deploy to make changes live</li>
+        </ul>
+
+        <h4>Canary Deployment:</h4>
+        <ul>
+            <li>Route % traffic to new version</li>
+            <li>Ex: 10% to canary, 90% to stable</li>
+            <li>Promote or rollback based on metrics</li>
+        </ul>
+
+        <h3>Authorization</h3>
+        <h4>IAM Authorization:</h4>
+        <ul>
+            <li>Use IAM credentials (Sig v4)</li>
+            <li>Good for internal AWS services</li>
+            <li>Client must sign requests</li>
+        </ul>
+
+        <h4>Lambda Authorizer (Custom):</h4>
+        <ul>
+            <li>Your Lambda validates token (JWT, OAuth)</li>
+            <li>Returns IAM policy</li>
+            <li>Result cached by <code>authorizationCacheTTL</code></li>
+            <li>Types:
+                <ul>
+                    <li>Token-based: <code>Authorization</code> header</li>
+                    <li>Request-based: entire request</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h4>Cognito User Pool:</h4>
+        <ul>
+            <li>Managed authentication</li>
+            <li>API Gateway validates JWT token</li>
+            <li>No custom code needed</li>
+        </ul>
+
+        <h4>API Keys:</h4>
+        <ul>
+            <li>Simple key-based access</li>
+            <li>Use với usage plans</li>
+            <li>NOT for authorization (không secure)</li>
+            <li>Use case: rate limiting, monitoring</li>
+        </ul>
+
+        <h3>Throttling & Usage Plans</h3>
+        <h4>Throttling:</h4>
+        <ul>
+            <li>Account-level: 10,000 RPS (requests per second)</li>
+            <li>Burst: 5,000 requests</li>
+            <li>Can set per stage, per method</li>
+            <li>Returns <code>429 Too Many Requests</code></li>
+        </ul>
+
+        <h4>Usage Plans:</h4>
+        <ul>
+            <li>Throttling limits per API key</li>
+            <li>Quota: max requests per day/week/month</li>
+            <li>Associate với stages</li>
+            <li>Use case: tiered pricing, partner APIs</li>
+        </ul>
+
+        <h3>Request/Response Transformation</h3>
+        <h4>Mapping Templates:</h4>
+        <ul>
+            <li>Transform request/response using VTL (Velocity Template Language)</li>
+            <li>Use case: change JSON structure, add/remove fields</li>
+        </ul>
+
+        <h4>Request Validation:</h4>
+        <ul>
+            <li>Validate request before reaching backend</li>
+            <li>Checks: required parameters, data types, format</li>
+            <li>Returns <code>400 Bad Request</code> if invalid</li>
+        </ul>
+
+        <h3>CORS (Cross-Origin Resource Sharing)</h3>
+        <p><strong>Problem:</strong> Browser blocks requests from different origin</p>
+        <p><strong>Solution:</strong></p>
+        <pre><code>Enable CORS in API Gateway:
+- OPTIONS method returns:
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET,POST,PUT
+  Access-Control-Allow-Headers: Content-Type</code></pre>
+        <p><strong>Lambda Proxy:</strong> Must return CORS headers in response</p>
+
+        <h3>Caching</h3>
+        <ul>
+            <li>Cache responses at stage level</li>
+            <li>TTL: 0-3600 seconds</li>
+            <li>Size: 0.5GB - 237GB</li>
+            <li>Per-key caching: cache based on query params, headers</li>
+            <li>Invalidate: client sends <code>Cache-Control: max-age=0</code> header (needs IAM permission)</li>
+            <li>Cost: extra charge per hour</li>
+        </ul>
+
+        <h3>Monitoring</h3>
+        <ul>
+            <li>CloudWatch Metrics: latency, error count, cache hit/miss</li>
+            <li>CloudWatch Logs: detailed request/response logs</li>
+            <li>X-Ray: distributed tracing</li>
+            <li>Access logs: who called API, when</li>
+        </ul>
+
+        <hr>
+
+        <h2>4. AWS IAM (Identity and Access Management)</h2>
+
+        <h3>Core Components</h3>
+        <h4>Users:</h4>
+        <ul>
+            <li>Permanent credentials</li>
+            <li>Long-term access keys</li>
+            <li>Use case: developers, admins (avoid for applications)</li>
+        </ul>
+
+        <h4>Groups:</h4>
+        <ul>
+            <li>Collection of users</li>
+            <li>Assign policies to groups</li>
+            <li>Users inherit group permissions</li>
+        </ul>
+
+        <h4>Roles:</h4>
+        <ul>
+            <li>Temporary credentials (STS)</li>
+            <li>Can be assumed by: users, services, AWS accounts</li>
+            <li>No long-term credentials</li>
+            <li><strong>Always use roles for EC2, Lambda, ECS</strong></li>
+        </ul>
+
+        <h4>Policies:</h4>
+        <ul>
+            <li>JSON documents defining permissions</li>
+            <li>Types:
+                <ul>
+                    <li>Identity-based: attached to users/groups/roles</li>
+                    <li>Resource-based: attached to resources (S3, Lambda, SQS)</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>Policy Structure</h3>
+        <pre><code>{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",  // or "Deny"
+      "Action": [
+        "dynamodb:GetItem",
+        "dynamodb:PutItem"
+      ],
+      "Resource": "arn:aws:dynamodb:region:account:table/MyTable",
+      "Condition": {
+        "StringEquals": {
+          "dynamodb:LeadingKeys": ["${aws:username}"]
+        }
+      }
+    }
+  ]
+}</code></pre>
+
+        <h4>Policy Evaluation:</h4>
+        <ol>
+            <li>Default: Deny</li>
+            <li>Explicit Deny > Explicit Allow</li>
+            <li>If any Deny exists, final result = Deny</li>
+        </ol>
+
+        <h3>Role Types</h3>
+        <h4>Service Role:</h4>
+        <ul>
+            <li>For AWS services (Lambda, EC2, ECS)</li>
+            <li>Trust policy allows service to assume role</li>
+        </ul>
+
+        <h4>Cross-Account Role:</h4>
+        <ul>
+            <li>Allow users from Account A to access Account B</li>
+            <li>Trust policy specifies Account A</li>
+        </ul>
+
+        <h3>Trust Policy vs Permission Policy</h3>
+        <h4>Trust Policy (Who can assume):</h4>
+        <pre><code>{
+  "Effect": "Allow",
+  "Principal": {
+    "Service": "lambda.amazonaws.com"
+  },
+  "Action": "sts:AssumeRole"
+}</code></pre>
+
+        <h4>Permission Policy (What can be done):</h4>
+        <pre><code>{
+  "Effect": "Allow",
+  "Action": "s3:GetObject",
+  "Resource": "arn:aws:s3:::mybucket/*"
+}</code></pre>
+
+        <h3>Resource-Based Policies</h3>
+        <h4>Lambda:</h4>
+        <ul>
+            <li>Who can invoke function</li>
+            <li>Services, accounts, principals</li>
+        </ul>
+
+        <h4>S3 Bucket Policy:</h4>
+        <ul>
+            <li>Who can access bucket</li>
+            <li>Cross-account access</li>
+        </ul>
+
+        <h4>SQS Queue Policy:</h4>
+        <ul>
+            <li>Who can send/receive messages</li>
+        </ul>
+
+        <h3>IAM Best Practices</h3>
+        <ul>
+            <li><strong>Least privilege:</strong> only grant needed permissions</li>
+            <li><strong>Use roles for applications:</strong> not access keys</li>
+            <li><strong>Enable MFA</strong> for sensitive operations</li>
+            <li><strong>Rotate credentials</strong> regularly</li>
+            <li><strong>Use policy conditions</strong> to restrict access</li>
+            <li><strong>Never embed credentials in code</strong></li>
+        </ul>
+
+        <h3>Common Conditions</h3>
+        <pre><code>"Condition": {
+  "IpAddress": {"aws:SourceIp": "203.0.113.0/24"},
+  "DateGreaterThan": {"aws:CurrentTime": "2024-01-01T00:00:00Z"},
+  "StringEquals": {"aws:PrincipalTag/Department": "Finance"},
+  "Bool": {"aws:SecureTransport": "true"}  // Require HTTPS
+}</code></pre>
+
+        <h3>STS (Security Token Service)</h3>
+        <ul>
+            <li>Generate temporary credentials</li>
+            <li>Methods:
+                <ul>
+                    <li>AssumeRole: cross-account, service roles</li>
+                    <li>AssumeRoleWithWebIdentity: federated users (obsolete, use Cognito)</li>
+                    <li>GetSessionToken: MFA authentication</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>Service Control Policies (SCPs)</h3>
+        <ul>
+            <li>Applied at AWS Organizations level</li>
+            <li>Restrict maximum permissions</li>
+            <li>Does NOT grant permissions (only limit)</li>
+            <li>Example: prevent all accounts from leaving organization</li>
+        </ul>
+
+        <hr>
+
+        <h2>5. AMAZON CLOUDWATCH</h2>
+
+        <h3>Metrics</h3>
+        <h4>Default Metrics:</h4>
+        <ul>
+            <li>EC2: CPU, Network, Disk (no memory - need CloudWatch agent)</li>
+            <li>Lambda: Invocations, Duration, Errors, Throttles, ConcurrentExecutions</li>
+            <li>DynamoDB: ConsumedReadCapacity, ConsumedWriteCapacity, UserErrors</li>
+            <li>API Gateway: Count, Latency, 4XXError, 5XXError</li>
+        </ul>
+
+        <h4>Custom Metrics:</h4>
+        <ul>
+            <li>Push your own metrics using PutMetricData API</li>
+            <li>Standard resolution: 1-minute granularity</li>
+            <li>High resolution: 1-second granularity</li>
+            <li>Dimensions: key-value pairs to filter metrics (ex: Environment=Prod)</li>
+        </ul>
+
+        <h4>Metric Math:</h4>
+        <ul>
+            <li>Combine multiple metrics</li>
+            <li>Example: ErrorRate = Errors / Invocations * 100</li>
+        </ul>
+
+        <h3>CloudWatch Logs</h3>
+        <h4>Concepts:</h4>
+        <ul>
+            <li>Log Groups: container for log streams</li>
+            <li>Log Streams: sequence of log events from same source</li>
+            <li>Retention: 1 day to 10 years (or never expire)</li>
+        </ul>
+
+        <h4>Sources:</h4>
+        <ul>
+            <li>Lambda: automatic (needs IAM permission)</li>
+            <li>EC2: CloudWatch Agent</li>
+            <li>ECS: awslogs driver</li>
+            <li>Elastic Beanstalk: automatic</li>
+            <li>API Gateway: enable per stage</li>
+        </ul>
+
+        <h4>Log Insights:</h4>
+        <p>Query logs using SQL-like syntax</p>
+        <pre><code>fields @timestamp, @message
+| filter @message like /ERROR/
+| stats count() by bin(5m)</code></pre>
+
+        <h4>Metric Filters:</h4>
+        <ul>
+            <li>Extract metrics from logs</li>
+            <li>Example: count ERROR occurrences</li>
+            <li>Create alarms on extracted metrics</li>
+        </ul>
+
+        <h4>Subscriptions:</h4>
+        <p>Stream logs to:</p>
+        <ul>
+            <li>Lambda: real-time processing</li>
+            <li>Kinesis Data Streams: analytics</li>
+            <li>Kinesis Data Firehose: S3, Elasticsearch</li>
+        </ul>
+
+        <h3>CloudWatch Alarms</h3>
+        <h4>States:</h4>
+        <ul>
+            <li>OK: metric within threshold</li>
+            <li>ALARM: metric breached threshold</li>
+            <li>INSUFFICIENT_DATA: not enough data</li>
+        </ul>
+
+        <h4>Actions:</h4>
+        <ul>
+            <li>SNS notification</li>
+            <li>Auto Scaling action</li>
+            <li>EC2 action (stop, terminate, reboot)</li>
+            <li>Systems Manager action</li>
+        </ul>
+
+        <h4>Alarm Types:</h4>
+        <ul>
+            <li>Static threshold: value > X</li>
+            <li>Anomaly detection: ML-based, dynamic threshold</li>
+            <li>Composite: combine multiple alarms (AND/OR)</li>
+        </ul>
+
+        <h4>Evaluation:</h4>
+        <ul>
+            <li>Period: time interval (10s, 30s, 1m, etc.)</li>
+            <li>Datapoints to alarm: X out of Y datapoints breach</li>
+            <li>Example: 3 out of 5 datapoints > threshold</li>
+        </ul>
+
+        <h3>CloudWatch Events / EventBridge</h3>
+        <ul>
+            <li>Event-driven architecture</li>
+            <li>Rules match events and route to targets</li>
+        </ul>
+
+        <h4>Sources:</h4>
+        <ul>
+            <li>Scheduled (cron, rate)</li>
+            <li>AWS service events (EC2 state change, S3 upload)</li>
+            <li>Custom applications (PutEvents API)</li>
+        </ul>
+
+        <h4>Targets:</h4>
+        <ul>
+            <li>Lambda, SNS, SQS, Step Functions, ECS Task, etc.</li>
+        </ul>
+
+        <h3>X-Ray Integration</h3>
+        <h4>Distributed Tracing:</h4>
+        <ul>
+            <li>Track requests across microservices</li>
+            <li>Identify bottlenecks, errors</li>
+        </ul>
+
+        <h4>Segments:</h4>
+        <ul>
+            <li>Work done by single service</li>
+            <li>Subsegments: finer-grained timing</li>
+        </ul>
+
+        <h4>Annotations & Metadata:</h4>
+        <ul>
+            <li>Annotations: indexed, searchable (key-value)</li>
+            <li>Metadata: non-indexed, detailed info</li>
+        </ul>
+
+        <h4>Lambda Integration:</h4>
+        <ul>
+            <li>Enable Active Tracing in Lambda config</li>
+            <li>SDK automatically instruments</li>
+            <li>See: downstream calls (DynamoDB, S3, HTTP)</li>
+        </ul>
+
+        <h4>Sampling:</h4>
+        <ul>
+            <li>Avoid tracing every request (expensive)</li>
+            <li>Default: 1 request/second + 5% of additional requests</li>
+        </ul>
+
+        <hr>
+
+        <h2><span class="tier-badge tier-2">TIER 2 - IMPORTANT SERVICES (15-20% điểm)</span></h2>
+
+        <hr>
+
+        <h2>6. AMAZON S3</h2>
+
+        <h3>Storage Classes</h3>
+        <table>
+            <tr>
+                <th>Class</th>
+                <th>Use Case</th>
+                <th>Retrieval Time</th>
+            </tr>
+            <tr>
+                <td>Standard</td>
+                <td>Frequent access</td>
+                <td>Milliseconds</td>
+            </tr>
+            <tr>
+                <td>Intelligent-Tiering</td>
+                <td>Unknown access patterns</td>
+                <td>Milliseconds</td>
+            </tr>
+            <tr>
+                <td>Standard-IA</td>
+                <td>Infrequent access</td>
+                <td>Milliseconds</td>
+            </tr>
+            <tr>
+                <td>One Zone-IA</td>
+                <td>Infrequent, non-critical</td>
+                <td>Milliseconds</td>
+            </tr>
+            <tr>
+                <td>Glacier Instant</td>
+                <td>Archive, immediate access</td>
+                <td>Milliseconds</td>
+            </tr>
+            <tr>
+                <td>Glacier Flexible</td>
+                <td>Archive, min to hours</td>
+                <td>Minutes to hours</td>
+            </tr>
+            <tr>
+                <td>Glacier Deep</td>
+                <td>Long-term archive</td>
+                <td>12 hours</td>
+            </tr>
+        </table>
+
+        <h3>Lifecycle Policies</h3>
+        <p>Automate transitions between storage classes</p>
+        <p>Expire objects after X days</p>
+        <pre><code>{
+  "Rules": [{
+    "Id": "Archive old logs",
+    "Status": "Enabled",
+    "Transitions": [
+      {"Days": 30, "StorageClass": "STANDARD_IA"},
+      {"Days": 90, "StorageClass": "GLACIER"}
+    ],
+    "Expiration": {"Days": 365}
+  }]
+}</code></pre>
+
+        <h3>Versioning</h3>
+        <ul>
+            <li>Keep multiple versions of object</li>
+            <li>Protects from accidental deletes</li>
+            <li>Delete = add delete marker (not permanent)</li>
+            <li>Permanently delete: specify version ID</li>
+            <li>Once enabled, cannot disable (only suspend)</li>
+        </ul>
+
+        <h3>Encryption</h3>
+        <h4>Server-Side Encryption:</h4>
+        <ul>
+            <li>SSE-S3: S3-managed keys (AES-256)</li>
+            <li>SSE-KMS: KMS-managed keys (audit trail, rotation)</li>
+            <li>SSE-C: Customer-provided keys</li>
+            <li>Enable by default or per-object</li>
+        </ul>
+
+        <h4>Client-Side Encryption:</h4>
+        <ul>
+            <li>Encrypt before upload</li>
+            <li>You manage keys</li>
+        </ul>
+
+        <h3>S3 Event Notifications</h3>
+        <h4>Trigger:</h4>
+        <ul>
+            <li>Object created (Put, Post, Copy, CompleteMultipartUpload)</li>
+            <li>Object deleted</li>
+            <li>Object restored from Glacier</li>
+        </ul>
+
+        <h4>Destinations:</h4>
+        <ul>
+            <li>Lambda function</li>
+            <li>SNS topic</li>
+            <li>SQS queue</li>
+        </ul>
+
+        <h4>Use Cases:</h4>
+        <ul>
+            <li>Image processing on upload</li>
+            <li>Trigger workflows</li>
+            <li>Log processing</li>
+        </ul>
+
+        <h3>Pre-Signed URLs</h3>
+        <ul>
+            <li>Temporary access to private objects</li>
+            <li>Generated by SDK/CLI with your credentials</li>
+            <li>Expiration: up to 7 days (SigV4)</li>
+            <li>Use case: let users upload/download without AWS credentials</li>
+        </ul>
+
+        <h3>CORS Configuration</h3>
+        <pre><code>[{
+  "AllowedOrigins": ["https://example.com"],
+  "AllowedMethods": ["GET", "PUT", "POST"],
+  "AllowedHeaders": ["*"],
+  "MaxAgeSeconds": 3000
+}]</code></pre>
+
+        <h3>S3 Bucket Policies</h3>
+        <pre><code>{
+  "Effect": "Allow",
+  "Principal": "*",
+  "Action": "s3:GetObject",
+  "Resource": "arn:aws:s3:::mybucket/*",
+  "Condition": {
+    "IpAddress": {"aws:SourceIp": "203.0.113.0/24"}
+  }
+}</code></pre>
+
+        <hr>
+
+        <h2>7. AMAZON SQS (Simple Queue Service)</h2>
+
+        <h3>Queue Types</h3>
+        <h4>Standard Queue:</h4>
+        <ul>
+            <li>Unlimited throughput</li>
+            <li>At-least-once delivery (có thể duplicate)</li>
+            <li>Best-effort ordering (không guarantee order)</li>
+            <li>Use case: decouple components, high throughput</li>
+        </ul>
+
+        <h4>FIFO Queue:</h4>
+        <ul>
+            <li>Exactly-once delivery (no duplicates)</li>
+            <li>Strict ordering</li>
+            <li>300 TPS (or 3000 with batching)</li>
+            <li>Queue name must end with <code>.fifo</code></li>
+            <li>Use case: order-critical workflows</li>
+        </ul>
+
+        <h3>Key Concepts</h3>
+        <h4>Visibility Timeout:</h4>
+        <ul>
+            <li>Message invisible to other consumers after being received</li>
+            <li>Default: 30 seconds (0 seconds to 12 hours)</li>
+            <li>Consumer must delete message or it becomes visible again</li>
+            <li>ChangeMessageVisibility API: extend timeout</li>
+        </ul>
+
+        <h4>Message Retention:</h4>
+        <ul>
+            <li>How long messages stay in queue</li>
+            <li>Default: 4 days (1 minute to 14 days)</li>
+        </ul>
+
+        <h4>Polling:</h4>
+        <ul>
+            <li><strong>Short Polling (default):</strong> return immediately (may be empty)</li>
+            <li><strong>Long Polling (recommended):</strong> wait up to 20 seconds for messages
+                <ul>
+                    <li>Reduces API calls, cost</li>
+                    <li>Set: WaitTimeSeconds > 0</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h4>Delay Queues:</h4>
+        <ul>
+            <li>Delay delivery of all new messages</li>
+            <li>0 to 15 minutes</li>
+            <li>FIFO: cannot use per-message delay</li>
+        </ul>
+
+        <h4>Message Timers:</h4>
+        <ul>
+            <li>Delay individual messages (Standard only)</li>
+            <li>0 to 15 minutes</li>
+        </ul>
+
+        <h3>Dead Letter Queues (DLQ)</h3>
+        <ul>
+            <li>Receives messages that fail processing</li>
+            <li>Set maxReceiveCount: after X receives, move to DLQ</li>
+            <li>DLQ must be same type (Standard → Standard, FIFO → FIFO)</li>
+            <li>Use case: isolate problematic messages for debugging</li>
+        </ul>
+
+        <h3>FIFO-Specific Features</h3>
+        <h4>Message Deduplication:</h4>
+        <ul>
+            <li>Deduplication ID: prevent duplicates within 5-minute window</li>
+            <li>Content-based deduplication: hash message body</li>
+        </ul>
+
+        <h4>Message Group ID:</h4>
+        <ul>
+            <li>Messages in same group = ordered</li>
+            <li>Different groups = processed in parallel</li>
+            <li>Use case: process orders per customer in order</li>
+        </ul>
+
+        <h3>SQS with Lambda</h3>
+        <ul>
+            <li>Lambda polls queue (event source mapping)</li>
+            <li>Batch size: 1-10 messages (Standard), 1-10 (FIFO)</li>
+            <li>If function errors: message returns to queue after visibility timeout</li>
+            <li>Configure: max retries, DLQ</li>
+        </ul>
+
+        <h3>IAM Permissions</h3>
+        <pre><code>{
+  "Effect": "Allow",
+  "Action": [
+    "sqs:SendMessage",
+    "sqs:ReceiveMessage",
+    "sqs:DeleteMessage"
+  ],
+  "Resource": "arn:aws:sqs:region:account:queue-name"
+}</code></pre>
+
+        <hr>
+
+        <h2>8. AMAZON SNS (Simple Notification Service)</h2>
+
+        <h3>Pub/Sub Model</h3>
+        <ul>
+            <li><strong>Topic:</strong> channel for messages</li>
+            <li><strong>Publishers:</strong> send messages to topic</li>
+            <li><strong>Subscribers:</strong> receive messages from topic</li>
+            <li>Fan-out: 1 message → many subscribers</li>
+        </ul>
+
+        <h3>Subscription Types</h3>
+        <ul>
+            <li>Email / Email-JSON</li>
+            <li>HTTP / HTTPS endpoints</li>
+            <li>SQS queue</li>
+            <li>Lambda function</li>
+            <li>SMS</li>
+            <li>Mobile push (iOS, Android)</li>
+        </ul>
+
+        <h3>Message Filtering</h3>
+        <p>Subscriber receives only matching messages</p>
+        <p>Filter policy: JSON document</p>
+        <pre><code>{
+  "event": ["order_placed", "order_cancelled"],
+  "price": [{"numeric": [">=", 100]}]
+}</code></pre>
+
+        <h3>SNS + SQS Fan-Out Pattern</h3>
+        <pre><code>S3 Event → SNS Topic → [SQS Queue 1, SQS Queue 2, Lambda]</code></pre>
+        <ul>
+            <li>1 event triggers multiple processing paths</li>
+            <li>Each subscriber processes independently</li>
+            <li>Benefit: decoupling, parallel processing</li>
+        </ul>
+
+        <h3>Message Attributes</h3>
+        <ul>
+            <li>Key-value metadata</li>
+            <li>Use for filtering</li>
+            <li>Example: <code>{"event": "order_placed", "region": "us-east-1"}</code></li>
+        </ul>
+
+        <h3>Delivery Retry</h3>
+        <ul>
+            <li>HTTP/S: retry with backoff (up to 100,015 seconds)</li>
+            <li>Lambda: async invocation (2 retries)</li>
+            <li>SQS: SNS retries indefinitely</li>
+        </ul>
+
+        <h3>IAM Permissions</h3>
+        <pre><code>{
+  "Effect": "Allow",
+  "Action": ["sns:Publish"],
+  "Resource": "arn:aws:sns:region:account:topic-name"
+}</code></pre>
+
+        <hr>
+
+        <h2>9. AWS CI/CD SERVICES</h2>
+
+        <h3>AWS CodeCommit</h3>
+        <ul>
+            <li>Git-based repository</li>
+            <li>Private, managed</li>
+            <li>Encrypted at rest (KMS)</li>
+            <li>Triggers: Lambda, SNS on push</li>
+            <li>Not in exam much, know it exists</li>
+        </ul>
+
+        <h3>AWS CodeBuild</h3>
+        <h4>Build Process:</h4>
+        <ol>
+            <li>Pull source (CodeCommit, GitHub, S3)</li>
+            <li>Run build commands (buildspec.yml)</li>
+            <li>Output artifacts to S3</li>
+        </ol>
+
+        <h4>buildspec.yml:</h4>
+        <pre><code>version: 0.2
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18
+  pre_build:
+    commands:
+      - npm install
+  build:
+    commands:
+      - npm run build
+  post_build:
+    commands:
+      - aws s3 cp dist/ s3://mybucket/ --recursive
+artifacts:
+  files:
+    - '**/*'
+  base-directory: dist</code></pre>
+
+        <h4>Key Points:</h4>
+        <ul>
+            <li>Runs in Docker container</li>
+            <li>Build environment: CPU, memory configs</li>
+            <li>Logs to CloudWatch Logs</li>
+            <li>Cache dependencies in S3 (faster builds)</li>
+        </ul>
+
+        <h3>AWS CodeDeploy</h3>
+        <h4>Deployment Types:</h4>
+
+        <h4>In-Place (Rolling):</h4>
+        <ul>
+            <li>Update existing instances</li>
+            <li>Downtime during update</li>
+            <li>Use case: dev/test environments</li>
+        </ul>
+
+        <h4>Blue/Green:</h4>
+        <ul>
+            <li>New instances created (Green)</li>
+            <li>Traffic shifts from old (Blue) to new</li>
+            <li>Rollback: shift back to Blue</li>
+            <li>Use case: production, zero downtime</li>
+        </ul>
+
+        <h4>Deployment Targets:</h4>
+        <ul>
+            <li>EC2 instances</li>
+            <li>On-premises servers</li>
+            <li>Lambda functions</li>
+            <li>ECS services</li>
+        </ul>
+
+        <h4>appspec.yml (Lambda):</h4>
+        <pre><code>version: 0.0
+Resources:
+  - myFunction:
+      Type: AWS::Lambda::Function
+      Properties:
+        Name: myFunction
+        Alias: live
+        CurrentVersion: 1
+        TargetVersion: 2</code></pre>
+
+        <h4>Deployment Configs (Lambda):</h4>
+        <ul>
+            <li>Linear: traffic shifts in equal increments (10% every 10 min)</li>
+            <li>Canary: shift X% first, then 100% (10% for 10 min, then all)</li>
+            <li>All-at-once: immediate</li>
+        </ul>
+
+        <h4>Hooks (Lambda):</h4>
+        <ul>
+            <li>BeforeAllowTraffic: run tests before shift</li>
+            <li>AfterAllowTraffic: run validation after shift</li>
+        </ul>
+
+        <h3>AWS CodePipeline</h3>
+        <h4>Pipeline Structure:</h4>
+        <ul>
+            <li>Source: CodeCommit, GitHub, S3</li>
+            <li>Build: CodeBuild</li>
+            <li>Test: CodeBuild, 3rd party</li>
+            <li>Deploy: CodeDeploy, CloudFormation, ECS, S3</li>
+            <li>Approval: Manual approval step</li>
+        </ul>
+
+        <h4>Artifacts:</h4>
+        <ul>
+            <li>Passed between stages via S3</li>
+            <li>Encrypted</li>
+        </ul>
+
+        <h4>Event-Driven:</h4>
+        <ul>
+            <li>CloudWatch Events trigger pipeline on source change</li>
+        </ul>
+
+        <h4>Example Flow:</h4>
+        <pre><code>GitHub push → Build (CodeBuild) → Test → Manual Approval → Deploy (CodeDeploy)</code></pre>
+
+        <hr>
+
+        <h2><span class="tier-badge tier-3">TIER 3 - GOOD TO KNOW (5-10% điểm)</span></h2>
+
+        <hr>
+
+        <h2>10. AMAZON ECS (Elastic Container Service)</h2>
+
+        <h3>Launch Types</h3>
+        <h4>EC2 Launch Type:</h4>
+        <ul>
+            <li>You manage EC2 instances</li>
+            <li>Install ECS agent</li>
+            <li>More control, cheaper for sustained workloads</li>
+        </ul>
+
+        <h4>Fargate:</h4>
+        <ul>
+            <li>Serverless containers</li>
+            <li>No EC2 management</li>
+            <li>Pay per vCPU + memory</li>
+            <li>Use case: simplicity, variable workloads</li>
+        </ul>
+
+        <h3>Core Concepts</h3>
+        <h4>Task Definition:</h4>
+        <p>Blueprint for containers</p>
+        <p>Like Docker Compose file</p>
+        <pre><code>{
+  "family": "my-app",
+  "containerDefinitions": [{
+    "name": "web",
+    "image": "nginx",
+    "memory": 512,
+    "cpu": 256,
+    "portMappings": [{"containerPort": 80}]
+  }]
+}</code></pre>
+
+        <h4>Task:</h4>
+        <ul>
+            <li>Running instance of task definition</li>
+            <li>Single execution</li>
+        </ul>
+
+        <h4>Service:</h4>
+        <ul>
+            <li>Maintains desired count of tasks</li>
+            <li>Auto-restart failed tasks</li>
+            <li>Load balancing</li>
+        </ul>
+
+        <h3>IAM Roles</h3>
+        <h4>Task Role:</h4>
+        <ul>
+            <li>Permissions for application (access S3, DynamoDB)</li>
+            <li>Attached to task definition</li>
+        </ul>
+
+        <h4>Execution Role:</h4>
+        <ul>
+            <li>Permissions for ECS agent (pull image from ECR, write logs)</li>
+            <li>Required for Fargate</li>
+        </ul>
+
+        <h3>Deployment</h3>
+        <ul>
+            <li>Rolling update: gradually replace tasks</li>
+            <li>Blue/Green: via CodeDeploy</li>
+        </ul>
+
+        <hr>
+
+        <h2>11. AMAZON COGNITO</h2>
+
+        <h3>Cognito User Pools</h3>
+        <ul>
+            <li>User directory (sign up, sign in)</li>
+            <li>JWT tokens issued</li>
+            <li>MFA, password policies</li>
+            <li>Hosted UI available</li>
+            <li>Integration: API Gateway, ALB</li>
+        </ul>
+
+        <h3>Cognito Identity Pools</h3>
+        <ul>
+            <li>Provide temporary AWS credentials</li>
+            <li>Federated identities (Google, Facebook, SAML)</li>
+            <li>Guest users (unauthenticated)</li>
+            <li>Returns STS credentials</li>
+        </ul>
+
+        <h3>User Pools vs Identity Pools</h3>
+        <table>
+            <tr>
+                <th>Feature</th>
+                <th>User Pools</th>
+                <th>Identity Pools</th>
+            </tr>
+            <tr>
+                <td>Purpose</td>
+                <td>Authentication</td>
+                <td>Authorization (AWS access)</td>
+            </tr>
+            <tr>
+                <td>Output</td>
+                <td>JWT tokens</td>
+                <td>Temporary AWS credentials</td>
+            </tr>
+            <tr>
+                <td>Use Case</td>
+                <td>Login to app</td>
+                <td>Access AWS services from app</td>
+            </tr>
+        </table>
+
+        <h3>Common Pattern</h3>
+        <pre><code>User → Cognito User Pool (login) → JWT token 
+     → Exchange via Identity Pool → STS credentials 
+     → Access S3, DynamoDB</code></pre>
+
+        <hr>
+
+        <h2>12. AMAZON ELASTICACHE</h2>
+
+        <h3>Engine Types</h3>
+        <h4>Redis:</h4>
+        <ul>
+            <li>Advanced data structures (sorted sets, lists, hashes)</li>
+            <li>Pub/Sub messaging</li>
+            <li>Persistence to disk</li>
+            <li>Multi-AZ with auto-failover</li>
+            <li>Backup and restore</li>
+            <li>Use case: complex data types, persistence needed</li>
+        </ul>
+
+        <h4>Memcached:</h4>
+        <ul>
+            <li>Simple key-value</li>
+            <li>Multi-threaded</li>
+            <li>No persistence</li>
+            <li>No replication</li>
+            <li>Use case: simple caching, horizontal scaling</li>
+        </ul>
+
+        <h3>Caching Strategies</h3>
+        <h4>Lazy Loading (Cache-Aside):</h4>
+        <pre><code># Read from cache
+data = cache.get(key)
+if not data:
+    # Cache miss, read from DB
+    data = db.get(key)
+    cache.set(key, data)
+return data</code></pre>
+        <ul>
+            <li>Pros: only requested data cached</li>
+            <li>Cons: cache miss penalty, stale data possible</li>
+        </ul>
+
+        <h4>Write-Through:</h4>
+        <pre><code># Write to DB and cache together
+db.set(key, data)
+cache.set(key, data)</code></pre>
+        <ul>
+            <li>Pros: cache always fresh</li>
+            <li>Cons: write penalty, unused data cached</li>
+        </ul>
+
+        <h4>Hybrid: Lazy Loading + TTL</h4>
+        <ul>
+            <li>Set expiration on cached items</li>
+            <li>Balance freshness vs performance</li>
+        </ul>
+
+        <h3>Use Cases</h3>
+        <ul>
+            <li>Session storage (Redis)</li>
+            <li>Database query caching</li>
+            <li>Rate limiting (Redis counters)</li>
+            <li>Leaderboards (Redis sorted sets)</li>
+            <li>Real-time analytics</li>
+        </ul>
+
+        <hr>
+
+        <!-- ============================================ -->
+        <!-- COMPARISON MATRIX & DECISION TREES          -->
+        <!-- ============================================ -->
+        
+        <h2>🔄 SERVICE COMPARISON MATRIX - Exam Decision Making</h2>
+        
+        <div class="comparison-matrix">
+            <h3>📊 Service Comparison Tables</h3>
+            <p><em>Những câu hỏi "Which service should you use?" chiếm 20-25% exam. Master section này = easy points!</em></p>
+            
+            <h4>🔹 Compute Services: Lambda vs ECS vs EC2</h4>
+            <table>
+                <tr>
+                    <th>Scenario</th>
+                    <th>Use Lambda</th>
+                    <th>Use ECS/Fargate</th>
+                    <th>Use EC2</th>
+                </tr>
+                <tr>
+                    <td>Event-driven, short tasks</td>
+                    <td>✅ Perfect fit</td>
+                    <td>❌ Overkill</td>
+                    <td>❌ Too much overhead</td>
+                </tr>
+                <tr>
+                    <td>Long-running processes (> 15min)</td>
+                    <td>❌ 15min limit</td>
+                    <td>✅ No time limit</td>
+                    <td>✅ No time limit</td>
+                </tr>
+                <tr>
+                    <td>Microservices architecture</td>
+                    <td>✅ Good (simple)</td>
+                    <td>✅ Better (complex)</td>
+                    <td>⚠️ Manual setup</td>
+                </tr>
+                <tr>
+                    <td>Need custom runtime/libraries</td>
+                    <td>⚠️ Layers or container</td>
+                    <td>✅ Full Docker support</td>
+                    <td>✅ Total control</td>
+                </tr>
+                <tr>
+                    <td>Cost optimization priority</td>
+                    <td>✅ Pay per request</td>
+                    <td>⚠️ Always running</td>
+                    <td>⚠️ Always running</td>
+                </tr>
+                <tr>
+                    <td>Predictable, steady traffic</td>
+                    <td>⚠️ Can be expensive</td>
+                    <td>✅ Better cost/performance</td>
+                    <td>✅ Reserved instances</td>
+                </tr>
+            </table>
+            
+            <h4>🔹 Storage Services: S3 vs EFS vs EBS</h4>
+            <table>
+                <tr>
+                    <th>Scenario</th>
+                    <th>Use S3</th>
+                    <th>Use EFS</th>
+                    <th>Use EBS</th>
+                </tr>
+                <tr>
+                    <td>Object storage (images, videos)</td>
+                    <td>✅ Perfect fit</td>
+                    <td>❌ Wrong use case</td>
+                    <td>❌ Wrong use case</td>
+                </tr>
+                <tr>
+                    <td>Shared file system (multiple instances)</td>
+                    <td>⚠️ Not a file system</td>
+                    <td>✅ NFS protocol</td>
+                    <td>❌ Single instance only</td>
+                </tr>
+                <tr>
+                    <td>Lambda needs persistent storage</td>
+                    <td>✅ Simple integration</td>
+                    <td>✅ Mount as file system</td>
+                    <td>❌ Can't attach</td>
+                </tr>
+                <tr>
+                    <td>Database storage (EC2)</td>
+                    <td>❌ Not designed for this</td>
+                    <td>⚠️ Can work but slow</td>
+                    <td>✅ Block storage</td>
+                </tr>
+                <tr>
+                    <td>Serverless application</td>
+                    <td>✅ Native integration</td>
+                    <td>✅ Lambda can mount</td>
+                    <td>❌ Not serverless</td>
+                </tr>
+            </table>
+            
+            <h4>🔹 Database Services: DynamoDB vs RDS vs ElastiCache</h4>
+            <table>
+                <tr>
+                    <th>Scenario</th>
+                    <th>Use DynamoDB</th>
+                    <th>Use RDS</th>
+                    <th>Use ElastiCache</th>
+                </tr>
+                <tr>
+                    <td>Simple key-value access</td>
+                    <td>✅ Fast, scalable</td>
+                    <td>⚠️ Overkill</td>
+                    <td>⚠️ For caching only</td>
+                </tr>
+                <tr>
+                    <td>Complex SQL queries, JOINs</td>
+                    <td>❌ No SQL support</td>
+                    <td>✅ Full SQL</td>
+                    <td>❌ Not a database</td>
+                </tr>
+                <tr>
+                    <td>Need ACID transactions</td>
+                    <td>✅ Has transactions</td>
+                    <td>✅ Full ACID</td>
+                    <td>❌ Not transactional</td>
+                </tr>
+                <tr>
+                    <td>Millisecond latency required</td>
+                    <td>✅ Single-digit ms</td>
+                    <td>⚠️ 5-10ms typical</td>
+                    <td>✅ Sub-ms with cache</td>
+                </tr>
+                <tr>
+                    <td>Reduce database load</td>
+                    <td>⚠️ Not for caching</td>
+                    <td>⚠️ Not for caching</td>
+                    <td>✅ Cache layer</td>
+                </tr>
+                <tr>
+                    <td>Session storage</td>
+                    <td>✅ Can work</td>
+                    <td>⚠️ Overkill</td>
+                    <td>✅ Redis perfect</td>
+                </tr>
+                <tr>
+                    <td>Unpredictable scaling</td>
+                    <td>✅ Auto-scales</td>
+                    <td>⚠️ Manual scaling</td>
+                    <td>⚠️ Manual scaling</td>
+                </tr>
+            </table>
+            
+            <h4>🔹 Messaging Services: SQS vs SNS vs EventBridge vs Kinesis</h4>
+            <table>
+                <tr>
+                    <th>Scenario</th>
+                    <th>Use SQS</th>
+                    <th>Use SNS</th>
+                    <th>Use EventBridge</th>
+                    <th>Use Kinesis</th>
+                </tr>
+                <tr>
+                    <td>Decouple components</td>
+                    <td>✅ Pull model</td>
+                    <td>✅ Push model</td>
+                    <td>✅ Event routing</td>
+                    <td>⚠️ Overkill</td>
+                </tr>
+                <tr>
+                    <td>Fan-out (1 to many)</td>
+                    <td>❌ 1:1 only</td>
+                    <td>✅ Perfect for this</td>
+                    <td>✅ With rules</td>
+                    <td>✅ Multiple consumers</td>
+                </tr>
+                <tr>
+                    <td>Message ordering required</td>
+                    <td>✅ FIFO queue</td>
+                    <td>⚠️ With FIFO topic</td>
+                    <td>❌ No guarantee</td>
+                    <td>✅ Per shard</td>
+                </tr>
+                <tr>
+                    <td>Real-time stream processing</td>
+                    <td>❌ Not streaming</td>
+                    <td>❌ Not streaming</td>
+                    <td>⚠️ Simple events</td>
+                    <td>✅ High throughput</td>
+                </tr>
+                <tr>
+                    <td>Replay messages</td>
+                    <td>❌ Deleted after read</td>
+                    <td>❌ No replay</td>
+                    <td>❌ No replay</td>
+                    <td>✅ 24h-365 days</td>
+                </tr>
+                <tr>
+                    <td>Multiple consumers same data</td>
+                    <td>❌ Deleted after read</td>
+                    <td>✅ Each gets copy</td>
+                    <td>✅ Multiple targets</td>
+                    <td>✅ Each reads stream</td>
+                </tr>
+                <tr>
+                    <td>Email/SMS notifications</td>
+                    <td>❌ No built-in</td>
+                    <td>✅ Native support</td>
+                    <td>⚠️ Via SNS</td>
+                    <td>❌ No built-in</td>
+                </tr>
+                <tr>
+                    <td>Event-driven architecture</td>
+                    <td>✅ Simple</td>
+                    <td>✅ Simple</td>
+                    <td>✅ Advanced routing</td>
+                    <td>⚠️ For streams</td>
+                </tr>
+            </table>
+            
+            <h4>🔹 API Services: API Gateway REST vs HTTP vs WebSocket</h4>
+            <table>
+                <tr>
+                    <th>Feature</th>
+                    <th>REST API</th>
+                    <th>HTTP API</th>
+                    <th>WebSocket API</th>
+                </tr>
+                <tr>
+                    <td>Use case</td>
+                    <td>Full-featured APIs</td>
+                    <td>Simple, low-cost APIs</td>
+                    <td>Real-time bidirectional</td>
+                </tr>
+                <tr>
+                    <td>Cost</td>
+                    <td>$$$ (Higher)</td>
+                    <td>$ (70% cheaper)</td>
+                    <td>$$ (Per connection)</td>
+                </tr>
+                <tr>
+                    <td>Request validation</td>
+                    <td>✅ Built-in</td>
+                    <td>❌ Manual</td>
+                    <td>❌ Manual</td>
+                </tr>
+                <tr>
+                    <td>Caching</td>
+                    <td>✅ Built-in</td>
+                    <td>❌ Not available</td>
+                    <td>❌ Not available</td>
+                </tr>
+                <tr>
+                    <td>Usage plans & API keys</td>
+                    <td>✅ Yes</td>
+                    <td>❌ No</td>
+                    <td>❌ No</td>
+                </tr>
+                <tr>
+                    <td>Performance</td>
+                    <td>Good</td>
+                    <td>Better (lower latency)</td>
+                    <td>Persistent connection</td>
+                </tr>
+                <tr>
+                    <td>Exam recommendation</td>
+                    <td>Default choice</td>
+                    <td>If "cost-effective" mentioned</td>
+                    <td>If "real-time", "chat", "push"</td>
+                </tr>
+            </table>
+            
+            <h4>🔹 DynamoDB: GSI vs LSI</h4>
+            <table>
+                <tr>
+                    <th>Aspect</th>
+                    <th>Global Secondary Index (GSI)</th>
+                    <th>Local Secondary Index (LSI)</th>
+                </tr>
+                <tr>
+                    <td>Partition Key</td>
+                    <td>✅ Different from base table</td>
+                    <td>❌ SAME as base table</td>
+                </tr>
+                <tr>
+                    <td>Sort Key</td>
+                    <td>✅ Different or none</td>
+                    <td>✅ Different from base table</td>
+                </tr>
+                <tr>
+                    <td>When to create</td>
+                    <td>✅ Anytime (add/delete)</td>
+                    <td>❌ Table creation ONLY</td>
+                </tr>
+                <tr>
+                    <td>Capacity</td>
+                    <td>✅ Own RCU/WCU (separate)</td>
+                    <td>❌ Shares with base table</td>
+                </tr>
+                <tr>
+                    <td>Consistency</td>
+                    <td>❌ Eventually consistent only</td>
+                    <td>✅ Eventually OR strongly</td>
+                </tr>
+                <tr>
+                    <td>Max per table</td>
+                    <td>20</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>Use case</td>
+                    <td>Query by different attributes</td>
+                    <td>Query same PK, different sort</td>
+                </tr>
+                <tr>
+                    <td>Exam default</td>
+                    <td>✅ Use this unless specified</td>
+                    <td>⚠️ Rare, specific scenarios</td>
+                </tr>
+            </table>
+        </div>
+        
+        <!-- DECISION TREES -->
+        <div class="decision-tree">
+            <h3>🌳 Decision Trees - Quick Selection Guide</h3>
+            
+            <h4>Choose Database Service:</h4>
+            <pre>
+Start: Need database?
+│
+├─ Need SQL, complex queries, JOINs?
+│  └─ YES → <strong>RDS</strong>
+│          ├─ High availability? → Multi-AZ
+│          ├─ Scale reads? → Read Replicas
+│          └─ Connection pooling? → RDS Proxy
+│
+├─ Simple key-value, high scale?
+│  └─ YES → <strong>DynamoDB</strong>
+│          ├─ Need caching? → DAX
+│          ├─ Query non-PK? → GSI
+│          └─ Change tracking? → Streams
+│
+├─ Need to reduce DB load?
+│  └─ YES → <strong>ElastiCache</strong>
+│          ├─ Simple caching? → Memcached
+│          ├─ Advanced (pub/sub)? → Redis
+│          └─ Session storage? → Redis
+│
+└─ File storage?
+   └─ YES → See storage decision tree
+            </pre>
+            
+            <h4>Choose Messaging Service:</h4>
+            <pre>
+Start: Need async communication?
+│
+├─ Need message ordering?
+│  ├─ YES, also need replay? → <strong>Kinesis</strong>
+│  └─ YES, no replay? → <strong>SQS FIFO</strong>
+│
+├─ Fan-out (1 message → many consumers)?
+│  ├─ Simple fan-out? → <strong>SNS</strong>
+│  ├─ Complex routing rules? → <strong>EventBridge</strong>
+│  └─ Each consumer needs copy? → <strong>SNS → SQS</strong> (fan-out pattern)
+│
+├─ Decouple, throttle, buffer?
+│  └─ <strong>SQS Standard</strong>
+│      ├─ High throughput? → Standard
+│      ├─ Exactly-once? → FIFO
+│      └─ Delay messages? → Delay Queue
+│
+├─ Real-time streaming, analytics?
+│  └─ <strong>Kinesis Data Streams</strong>
+│      └─ Need analysis? → Kinesis Analytics
+│
+└─ Scheduled events?
+   └─ <strong>EventBridge</strong> (cron rules)
+            </pre>
+            
+            <h4>Choose Storage Service:</h4>
+            <pre>
+Start: Need storage?
+│
+├─ Object storage (images, files, backups)?
+│  └─ <strong>S3</strong>
+│      ├─ Infrequent access? → S3-IA
+│      ├─ Archive? → Glacier
+│      ├─ Fast retrieval? → S3 Standard
+│      └─ Need CDN? → S3 + CloudFront
+│
+├─ Block storage for EC2?
+│  └─ <strong>EBS</strong>
+│      ├─ High performance? → io2
+│      ├─ Balanced? → gp3
+│      └─ Throughput? → st1
+│
+├─ Shared file system (multiple instances)?
+│  └─ <strong>EFS</strong>
+│      ├─ Lambda needs files? → EFS mount
+│      ├─ Linux instances? → EFS
+│      └─ Windows instances? → FSx for Windows
+│
+└─ Lambda persistent storage?
+   ├─ Small files? → <strong>S3</strong>
+   ├─ File system? → <strong>EFS</strong>
+   └─ Temp during execution? → /tmp (512MB-10GB)
+            </pre>
+            
+            <h4>Choose Compute Service:</h4>
+            <pre>
+Start: Need compute?
+│
+├─ Event-driven, short tasks (< 15min)?
+│  └─ <strong>Lambda</strong>
+│      ├─ Cold start issue? → Provisioned concurrency
+│      ├─ Need VPC? → VPC + NAT Gateway
+│      └─ Long runtime? → Step Functions
+│
+├─ Containers, microservices?
+│  └─ <strong>ECS/Fargate</strong>
+│      ├─ Don't want servers? → Fargate
+│      ├─ Cost optimize? → EC2 launch type
+│      └─ Need Kubernetes? → EKS
+│
+├─ Long-running, always-on?
+│  └─ <strong>EC2</strong>
+│      ├─ Predictable? → Reserved Instances
+│      ├─ Variable? → Spot/On-Demand
+│      └─ Auto-scale? → Auto Scaling Group
+│
+└─ Simple web app, don't want infra?
+   └─ <strong>Elastic Beanstalk</strong>
+       └─ Full automation, PaaS
+            </pre>
+        </div>
+        
+        <!-- EXAM SCENARIO PLAYBOOK -->
+        <div class="exam-notes-box">
+            <h3>🎯 Exam Scenario Playbook - Common Question Patterns</h3>
+            
+            <h4>Pattern 1: "Most cost-effective solution"</h4>
+            <table>
+                <tr>
+                    <th>If scenario mentions...</th>
+                    <th>Answer likely involves...</th>
+                    <th>Why</th>
+                </tr>
+                <tr>
+                    <td>Sporadic traffic, unpredictable</td>
+                    <td>Lambda (not EC2)</td>
+                    <td>Pay per request vs always running</td>
+                </tr>
+                <tr>
+                    <td>Simple API, no advanced features</td>
+                    <td>HTTP API (not REST API)</td>
+                    <td>70% cheaper</td>
+                </tr>
+                <tr>
+                    <td>Infrequent access data</td>
+                    <td>S3-IA or Glacier</td>
+                    <td>Lower storage cost</td>
+                </tr>
+                <tr>
+                    <td>Reserved capacity, predictable</td>
+                    <td>Provisioned (not on-demand)</td>
+                    <td>Upfront commitment = discount</td>
+                </tr>
+            </table>
+            
+            <h4>Pattern 2: "Minimize latency"</h4>
+            <table>
+                <tr>
+                    <th>If scenario mentions...</th>
+                    <th>Answer likely involves...</th>
+                    <th>Why</th>
+                </tr>
+                <tr>
+                    <td>Database queries slow</td>
+                    <td>ElastiCache (Redis/Memcached)</td>
+                    <td>In-memory cache</td>
+                </tr>
+                <tr>
+                    <td>DynamoDB slow queries</td>
+                    <td>DAX (DynamoDB Accelerator)</td>
+                    <td>Microsecond latency</td>
+                </tr>
+                <tr>
+                    <td>Lambda cold starts</td>
+                    <td>Provisioned concurrency</td>
+                    <td>Keep functions warm</td>
+                </tr>
+                <tr>
+                    <td>Global users, slow content</td>
+                    <td>CloudFront CDN</td>
+                    <td>Edge caching</td>
+                </tr>
+            </table>
+            
+            <h4>Pattern 3: "Ensure high availability"</h4>
+            <table>
+                <tr>
+                    <th>If scenario mentions...</th>
+                    <th>Answer likely involves...</th>
+                    <th>Why</th>
+                </tr>
+                <tr>
+                    <td>Database availability</td>
+                    <td>RDS Multi-AZ</td>
+                    <td>Automatic failover</td>
+                </tr>
+                <tr>
+                    <td>Lambda reliability</td>
+                    <td>Multiple AZs (automatic)</td>
+                    <td>Lambda is multi-AZ by default</td>
+                </tr>
+                <tr>
+                    <td>Application resilience</td>
+                    <td>Multi-region deployment</td>
+                    <td>Region failure protection</td>
+                </tr>
+                <tr>
+                    <td>Load balancing</td>
+                    <td>ALB + multiple AZs</td>
+                    <td>Distribute traffic</td>
+                </tr>
+            </table>
+            
+            <h4>Pattern 4: "Loose coupling / Decoupling"</h4>
+            <table>
+                <tr>
+                    <th>If scenario mentions...</th>
+                    <th>Answer likely involves...</th>
+                    <th>Why</th>
+                </tr>
+                <tr>
+                    <td>Components shouldn't wait</td>
+                    <td>SQS between services</td>
+                    <td>Async processing</td>
+                </tr>
+                <tr>
+                    <td>One producer, many consumers</td>
+                    <td>SNS fan-out</td>
+                    <td>Publish/subscribe</td>
+                </tr>
+                <tr>
+                    <td>Service failures shouldn't cascade</td>
+                    <td>SQS + DLQ</td>
+                    <td>Buffer + retry</td>
+                </tr>
+                <tr>
+                    <td>Event-driven architecture</td>
+                    <td>EventBridge</td>
+                    <td>Event routing</td>
+                </tr>
+            </table>
+            
+            <h4>Pattern 5: "Security best practices"</h4>
+            <table>
+                <tr>
+                    <th>If scenario mentions...</th>
+                    <th>Answer likely involves...</th>
+                    <th>Red flags to avoid</th>
+                </tr>
+                <tr>
+                    <td>Store database credentials</td>
+                    <td>Secrets Manager or Systems Manager</td>
+                    <td>❌ Environment variables</td>
+                </tr>
+                <tr>
+                    <td>API authentication</td>
+                    <td>IAM or Cognito</td>
+                    <td>❌ API keys alone</td>
+                </tr>
+                <tr>
+                    <td>Encrypt data at rest</td>
+                    <td>KMS encryption</td>
+                    <td>❌ Client-side only</td>
+                </tr>
+                <tr>
+                    <td>Access AWS resources</td>
+                    <td>IAM roles (not keys)</td>
+                    <td>❌ Hardcoded access keys</td>
+                </tr>
+            </table>
+        </div>
+
+        <hr>
+
+        <h2>NOT TODO / SKIM ONLY</h2>
+
+        <hr>
+
+        <h2>EC2 (BASICS ONLY)</h2>
+
+        <h3>Instance Roles</h3>
+        <ul>
+            <li>IAM role attached to EC2</li>
+            <li>Credentials available via metadata: <code>http://169.254.169.254/latest/meta-data/iam/security-credentials/role-name</code></li>
+            <li>Auto-rotated by AWS</li>
+            <li><strong>Never hardcode credentials in EC2</strong></li>
+        </ul>
+
+        <h3>User Data</h3>
+        <ul>
+            <li>Script runs at instance launch</li>
+            <li>Use case: install software, configure environment</li>
+        </ul>
+        <pre><code>#!/bin/bash
+yum update -y
+yum install -y httpd
+systemctl start httpd</code></pre>
+
+        <h3>Metadata</h3>
+        <ul>
+            <li>Instance info available at <code>http://169.254.169.254/latest/meta-data/</code></li>
+            <li>Examples: instance-id, public-ip, iam/security-credentials</li>
+        </ul>
+
+        <p><strong>Chỉ cần biết concept, không cần deep dive</strong></p>
+
+        <hr>
+
+        <h2>RDS (BASICS ONLY)</h2>
+
+        <h3>Core Points</h3>
+        <ul>
+            <li>Managed relational database</li>
+            <li>Engines: MySQL, PostgreSQL, MariaDB, Oracle, SQL Server, Aurora</li>
+            <li>Multi-AZ: high availability (synchronous replication)</li>
+            <li>Read Replicas: scale reads (asynchronous replication)</li>
+        </ul>
+
+        <h3>RDS Proxy</h3>
+        <ul>
+            <li>Connection pooling</li>
+            <li>Reduce DB connections from Lambda</li>
+            <li>IAM authentication</li>
+            <li>Use case: Lambda with many concurrent executions</li>
+        </ul>
+
+        <p><strong>Chỉ biết khi nào dùng, không cần chi tiết</strong></p>
+
+        <hr>
+
+        <h2>VPC (BASICS ONLY)</h2>
+
+        <h3>Security Groups</h3>
+        <ul>
+            <li>Stateful firewall</li>
+            <li>Allow rules only (no deny)</li>
+            <li>Applies to ENI (network interface)</li>
+            <li>Default: deny all inbound, allow all outbound</li>
+        </ul>
+
+        <h3>NACLs (Network ACLs)</h3>
+        <ul>
+            <li>Stateless firewall</li>
+            <li>Apply to subnet level</li>
+            <li>Allow and deny rules</li>
+            <li>Numbered rules (evaluated in order)</li>
+        </ul>
+
+        <p><strong>Chỉ hiểu security groups cho Lambda, EC2</strong></p>
+
+        <hr>
+
+        <h2>CloudFormation (CONCEPTS ONLY)</h2>
+
+        <h3>Infrastructure as Code</h3>
+        <ul>
+            <li>JSON/YAML templates</li>
+            <li>Declare resources</li>
+            <li>Stack: collection of resources</li>
+            <li>Change sets: preview changes</li>
+        </ul>
+
+        <h3>Key Sections</h3>
+        <pre><code>AWSTemplateFormatVersion: '2010-09-09'
+Parameters:
+  InstanceType:
+    Type: String
+    Default: t2.micro
+Resources:
+  MyEC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: !Ref InstanceType
+Outputs:
+  InstanceId:
+    Value: !Ref MyEC2Instance</code></pre>
+
+        <p><strong>Đọc qua syntax, không cần thuộc</strong></p>
+
+        <hr>
+
+        <h2>Elastic Beanstalk (CONCEPTS ONLY)</h2>
+
+        <h3>Platform as a Service</h3>
+        <ul>
+            <li>Deploy applications without managing infrastructure</li>
+            <li>Supports: Node.js, Python, Java, .NET, PHP, Ruby, Go, Docker</li>
+            <li>Handles: capacity provisioning, load balancing, auto-scaling, monitoring</li>
+        </ul>
+
+        <h3>Deployment Policies</h3>
+        <ul>
+            <li>All at once: downtime</li>
+            <li>Rolling: batch updates</li>
+            <li>Rolling with additional batch: maintain capacity</li>
+            <li>Immutable: new instances, swap</li>
+            <li>Blue/Green: manual via swap environment URLs</li>
+        </ul>
+
+        <p><strong>Biết là PaaS, use case, skip chi tiết</strong></p>
+
+        <hr>
+
+        <h2>Step Functions (CONCEPTS ONLY)</h2>
+
+        <h3>Serverless Workflow Orchestration</h3>
+        <ul>
+            <li>Coordinate Lambda functions, ECS tasks</li>
+            <li>State machine (JSON definition)</li>
+            <li>Visual workflow</li>
+        </ul>
+
+        <h3>State Types</h3>
+        <ul>
+            <li>Task: do work (Lambda, ECS, etc.)</li>
+            <li>Choice: branching logic</li>
+            <li>Parallel: concurrent execution</li>
+            <li>Wait: delay</li>
+            <li>Success/Fail: end states</li>
+        </ul>
+
+        <p><strong>Đọc qua, ít ra đề</strong></p>
+
+        <hr>
+
+        <h2>Kinesis (CONCEPTS ONLY)</h2>
+
+        <h3>Kinesis Data Streams</h3>
+        <ul>
+            <li>Real-time data streaming</li>
+            <li>Shards: read/write capacity units</li>
+            <li>Consumers: Lambda, KCL, Kinesis Data Analytics</li>
+            <li>Retention: 1-365 days</li>
+        </ul>
+
+        <h3>Kinesis vs SQS</h3>
+        <table>
+            <tr>
+                <th>Feature</th>
+                <th>Kinesis</th>
+                <th>SQS</th>
+            </tr>
+            <tr>
+                <td>Ordering</td>
+                <td>Per shard</td>
+                <td>FIFO queue only</td>
+            </tr>
+            <tr>
+                <td>Retention</td>
+                <td>Up to 365 days</td>
+                <td>Up to 14 days</td>
+            </tr>
+            <tr>
+                <td>Consumers</td>
+                <td>Multiple read same data</td>
+                <td>Message deleted after read</td>
+            </tr>
+            <tr>
+                <td>Use Case</td>
+                <td>Real-time analytics, log streaming</td>
+                <td>Decouple components</td>
+            </tr>
+        </table>
+
+        <p><strong>Biết differences, không deep dive</strong></p>
+
+        <hr>
+
+        <h2>AWS SAM (CONCEPTS ONLY)</h2>
+
+        <h3>Serverless Application Model</h3>
+        <ul>
+            <li>Extension of CloudFormation</li>
+            <li>Simplified syntax for Lambda, API Gateway, DynamoDB</li>
+        </ul>
+
+        <pre><code>AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Resources:
+  MyFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: index.handler
+      Runtime: nodejs18.x
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /hello
+            Method: get</code></pre>
+
+        <h3>SAM CLI</h3>
+        <ul>
+            <li><code>sam build</code>: build application</li>
+            <li><code>sam local invoke</code>: test locally</li>
+            <li><code>sam deploy</code>: deploy to AWS</li>
+        </ul>
+
+        <p><strong>Biết là gì, không cần practice</strong></p>
+
+        <hr>
+
+        <h2>SKIP ENTIRELY</h2>
+
+        <ul>
+            <li><strong>AppSync:</strong> GraphQL service, ít ra đề</li>
+            <li><strong>Amplify:</strong> Frontend framework, không liên quan DVA nhiều</li>
+            <li><strong>Systems Manager:</strong> Parameter Store ra vài câu, đọc qua</li>
+            <li><strong>Secrets Manager:</strong> Similar Parameter Store, đọc qua</li>
+            <li><strong>Route 53:</strong> DNS, không phải focus DVA</li>
+            <li><strong>CloudFront:</strong> CDN, biết tích hợp S3, API Gateway</li>
+            <li><strong>AWS X-Ray:</strong> Đã cover trong CloudWatch section</li>
+        </ul>
+
+        <hr>
+
+        <h2>EXAM TIPS & TRICKS</h2>
+
+        <h3>Common Scenarios</h3>
+
+        <div class="highlight-box">
+            <p><strong>Scenario: "Reduce costs for Lambda"</strong></p>
+            <p>→ Answers: Increase memory (faster = cheaper), reduce package size, use layers, reserved concurrency</p>
+        </div>
+
+        <div class="highlight-box">
+            <p><strong>Scenario: "Lambda timeout issues"</strong></p>
+            <p>→ Check: timeout config (max 15 min), async processing, Step Functions for long workflows</p>
+        </div>
+
+        <div class="highlight-box">
+            <p><strong>Scenario: "DynamoDB throttling"</strong></p>
+            <p>→ Answers: Increase RCU/WCU, use on-demand mode, implement exponential backoff, check GSI capacity</p>
+        </div>
+
+        <div class="highlight-box">
+            <p><strong>Scenario: "API Gateway CORS errors"</strong></p>
+            <p>→ Enable CORS, Lambda proxy must return CORS headers</p>
+        </div>
+
+        <div class="highlight-box">
+            <p><strong>Scenario: "Lambda cannot access VPC resource"</strong></p>
+            <p>→ Check: Lambda in VPC, security groups, NAT gateway for internet access</p>
+        </div>
+
+        <div class="highlight-box">
+            <p><strong>Scenario: "Secure API access"</strong></p>
+            <p>→ Answers: IAM auth (AWS services), Cognito (users), Lambda authorizer (custom)</p>
+        </div>
+
+        <div class="highlight-box">
+            <p><strong>Scenario: "Process S3 uploads asynchronously"</strong></p>
+            <p>→ S3 Event → SQS → Lambda (decoupled, handles failures)</p>
+        </div>
+
+        <div class="highlight-box">
+            <p><strong>Scenario: "Order processing must not lose messages"</strong></p>
+            <p>→ SQS FIFO queue + DLQ</p>
+        </div>
+
+        <div class="highlight-box">
+            <p><strong>Scenario: "Fan-out notifications"</strong></p>
+            <p>→ SNS topic with multiple SQS subscriptions</p>
+        </div>
+
+        <div class="highlight-box">
+            <p><strong>Scenario: "Cache database queries"</strong></p>
+            <p>→ ElastiCache (Redis for complex, Memcached for simple)</p>
+        </div>
+
+        <h3>Keywords to Watch</h3>
+        <table>
+            <tr>
+                <th>Keyword</th>
+                <th>Think</th>
+            </tr>
+            <tr>
+                <td>"Real-time"</td>
+                <td>Kinesis, Lambda, WebSocket API</td>
+            </tr>
+            <tr>
+                <td>"Serverless"</td>
+                <td>Lambda, API Gateway, DynamoDB</td>
+            </tr>
+            <tr>
+                <td>"Cost-effective"</td>
+                <td>On-demand pricing, auto-scaling, S3 lifecycle</td>
+            </tr>
+            <tr>
+                <td>"High availability"</td>
+                <td>Multi-AZ, DynamoDB global tables, S3</td>
+            </tr>
+            <tr>
+                <td>"Decouple"</td>
+                <td>SQS, SNS, EventBridge</td>
+            </tr>
+            <tr>
+                <td>"Ordered processing"</td>
+                <td>SQS FIFO, Kinesis (per shard)</td>
+            </tr>
+            <tr>
+                <td>"Temporary credentials"</td>
+                <td>STS, IAM roles, Cognito Identity Pools</td>
+            </tr>
+            <tr>
+                <td>"Least privilege"</td>
+                <td>IAM policies with specific actions/resources</td>
+            </tr>
+            <tr>
+                <td>"Audit trail"</td>
+                <td>CloudWatch Logs, CloudTrail, X-Ray</td>
+            </tr>
+            <tr>
+                <td>"Rollback"</td>
+                <td>Lambda aliases, CodeDeploy blue/green</td>
+            </tr>
+        </table>
+
+        <h3>Time Management</h3>
+        <ul>
+            <li>65 questions, 130 minutes = 2 min/question</li>
+            <li>Flag uncertain questions (review later)</li>
+            <li>Read question twice, eliminate wrong answers</li>
+            <li>Watch for "MOST cost-effective", "LEAST operational overhead"</li>
+        </ul>
+
+        <h3>Common Traps</h3>
+        <ul>
+            <li><strong>Lambda memory:</strong> More memory = more CPU (not just RAM)</li>
+            <li><strong>DynamoDB GSI:</strong> Eventually consistent only, separate capacity</li>
+            <li><strong>SQS visibility timeout:</strong> Must be > Lambda timeout</li>
+            <li><strong>API Gateway stages:</strong> Must deploy to activate changes</li>
+            <li><strong>IAM:</strong> Explicit Deny always wins</li>
+            <li><strong>S3 versioning:</strong> Cannot disable, only suspend</li>
+        </ul>
+
+        <h3>Day Before Exam</h3>
+        <ul>
+            <li>Review flashcards: Lambda limits, DynamoDB capacity calculation</li>
+            <li>Skim service FAQs: Lambda, DynamoDB, API Gateway</li>
+            <li>Sleep well (8 hours)</li>
+            <li>No cramming (trust your prep)</li>
+        </ul>
+
+        <hr>
+
+        <h2>QUICK REFERENCE TABLES</h2>
+
+        <h3>Lambda Limits</h3>
+        <table>
+            <tr>
+                <th>Limit</th>
+                <th>Value</th>
+            </tr>
+            <tr>
+                <td>Memory</td>
+                <td>128MB - 10,240MB</td>
+            </tr>
+            <tr>
+                <td>Timeout</td>
+                <td>900s (15 min)</td>
+            </tr>
+            <tr>
+                <td>/tmp storage</td>
+                <td>512MB - 10GB</td>
+            </tr>
+            <tr>
+                <td>Deployment package</td>
+                <td>50MB (zipped), 250MB (unzipped)</td>
+            </tr>
+            <tr>
+                <td>Concurrent executions</td>
+                <td>1000/region (default)</td>
+            </tr>
+        </table>
+
+        <h3>DynamoDB Capacity</h3>
+        <table>
+            <tr>
+                <th>Operation</th>
+                <th>Capacity</th>
+            </tr>
+            <tr>
+                <td>1 RCU</td>
+                <td>1 strongly consistent read/s (≤4KB)</td>
+            </tr>
+            <tr>
+                <td>1 RCU</td>
+                <td>2 eventually consistent reads/s (≤4KB)</td>
+            </tr>
+            <tr>
+                <td>1 WCU</td>
+                <td>1 write/s (≤1KB)</td>
+            </tr>
+        </table>
+
+        <h3>API Gateway Limits</h3>
+        <table>
+            <tr>
+                <th>Limit</th>
+                <th>Value</th>
+            </tr>
+            <tr>
+                <td>Throttle</td>
+                <td>10,000 RPS</td>
+            </tr>
+            <tr>
+                <td>Burst</td>
+                <td>5,000 requests</td>
+            </tr>
+            <tr>
+                <td>Timeout</td>
+                <td>29 seconds</td>
+            </tr>
+            <tr>
+                <td>Payload</td>
+                <td>10MB</td>
+            </tr>
+        </table>
+
+        <h3>SQS Limits</h3>
+        <table>
+            <tr>
+                <th>Limit</th>
+                <th>Value</th>
+            </tr>
+            <tr>
+                <td>Message size</td>
+                <td>256KB</td>
+            </tr>
+            <tr>
+                <td>Visibility timeout</td>
+                <td>0s - 12h (default 30s)</td>
+            </tr>
+            <tr>
+                <td>Retention</td>
+                <td>1 min - 14 days (default 4 days)</td>
+            </tr>
+            <tr>
+                <td>Delay</td>
+                <td>0s - 15 min</td>
+            </tr>
+            <tr>
+                <td>FIFO throughput</td>
+                <td>300 TPS (3000 with batching)</td>
+            </tr>
+        </table>
+
+        <hr>
+
+        <h2>STUDY CHECKLIST</h2>
+
+        <h3>Week 1-2: TIER 1</h3>
+        <ul>
+            <li>☐ Lambda: all triggers, concurrency, error handling</li>
+            <li>☐ DynamoDB: keys, indexes, streams, capacity modes</li>
+            <li>☐ API Gateway: integration types, auth, stages</li>
+            <li>☐ IAM: roles, policies, trust vs permission</li>
+            <li>☐ CloudWatch: metrics, logs, alarms, X-Ray</li>
+        </ul>
+
+        <h3>Week 3-4: TIER 2</h3>
+        <ul>
+            <li>☐ S3: events, storage classes, encryption</li>
+            <li>☐ SQS: Standard vs FIFO, DLQ, polling</li>
+            <li>☐ SNS: topics, fan-out pattern</li>
+            <li>☐ CodePipeline/Build/Deploy: CI/CD flow</li>
+        </ul>
+
+        <h3>Week 5: TIER 3 + Review</h3>
+        <ul>
+            <li>☐ ECS: task definitions, IAM roles</li>
+            <li>☐ Cognito: User Pools vs Identity Pools</li>
+            <li>☐ ElastiCache: caching strategies</li>
+            <li>☐ Practice exam 1: identify gaps</li>
+        </ul>
+
+        <h3>Week 6: Practice & Polish</h3>
+        <ul>
+            <li>☐ Practice exam 2-4</li>
+            <li>☐ Review all mistakes</li>
+            <li>☐ Flashcard drill: 200+ cards</li>
+            <li>☐ Rest day before exam</li>
+        </ul>
+
+        <hr>
+
+        <!-- ============================================ -->
+        <!-- FINAL REVIEW CHECKLIST                      -->
+        <!-- ============================================ -->
+        
+        <div class="executive-summary" style="margin-top: 50px;">
+            <h2>📋 FINAL REVIEW CHECKLIST - 48 Hours Before Exam</h2>
+            
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <h3>🔷 Lambda Must-Know</h3>
+                    <ul>
+                        <li>☑ Invocation types: Sync, Async, Stream</li>
+                        <li>☑ Timeout: default 3s, max 900s (15min)</li>
+                        <li>☑ Concurrency: 1000 default, reserved vs provisioned</li>
+                        <li>☑ VPC = ENI + NAT for internet</li>
+                        <li>☑ Error handling: DLQ for async only</li>
+                        <li>☑ Memory = CPU (128MB-10GB)</li>
+                    </ul>
+                </div>
+                
+                <div class="summary-card">
+                    <h3>🔶 DynamoDB Must-Know</h3>
+                    <ul>
+                        <li>☑ PK required, SK optional</li>
+                        <li>☑ GSI: different PK, create anytime, own capacity</li>
+                        <li>☑ LSI: same PK, at creation, shared capacity</li>
+                        <li>☑ Strong vs Eventually consistent</li>
+                        <li>☑ Streams: 24h retention, CDC</li>
+                        <li>☑ DAX: microsecond cache</li>
+                    </ul>
+                </div>
+                
+                <div class="summary-card">
+                    <h3>🔷 API Gateway Must-Know</h3>
+                    <ul>
+                        <li>☑ REST vs HTTP (HTTP 70% cheaper)</li>
+                        <li>☑ Timeout: 29s max</li>
+                        <li>☑ Stages: dev, prod, etc.</li>
+                        <li>☑ Caching: REST only, not HTTP</li>
+                        <li>☑ Auth: IAM, Cognito, Lambda authorizer</li>
+                        <li>☑ WebSocket: real-time, bidirectional</li>
+                    </ul>
+                </div>
+                
+                <div class="summary-card">
+                    <h3>🔶 IAM Must-Know</h3>
+                    <ul>
+                        <li>☑ Least privilege principle</li>
+                        <li>☑ Roles > Users for AWS resources</li>
+                        <li>☑ Policy evaluation: Explicit Deny wins</li>
+                        <li>☑ Never hardcode credentials</li>
+                        <li>☑ Use Secrets Manager for passwords</li>
+                        <li>☑ Resource-based vs Identity-based</li>
+                    </ul>
+                </div>
+                
+                <div class="summary-card">
+                    <h3>🔷 SQS Must-Know</h3>
+                    <ul>
+                        <li>☑ Standard: at-least-once, no order</li>
+                        <li>☑ FIFO: exactly-once, ordered, 300 TPS</li>
+                        <li>☑ Visibility timeout > Lambda timeout</li>
+                        <li>☑ DLQ after X failed attempts</li>
+                        <li>☑ Long polling (1-20s) better than short</li>
+                        <li>☑ Message retention: 1min - 14 days</li>
+                    </ul>
+                </div>
+                
+                <div class="summary-card">
+                    <h3>🔶 SNS Must-Know</h3>
+                    <ul>
+                        <li>☑ Pub/Sub model, fan-out</li>
+                        <li>☑ Push-based (not pull)</li>
+                        <li>☑ Subscribers: SQS, Lambda, HTTP, Email, SMS</li>
+                        <li>☑ FIFO topics (with FIFO queues)</li>
+                        <li>☑ Message filtering available</li>
+                        <li>☑ SNS → SQS = fan-out pattern</li>
+                    </ul>
+                </div>
+                
+                <div class="summary-card">
+                    <h3>🔷 S3 Must-Know</h3>
+                    <ul>
+                        <li>☑ Object storage (not file system)</li>
+                        <li>☑ Storage classes: Standard, IA, Glacier</li>
+                        <li>☑ Versioning: protect from deletes</li>
+                        <li>☑ Encryption: SSE-S3, SSE-KMS, SSE-C</li>
+                        <li>☑ CORS for cross-origin access</li>
+                        <li>☑ Presigned URLs: temporary access</li>
+                    </ul>
+                </div>
+                
+                <div class="summary-card">
+                    <h3>🔶 CloudWatch Must-Know</h3>
+                    <ul>
+                        <li>☑ Metrics: 1min or 5min</li>
+                        <li>☑ Logs: aggregation, insights, exports</li>
+                        <li>☑ Alarms: trigger actions</li>
+                        <li>☑ X-Ray: distributed tracing</li>
+                        <li>☑ Custom metrics via PutMetricData</li>
+                        <li>☑ Logs retention: 1 day - never expire</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="exam-notes-box" style="margin-top: 30px;">
+            <h3>⏰ Last 24 Hours Strategy</h3>
+            
+            <div class="card-grid">
+                <div class="card-item">
+                    <h4>Morning (4 hours)</h4>
+                    <ul>
+                        <li>Review all mnemonics (LAMBDA TIME, SAS, etc.)</li>
+                        <li>Skim comparison tables</li>
+                        <li>Practice 1 full-length exam</li>
+                        <li>Review missed questions</li>
+                    </ul>
+                </div>
+                
+                <div class="card-item">
+                    <h4>Afternoon (3 hours)</h4>
+                    <ul>
+                        <li>Focus on weak areas from practice</li>
+                        <li>Review service limits/numbers</li>
+                        <li>Read red flag keywords</li>
+                        <li>Quick skim of TIER 3 services</li>
+                    </ul>
+                </div>
+                
+                <div class="card-item">
+                    <h4>Evening (2 hours)</h4>
+                    <ul>
+                        <li>Light review of decision trees</li>
+                        <li>Read exam scenario playbook</li>
+                        <li>Relax - no heavy studying</li>
+                        <li>Early sleep (8 hours!)</li>
+                    </ul>
+                </div>
+                
+                <div class="card-item">
+                    <h4>Exam Day</h4>
+                    <ul>
+                        <li>Breakfast + caffeine (normal routine)</li>
+                        <li>Arrive 30min early</li>
+                        <li>Brain dump: write down mnemonics on scratch</li>
+                        <li>Read questions CAREFULLY (twice!)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="highlight-box" style="margin-top: 20px;">
+                <h4>🎯 During Exam Tips:</h4>
+                <ul>
+                    <li><strong>Flag & skip</strong> if uncertain (come back later)</li>
+                    <li><strong>Eliminate</strong> obviously wrong answers first</li>
+                    <li><strong>Look for keywords:</strong> "cost-effective", "most secure", "minimize latency"</li>
+                    <li><strong>Watch for red flags:</strong> hardcoded credentials, wrong service choice</li>
+                    <li><strong>Time management:</strong> 2 minutes per question average (130min ÷ 65 questions)</li>
+                    <li><strong>First pass:</strong> Answer easy ones (45-60 min for ~40 questions)</li>
+                    <li><strong>Second pass:</strong> Review flagged (45-60 min for ~25 questions)</li>
+                    <li><strong>Buffer:</strong> Keep 15-20 min for final review</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="info-box" style="margin-top: 30px;">
+            <h3>📊 Score Breakdown - What You Need</h3>
+            <table>
+                <tr>
+                    <th>Domain</th>
+                    <th>Weight</th>
+                    <th>Questions (~)</th>
+                    <th>Pass Target (720/1000)</th>
+                </tr>
+                <tr>
+                    <td>Development with AWS Services</td>
+                    <td>32%</td>
+                    <td>~21</td>
+                    <td>15+ correct (71%)</td>
+                </tr>
+                <tr>
+                    <td>Security</td>
+                    <td>26%</td>
+                    <td>~17</td>
+                    <td>12+ correct (71%)</td>
+                </tr>
+                <tr>
+                    <td>Deployment</td>
+                    <td>24%</td>
+                    <td>~16</td>
+                    <td>11+ correct (69%)</td>
+                </tr>
+                <tr>
+                    <td>Troubleshooting & Optimization</td>
+                    <td>18%</td>
+                    <td>~11</td>
+                    <td>8+ correct (73%)</td>
+                </tr>
+            </table>
+            <p><strong>Total:</strong> Need ~46-48 correct out of 65 questions (71-74%)</p>
+            <p><em>Note: Exam has 15 unscored questions (testing for future), so aim for 75%+ to be safe!</em></p>
+        </div>
+
+        <div class="success-box">
+            <h2>FINAL NOTES</h2>
+            <p><strong>This guide covers 80% of exam content.</strong></p>
+            <p>Focus on understanding TIER 1 services deeply.</p>
+            <p>TIER 2 services: know integration patterns.</p>
+            <p>TIER 3 services: recognize use cases.</p>
+            
+            <h3>Success formula:</h3>
+            <ul>
+                <li>40% hands-on practice (actually build things)</li>
+                <li>40% practice exams (learn from mistakes)</li>
+                <li>20% reading/watching (theory)</li>
+            </ul>
+            
+            <h2 style="text-align: center; color: #28a745; margin-top: 30px;">You got this! 🚀</h2>
+        </div>
+
+        </div>
+    </div>
+
+    <script src="assets/script.js"></script>
+</body>
+</html>
+
+

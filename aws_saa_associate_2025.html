@@ -1,0 +1,820 @@
+<!DOCTYPE html><!DOCTYPE html>
+
+<html lang="vi"><html lang="vi">
+
+<head><head>
+
+    <meta charset="UTF-8">    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AWS SAA-C03 Study Guide - 80/20 Master Blueprint</title>    <title>AWS SAA-C03 Study Guide - 80/20 Master Blueprint</title>
+
+    <link rel="stylesheet" href="assets/style.css">    <link rel="stylesheet" href="assets/style.css">
+
+</head></head>
+
+<body><body>
+
+    <div class="content-wrapper">    <div class="content-wrapper">
+
+        <nav class="toc" aria-label="Mục lục">        <nav class="toc" aria-label="Mục lục">
+
+            <h2>Mục lục</h2>            <h2>Mục lục</h2>
+
+            <ul id="toc-list" role="list"></ul>            <ul id="toc-list" role="list"></ul>
+
+        </nav>        </nav>
+
+        <div class="container">        <div class="container">
+
+        <h1>🎓 AWS SAA-C03 STUDY GUIDE - THE 80/20 MASTER BLUEPRINT</h1>        <h1>🎓 AWS SAA-C03 STUDY GUIDE - THE 80/20 MASTER BLUEPRINT</h1>
+
+                
+
+        <!-- EXECUTIVE SUMMARY -->        <!-- EXECUTIVE SUMMARY -->
+
+        <div class="executive-summary">        <div class="executive-summary">
+
+            <h2>📊 EXECUTIVE SUMMARY - Tổng quan bài thi</h2>            <h2>📊 EXECUTIVE SUMMARY - Tổng quan bài thi</h2>
+
+                        
+
+            <div class="summary-grid">            <div class="summary-grid">
+
+                <div class="summary-card">                <div class="summary-card">
+
+                    <h3>🎯 Exam Overview</h3>                    <h3>🎯 Exam Overview</h3>
+
+                    <ul>                    <ul>
+
+                        <li><strong>Thời gian:</strong> 130 phút</li>                        <li><strong>Thời gian:</strong> 130 phút</li>
+
+                        <li><strong>Câu hỏi:</strong> 65 câu</li>                        <li><strong>Câu hỏi:</strong> 65 câu</li>
+
+                        <li><strong>Điểm đạt:</strong> 720/1000</li>                        <li><strong>Điểm đạt:</strong> 720/1000</li>
+
+                        <li><strong>Format:</strong> Multiple choice + Multiple response</li>                        <li><strong>Format:</strong> Multiple choice + Multiple response</li>
+
+                        <li><strong>Giá:</strong> $150 USD</li>                        <li><strong>Giá:</strong> $150 USD</li>
+
+                    </ul>                    </ul>
+
+                </div>                </div>
+
+                                
+
+                <div class="summary-card">                <div class="summary-card">
+
+                    <h3>📈 Score Distribution</h3>                    <h3>📈 Score Distribution</h3>
+
+                    <ul>                    <ul>
+
+                        <li><strong>Domain 1:</strong> Design Resilient Architectures (30%)</li>                        <li><strong>Domain 1:</strong> Design Resilient Architectures (30%)</li>
+
+                        <li><strong>Domain 2:</strong> Design High-Performing Architectures (28%)</li>                        <li><strong>Domain 2:</strong> Design High-Performing Architectures (28%)</li>
+
+                        <li><strong>Domain 3:</strong> Design Secure Applications (24%)</li>                        <li><strong>Domain 3:</strong> Design Secure Applications (24%)</li>
+
+                        <li><strong>Domain 4:</strong> Design Cost-Optimized Architectures (18%)</li>                        <li><strong>Domain 4:</strong> Design Cost-Optimized Architectures (18%)</li>
+
+                    </ul>                    </ul>
+
+                </div>                </div>
+
+                                
+
+                <div class="summary-card">                <div class="summary-card">
+
+                    <h3>⚡ Top 6 Services (80% Score)</h3>                    <h3>⚡ Top 6 Services (80% Score)</h3>
+
+                    <ul>                    <ul>
+
+                        <li><strong>VPC:</strong> ~15% (Nền tảng mạng)</li>                        <li><strong>VPC:</strong> ~15% (Nền tảng mạng)</li>
+
+                        <li><strong>EC2 + ELB + ASG:</strong> ~20% (Nền tảng compute)</li>                        <li><strong>EC2 + ELB + ASG:</strong> ~20% (Nền tảng compute)</li>
+
+                        <li><strong>S3:</strong> ~15% (Nền tảng lưu trữ)</li>                        <li><strong>S3:</strong> ~15% (Nền tảng lưu trữ)</li>
+
+                        <li><strong>IAM:</strong> ~10% (Nền tảng bảo mật)</li>                        <li><strong>IAM:</strong> ~10% (Nền tảng bảo mật)</li>
+
+                        <li><strong>RDS & Aurora:</strong> ~10% (Nền tảng database)</li>                        <li><strong>RDS & Aurora:</strong> ~10% (Nền tảng database)</li>
+
+                        <li><strong>Route 53:</strong> ~10% (Định tuyến & HA)</li>                        <li><strong>Route 53:</strong> ~10% (Định tuyến & HA)</li>
+
+                    </ul>                    </ul>
+
+                </div>                </div>
+
+                                
+
+                <div class="summary-card">                <div class="summary-card">
+
+                    <h3>🎓 Study Strategy</h3>                    <h3>🎓 Study Strategy</h3>
+
+                    <ul>                    <ul>
+
+                        <li><strong>Week 1-2:</strong> TIER 1 (Foundations)</li>                        <li><strong>Week 1-2:</strong> TIER 1 (Foundations)</li>
+
+                        <li><strong>Week 3:</strong> TIER 2 (Building Blocks)</li>                        <li><strong>Week 3:</strong> TIER 2 (Building Blocks)</li>
+
+                        <li><strong>Week 4:</strong> TIER 3 + Integration Patterns</li>                        <li><strong>Week 4:</strong> TIER 3 + Integration Patterns</li>
+
+                        <li><strong>Week 5-6:</strong> Practice exams + Review</li>                        <li><strong>Week 5-6:</strong> Practice exams + Review</li>
+
+                        <li><strong>Target:</strong> 85%+ on practice tests</li>                        <li><strong>Target:</strong> 85%+ on practice tests</li>
+
+                    </ul>                    </ul>
+
+                </div>                </div>
+
+            </div>            </div>
+
+                        
+
+            <div style="margin-top: 25px; padding-top: 20px; border-top: 2px solid rgba(255,255,255,0.3);">            <div style="margin-top: 25px; padding-top: 20px; border-top: 2px solid rgba(255,255,255,0.3);">
+
+                <h3 style="color: #ffd700; border: none; padding: 0; margin: 0 0 15px 0;">🏛️ The 6 Pillars of the Well-Architected Framework</h3>                <h3 style="color: #ffd700; border: none; padding: 0; margin: 0 0 15px 0;">🏛️ The 6 Pillars of the Well-Architected Framework</h3>
+
+                <pre class="ascii-diagram">                <pre class="ascii-diagram">
+
+┌──────────────────────────────────────────────────────────────────────────┐┌──────────────────────────────────────────────────────────────────────────┐
+
+│                            YOUR APPLICATION                              ││                            YOUR APPLICATION                              │
+
+├──────────────────────────────────────────────────────────────────────────┤├──────────────────────────────────────────────────────────────────────────┤
+
+│ ┌───────────────┐  ┌───────────────┐  ┌───────────────┐  ┌───────────────┐ ││ ┌───────────────┐  ┌───────────────┐  ┌───────────────┐  ┌───────────────┐ │
+
+│ │  Operational  │  │   Security    │  │  Reliability  │  │ Performance   │ ││ │  Operational  │  │   Security    │  │  Reliability  │  │ Performance   │ │
+
+│ │   Excellence  │  │               │  │               │  │  Efficiency   │ ││ │   Excellence  │  │               │  │               │  │  Efficiency   │ │
+
+│ └───────────────┘  └───────────────┘  └───────────────┘  └───────────────┘ ││ └───────────────┘  └───────────────┘  └───────────────┘  └───────────────┘ │
+
+│ ┌───────────────┐  ┌───────────────┐                                      ││ ┌───────────────┐  ┌───────────────┐                                      │
+
+│ │ Cost          │  │ Sustainability│                                      ││ │ Cost          │  │ Sustainability│                                      │
+
+│ │ Optimization  │  │               │                                      ││ │ Optimization  │  │               │                                      │
+
+│ └───────────────┘  └───────────────┘                                      ││ └───────────────┘  └───────────────┘                                      │
+
+└──────────────────────────────────────────────────────────────────────────┘└──────────────────────────────────────────────────────────────────────────┘
+
+                </pre>                </pre>
+
+            </div>            </div>
+
+        </div>        </div>
+
+                
+
+        <!-- NAVIGATION HUB -->        <!-- NAVIGATION HUB -->
+
+        <div class="nav-hub">        <div class="nav-hub">
+
+            <h2>🧭 NAVIGATION HUB - Lộ trình học tập</h2>            <h2>🧭 NAVIGATION HUB - Lộ trình học tập</h2>
+
+                        
+
+            <div class="progress-tracker">            <div class="progress-tracker">
+
+                <h3>📊 Study Progress Tracker</h3>                <h3>📊 Study Progress Tracker</h3>
+
+                <div class="progress-bar-container">                <div class="progress-bar-container">
+
+                    <div class="progress-bar" id="overall-progress">0%</div>                    <div class="progress-bar" id="overall-progress">0%</div>
+
+                </div>                </div>
+
+                <p style="text-align: center; margin-top: 10px; color: #666;">                <p style="text-align: center; margin-top: 10px; color: #666;">
+
+                    <span id="completed-count">0</span> / <span id="total-count">15</span> topics completed                    <span id="completed-count">0</span> / <span id="total-count">15</span> topics completed
+
+                </p>                </p>
+
+            </div>            </div>
+
+                        
+
+            <div class="topic-checklist">            <div class="topic-checklist">
+
+                <div class="topic-item" data-tier="1">                <div class="topic-item" data-tier="1">
+
+                    <input type="checkbox" id="topic-vpc" onchange="updateProgress()">                    <input type="checkbox" id="topic-vpc" onchange="updateProgress()">
+
+                    <label for="topic-vpc"><strong>🔷 VPC</strong><br><small>⭐⭐⭐⭐⭐ Critical | Est: 8-10h</small></label>                    <label for="topic-vpc"><strong>🔷 VPC</strong><br><small>⭐⭐⭐⭐⭐ Critical | Est: 8-10h</small></label>
+
+                </div>                </div>
+
+                <div class="topic-item" data-tier="1">                <div class="topic-item" data-tier="1">
+
+                    <input type="checkbox" id="topic-ec2" onchange="updateProgress()">                    <input type="checkbox" id="topic-ec2" onchange="updateProgress()">
+
+                    <label for="topic-ec2"><strong>🔷 EC2, ELB, ASG</strong><br><small>⭐⭐⭐⭐⭐ Critical | Est: 10-12h</small></label>                    <label for="topic-ec2"><strong>🔷 EC2, ELB, ASG</strong><br><small>⭐⭐⭐⭐⭐ Critical | Est: 10-12h</small></label>
+
+                </div>                </div>
+
+                <div class="topic-item" data-tier="1">                <div class="topic-item" data-tier="1">
+
+                    <input type="checkbox" id="topic-s3" onchange="updateProgress()">                    <input type="checkbox" id="topic-s3" onchange="updateProgress()">
+
+                    <label for="topic-s3"><strong>🔷 S3</strong><br><small>⭐⭐⭐⭐⭐ Critical | Est: 8-10h</small></label>                    <label for="topic-s3"><strong>🔷 S3</strong><br><small>⭐⭐⭐⭐⭐ Critical | Est: 8-10h</small></label>
+
+                </div>                </div>
+
+                <div class="topic-item" data-tier="1">                <div class="topic-item" data-tier="1">
+
+                    <input type="checkbox" id="topic-iam" onchange="updateProgress()">                    <input type="checkbox" id="topic-iam" onchange="updateProgress()">
+
+                    <label for="topic-iam"><strong>🔷 IAM</strong><br><small>⭐⭐⭐⭐⭐ Critical | Est: 6-8h</small></label>                    <label for="topic-iam"><strong>🔷 IAM</strong><br><small>⭐⭐⭐⭐⭐ Critical | Est: 6-8h</small></label>
+
+                </div>                </div>
+
+                <div class="topic-item" data-tier="1">                <div class="topic-item" data-tier="1">
+
+                    <input type="checkbox" id="topic-rds" onchange="updateProgress()">                    <input type="checkbox" id="topic-rds" onchange="updateProgress()">
+
+                    <label for="topic-rds"><strong>🔷 RDS & Aurora</strong><br><small>⭐⭐⭐⭐⭐ Critical | Est: 6-8h</small></label>                    <label for="topic-rds"><strong>🔷 RDS & Aurora</strong><br><small>⭐⭐⭐⭐⭐ Critical | Est: 6-8h</small></label>
+
+                </div>                </div>
+
+                <div class="topic-item" data-tier="2">                <div class="topic-item" data-tier="2">
+
+                    <input type="checkbox" id="topic-route53" onchange="updateProgress()">                    <input type="checkbox" id="topic-route53" onchange="updateProgress()">
+
+                    <label for="topic-route53"><strong>🔶 Route 53</strong><br><small>⭐⭐⭐⭐ Important | Est: 4-5h</small></label>                    <label for="topic-route53"><strong>🔶 Route 53</strong><br><small>⭐⭐⭐⭐ Important | Est: 4-5h</small></label>
+
+                </div>                </div>
+
+                <div class="topic-item" data-tier="2">                <div class="topic-item" data-tier="2">
+
+                    <input type="checkbox" id="topic-decoupling" onchange="updateProgress()">                    <input type="checkbox" id="topic-decoupling" onchange="updateProgress()">
+
+                    <label for="topic-decoupling"><strong>🔶 Decoupling (SQS, SNS)</strong><br><small>⭐⭐⭐⭐ Important | Est: 4-5h</small></label>                    <label for="topic-decoupling"><strong>🔶 Decoupling (SQS, SNS)</strong><br><small>⭐⭐⭐⭐ Important | Est: 4-5h</small></label>
+
+                </div>                </div>
+
+                <div class="topic-item" data-tier="2">                <div class="topic-item" data-tier="2">
+
+                    <input type="checkbox" id="topic-serverless" onchange="updateProgress()">                    <input type="checkbox" id="topic-serverless" onchange="updateProgress()">
+
+                    <label for="topic-serverless"><strong>🔶 Serverless (Lambda, API GW)</strong><br><small>⭐⭐⭐ Good to know | Est: 3-4h</small></label>                    <label for="topic-serverless"><strong>🔶 Serverless (Lambda, API GW)</strong><br><small>⭐⭐⭐ Good to know | Est: 3-4h</small></label>
+
+                </div>                </div>
+
+                <div class="topic-item" data-tier="2">                <div class="topic-item" data-tier="2">
+
+                    <input type="checkbox" id="topic-cloudfront" onchange="updateProgress()">                    <input type="checkbox" id="topic-cloudfront" onchange="updateProgress()">
+
+                    <label for="topic-cloudfront"><strong>🔶 CloudFront</strong><br><small>⭐⭐⭐⭐ Important | Est: 3-4h</small></label>                    <label for="topic-cloudfront"><strong>🔶 CloudFront</strong><br><small>⭐⭐⭐⭐ Important | Est: 3-4h</small></label>
+
+                </div>                </div>
+
+                <div class="topic-item" data-tier="2">                <div class="topic-item" data-tier="2">
+
+                    <input type="checkbox" id="topic-monitoring" onchange="updateProgress()">                    <input type="checkbox" id="topic-monitoring" onchange="updateProgress()">
+
+                    <label for="topic-monitoring"><strong>🔶 Monitoring (CW, CT)</strong><br><small>⭐⭐⭐ Good to know | Est: 2-3h</small></label>                    <label for="topic-monitoring"><strong>🔶 Monitoring (CW, CT)</strong><br><small>⭐⭐⭐ Good to know | Est: 2-3h</small></label>
+
+                </div>                </div>
+
+                <div class="topic-item" data-tier="3">                <div class="topic-item" data-tier="3">
+
+                    <input type="checkbox" id="topic-dynamodb" onchange="updateProgress()">                    <input type="checkbox" id="topic-dynamodb" onchange="updateProgress()">
+
+                    <label for="topic-dynamodb"><strong>🔵 DynamoDB</strong><br><small>⭐⭐⭐ Good to know | Est: 3h</small></label>                    <label for="topic-dynamodb"><strong>🔵 DynamoDB</strong><br><small>⭐⭐⭐ Good to know | Est: 3h</small></label>
+
+                </div>                </div>
+
+                <div class="topic-item" data-tier="3">                <div class="topic-item" data-tier="3">
+
+                    <input type="checkbox" id="topic-efs" onchange="updateProgress()">                    <input type="checkbox" id="topic-efs" onchange="updateProgress()">
+
+                    <label for="topic-efs"><strong>🔵 EFS & FSx</strong><br><small>⭐⭐ Good to know | Est: 2h</small></label>                    <label for="topic-efs"><strong>🔵 EFS & FSx</strong><br><small>⭐⭐ Good to know | Est: 2h</small></label>
+
+                </div>                </div>
+
+                <div class="topic-item" data-tier="3">                <div class="topic-item" data-tier="3">
+
+                    <input type="checkbox" id="topic-elasticache" onchange="updateProgress()">                    <input type="checkbox" id="topic-elasticache" onchange="updateProgress()">
+
+                    <label for="topic-elasticache"><strong>🔵 ElastiCache</strong><br><small>⭐⭐⭐ Good to know | Est: 2h</small></label>                    <label for="topic-elasticache"><strong>🔵 ElastiCache</strong><br><small>⭐⭐⭐ Good to know | Est: 2h</small></label>
+
+                </div>                </div>
+
+                <div class="topic-item" data-tier="3">                <div class="topic-item" data-tier="3">
+
+                    <input type="checkbox" id="topic-dr" onchange="updateProgress()">                    <input type="checkbox" id="topic-dr" onchange="updateProgress()">
+
+                    <label for="topic-dr"><strong>🔗 Disaster Recovery</strong><br><small>⭐⭐⭐⭐ Important | Est: 4h</small></label>                    <label for="topic-dr"><strong>🔗 Disaster Recovery</strong><br><small>⭐⭐⭐⭐ Important | Est: 4h</small></label>
+
+                </div>                </div>
+
+                <div class="topic-item" data-tier="3">                <div class="topic-item" data-tier="3">
+
+                    <input type="checkbox" id="topic-practice" onchange="updateProgress()">                    <input type="checkbox" id="topic-practice" onchange="updateProgress()">
+
+                    <label for="topic-practice"><strong>📝 Practice Exams</strong><br><small>⭐⭐⭐⭐⭐ Critical | Est: 15h</small></label>                    <label for="topic-practice"><strong>📝 Practice Exams</strong><br><small>⭐⭐⭐⭐⭐ Critical | Est: 15h</small></label>
+
+                </div>                </div>
+
+            </div>            </div>
+
+        </div>        </div>
+
+                
+
+        <h2><span class="tier-badge tier-1">TIER 1 - ARCHITECTURAL FOUNDATIONS (60-70% điểm)</span></h2>        <h2><span class="tier-badge tier-1">TIER 1 - ARCHITECTURAL FOUNDATIONS (60-70% điểm)</span></h2>
+
+        <hr>        <hr>
+
+
+
+        <!-- ============================================ -->        <!-- ============================================ -->
+
+        <!-- VPC SECTION                                  -->        <!-- VPC SECTION                                  -->
+
+        <!-- ============================================ -->        <!-- ============================================ -->
+
+        <h2 id="vpc">1. AMAZON VPC (Virtual Private Cloud)</h2>        <h2 id="vpc">1. AMAZON VPC (Virtual Private Cloud)</h2>
+
+                
+
+        <div class="service-card tier-1">        <div class="service-card tier-1">
+
+            <h2>🔷 VPC - Your Private Datacenter in the Cloud</h2>            <h2>🔷 VPC - Your Private Datacenter in the Cloud</h2>
+
+            <div class="card-grid">            <div class="card-grid">
+
+                <div class="card-item"><h4>🎯 Exam Weight</h4><p><strong>~15%</strong> of total exam</p></div>                <div class="card-item"><h4>🎯 Exam Weight</h4><p><strong>~15%</strong> of total exam</p></div>
+
+                <div class="card-item"><h4>⚡ Core Purpose</h4><p>Network isolation and security</p></div>                <div class="card-item"><h4>⚡ Core Purpose</h4><p>Network isolation and security</p></div>
+
+                <div class="card-item"><h4>🔑 Must-Know Topics</h4><ul><li>Public vs. Private Subnets</li><li>Security Groups vs. NACLs</li><li>NAT Gateway vs. VPC Endpoints</li></ul></div>                <div class="card-item"><h4>🔑 Must-Know Topics</h4><ul><li>Public vs. Private Subnets</li><li>Security Groups vs. NACLs</li><li>NAT Gateway vs. VPC Endpoints</li></ul></div>
+
+                <div class="card-item"><h4>🎓 Study Priority</h4><p><strong>⭐⭐⭐⭐⭐ CRITICAL</strong></p></div>                <div class="card-item"><h4>🎓 Study Priority</h4><p><strong>⭐⭐⭐⭐⭐ CRITICAL</strong></p></div>
+
+            </div>            </div>
+
+        </div>        </div>
+
+
+
+        <div class="mental-model-box">        <div class="mental-model-box">
+
+            <h3>💡 Mental Model: VPC như "Mảnh đất riêng trên AWS"</h3>            <h3>💡 Mental Model: VPC như "Mảnh đất riêng trên AWS"</h3>
+
+            <pre class="ascii-diagram">            <pre class="ascii-diagram">
+
+┌──────────────────────────────────────────────────────────────────┐┌──────────────────────────────────────────────────────────────────┐
+
+│                            YOUR VPC (10.0.0.0/16)                ││                            YOUR VPC (10.0.0.0/16)                │
+
+│ ┌───────────────────────────┐    ┌───────────────────────────┐   ││ ┌──────────────────────────
+│ │  Public Subnet (Internet) │    │  Private Subnet (Secure)  │   │
+│ │  - Web Servers (EC2)      │    │  - Database (RDS)         │   │
+│ │  - Public ELB             │    │  - Internal Apps (EC2)    │   │
+│ └───────────┬───────────────┘    └───────────┬───────────────┘   │
+└─────────────┼────────────────────────────────┼───────────────────┘
+              │                                │
+      (Internet Gateway) ◀- 0.0.0.0/0 -▶ (Route Table) ◀- 0.0.0.0/0 -▶ (NAT Gateway)
+              │                                │
+      (Security Group: Allow 80/443)           (Security Group: Allow 3306 from Web SG)
+            </pre>
+        </div>
+
+        <h3>📚 Core Concepts</h3>
+        <ul>
+            <li><strong>VPC:</strong> A logically isolated section of the AWS Cloud. Spans all AZs in a region.</li>
+            <li><strong>Subnet:</strong> A range of IP addresses in your VPC. Tied to a single Availability Zone (AZ).</li>
+            <li><strong>Public Subnet:</strong> Has a route to an Internet Gateway (IGW). Resources can be reached from the internet.</li>
+            <li><strong>Private Subnet:</strong> Does NOT have a route to an IGW. Resources cannot be reached from the internet.</li>
+            <li><strong>Route Table:</strong> A set of rules, called routes, that determine where network traffic is directed.</li>
+            <li><strong>Internet Gateway (IGW):</strong> Allows communication between your VPC and the internet.</li>
+            <li><strong>NAT Gateway:</strong> Allows instances in a private subnet to connect to the internet (e.g., for updates), but prevents the internet from initiating connections with those instances. Must be in a public subnet.</li>
+        </ul>
+
+        <h3>🛡️ Security: Security Groups vs. Network ACLs (NACLs)</h3>
+        <div class="comparison-matrix">
+            <table>
+                <tr><th>Feature</th><th>Security Groups (SG)</th><th>Network ACLs (NACL)</th></tr>
+                <tr><td><strong>Applies to</strong></td><td>Instance level (ENI)</td><td>Subnet level</td></tr>
+                <tr><td><strong>State</strong></td><td><strong>Stateful</strong> (return traffic is auto-allowed)</td><td><strong>Stateless</strong> (must explicitly allow return traffic)</td></tr>
+                <tr><td><strong>Rules</strong></td><td>Allow rules only</td><td>Allow AND Deny rules</td></tr>
+                <tr><td><strong>Evaluation</strong></td><td>All rules are evaluated</td><td>Rules evaluated in number order</td></tr>
+                <tr><td><strong>Use Case</strong></td><td>Instance-level firewall</td><td>Subnet-level firewall (first line of defense)</td></tr>
+            </table>
+        </div>
+        <div class="info-box"><strong>Exam Tip:</strong> 90% of security questions can be solved with Security Groups. Only use NACLs for explicit DENY requirements or subnet-wide blocking.</div>
+
+        <h3>🌐 Connectivity & Endpoints</h3>
+        <ul>
+            <li><strong>VPC Peering:</strong> Connect two VPCs privately. Non-transitive (A-B, B-C does not mean A-C).</li>
+            <li><strong>Transit Gateway:</strong> A central hub to connect many VPCs and on-premises networks. Simplifies network management.</li>
+            <li><strong>VPC Endpoints:</strong> Privately connect your VPC to supported AWS services without requiring an IGW or NAT Gateway.
+                <ul>
+                    <li><strong>Gateway Endpoint:</strong> For S3 and DynamoDB. A gateway in your route table.</li>
+                    <li><strong>Interface Endpoint (PrivateLink):</strong> For most other services. An ENI in your subnet with a private IP. More expensive but more versatile.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <div class="mistake-box critical">
+            <h3>⚠️ Common Mistakes & Exam Traps (VPC)</h3>
+            <table>
+                <tr><th>Scenario</th><th>Wrong Answer</th><th>Correct Approach</th><th>Keyword</th></tr>
+                <tr><td>EC2 in private subnet needs to download patches</td><td>Move it to a public subnet</td><td>Use a <strong>NAT Gateway</strong> in a public subnet</td><td>"private" + "internet access"</td></tr>
+                <tr><td>Block a specific malicious IP address</td><td>Use a Security Group</td><td>Use a <strong>NACL</strong> with a DENY rule</td><td>"block IP" / "deny"</td></tr>
+                <tr><td>Connect to S3 securely and cost-effectively</td><td>Use a NAT Gateway</td><td>Use a <strong>Gateway VPC Endpoint</strong> for S3</td><td>"private access to S3"</td></tr>
+                <tr><td>Connect 10+ VPCs together</td><td>Use VPC Peering</td><td>Use a <strong>Transit Gateway</strong></td><td>"simplify" / "scale network"</td></tr>
+            </table>
+        </div>
+        <hr>
+
+        <!-- ============================================ -->
+        <!-- EC2, ELB, ASG SECTION                        -->
+        <!-- ============================================ -->
+        <h2 id="ec2">2. EC2, ELB & Auto Scaling</h2>
+        
+        <div class="service-card tier-1">
+            <h2>🔷 Compute & Scalability Engine</h2>
+            <div class="card-grid">
+                <div class="card-item"><h4>🎯 Exam Weight</h4><p><strong>~20%</strong> of total exam</p></div>
+                <div class="card-item"><h4>⚡ Core Purpose</h4><p>Provide scalable computing capacity</p></div>
+                <div class="card-item"><h4>🔑 Must-Know Topics</h4><ul><li>Instance Types & Pricing</li><li>ALB vs. NLB</li><li>Auto Scaling Policies</li></ul></div>
+                <div class="card-item"><h4>🎓 Study Priority</h4><p><strong>⭐⭐⭐⭐⭐ CRITICAL</strong></p></div>
+            </div>
+        </div>
+
+        <h3>⚙️ EC2 (Elastic Compute Cloud)</h3>
+        <ul>
+            <li><strong>Instance Types:</strong> Understand the families (e.g., General Purpose - T, M; Compute Optimized - C; Memory Optimized - R, X).</li>
+            <li><strong>Pricing Models:</strong>
+                <ul>
+                    <li><strong>On-Demand:</strong> Pay by the hour/second. No commitment. Most flexible.</li>
+                    <li><strong>Reserved Instances (RI):</strong> 1 or 3-year commitment. Significant discount. For steady-state workloads.</li>
+                    <li><strong>Savings Plans:</strong> More flexible than RIs. Commit to a certain $/hour spend.</li>
+                    <li><strong>Spot Instances:</strong> Bid on spare capacity. Up to 90% discount. Can be terminated with 2-min notice. For fault-tolerant workloads.</li>
+                </ul>
+            </li>
+            <li><strong>EBS (Elastic Block Store):</strong> Network-attached storage for EC2. Think of it as a "hard drive". Tied to a specific AZ.</li>
+        </ul>
+
+        <h3>⚖️ ELB (Elastic Load Balancing)</h3>
+        <div class="comparison-matrix">
+            <table>
+                <tr><th>Feature</th><th>Application Load Balancer (ALB)</th><th>Network Load Balancer (NLB)</th></tr>
+                <tr><td><strong>Layer</strong></td><td>Layer 7 (HTTP/HTTPS)</td><td>Layer 4 (TCP/UDP)</td></tr>
+                <tr><td><strong>Aware of</strong></td><td>Requests, paths, headers (e.g., /users, /images)</td><td>IP, Port, Protocol</td></tr>
+                <tr><td><strong>Use Case</strong></td><td>Web applications, microservices, containers</td><td>High-performance, low-latency, static IP needed</td></tr>
+                <tr><td><strong>Key Feature</strong></td><td>Path-based routing, host-based routing</td><td>Ultra-high performance, preserves source IP</td></tr>
+            </table>
+        </div>
+        <div class="info-box"><strong>Exam Tip:</strong> If the question mentions HTTP, HTTPS, paths, or microservices, the answer is almost always **ALB**. If it mentions extreme performance, TCP/UDP, or a static IP for the load balancer, think **NLB**.</div>
+
+        <h3>📈 Auto Scaling Groups (ASG)</h3>
+        <ul>
+            <li><strong>Purpose:</strong> Automatically adjust the number of EC2 instances to meet demand. Ensures high availability and fault tolerance.</li>
+            <li><strong>Launch Template/Configuration:</strong> Specifies the EC2 instance configuration (AMI, instance type, key pair, security groups).</li>
+            <li><strong>Scaling Policies:</strong>
+                <ul>
+                    <li><strong>Target Tracking:</strong> "Keep CPU utilization at 50%". The most common and recommended policy.</li>
+                    <li><strong>Step/Simple Scaling:</strong> "If CPU > 70%, add 2 instances". More manual control.</li>
+                    <li><strong>Scheduled Scaling:</strong> "Scale up at 8 AM on weekdays". For predictable traffic patterns.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <div class="integration-patterns">
+            <h3>🔗 Common Architectural Pattern: The "Well-Architected" Web App</h3>
+            <pre class="architecture-diagram">
+  User  ──▶ Route 53 ──▶ CloudFront ──▶ ALB ──▶ EC2 Auto Scaling Group
+                                                 │      (in multiple AZs)
+                                                 │
+                                                 └─────▶ RDS Multi-AZ DB
+            </pre>
+        </div>
+        <hr>
+
+        <!-- ============================================ -->
+        <!-- S3 SECTION                                   -->
+        <!-- ============================================ -->
+        <h2 id="s3">3. AMAZON S3 (Simple Storage Service)</h2>
+        
+        <div class="service-card tier-1">
+            <h2>🔷 Infinite Object Storage</h2>
+            <div class="card-grid">
+                <div class="card-item"><h4>🎯 Exam Weight</h4><p><strong>~15%</strong> of total exam</p></div>
+                <div class="card-item"><h4>⚡ Core Purpose</h4><p>Durable, scalable object storage</p></div>
+                <div class="card-item"><h4>🔑 Must-Know Topics</h4><ul><li>Storage Classes & Lifecycle</li><li>Security (Policies & Encryption)</li><li>Versioning & Replication</li></ul></div>
+                <div class="card-item"><h4>🎓 Study Priority</h4><p><strong>⭐⭐⭐⭐⭐ CRITICAL</strong></p></div>
+            </div>
+        </div>
+
+        <h3>🗂️ S3 Storage Classes</h3>
+        <table>
+            <tr><th>Class</th><th>Use Case</th><th>Key Feature</th></tr>
+            <tr><td><strong>S3 Standard</strong></td><td>Frequently accessed data</td><td>Low latency, high throughput</td></tr>
+            <tr><td><strong>S3 Intelligent-Tiering</strong></td><td>Unknown or changing access patterns</td><td>Automatic cost savings</td></tr>
+            <tr><td><strong>S3 Standard-IA</strong></td><td>Infrequently accessed, needed quickly</td><td>Lower storage cost, retrieval fee</td></tr>
+            <tr><td><strong>S3 One Zone-IA</strong></td><td>Infrequent, non-critical, reproducible data</td><td>Cheapest IA, stored in one AZ</td></tr>
+            <tr><td><strong>S3 Glacier Instant Retrieval</strong></td><td>Archive data, millisecond access</td><td>Fastest archive access</td></tr>
+            <tr><td><strong>S3 Glacier Flexible Retrieval</strong></td><td>Archive data, minutes to hours access</td><td>Flexible retrieval options</td></tr>
+            <tr><td><strong>S3 Glacier Deep Archive</strong></td><td>Long-term archive, cheapest storage</td><td>12-48 hour retrieval</td></tr>
+        </table>
+        <div class="info-box"><strong>Exam Tip:</strong> For cost optimization questions, the answer is often **Intelligent-Tiering** for unpredictable access or a **Lifecycle Policy** to move data to IA/Glacier for predictable access.</div>
+
+        <h3>🛡️ S3 Security</h3>
+        <ul>
+            <li><strong>IAM Policies vs. Bucket Policies:</strong> Both control access. Bucket Policies are attached to the bucket itself and are great for cross-account access or making a whole bucket public.</li>
+            <li><strong>Block Public Access:</strong> A set of settings at the account or bucket level to prevent accidental public exposure. Enabled by default.</li>
+            <li><strong>Encryption:</strong>
+                <ul>
+                    <li><strong>Server-Side Encryption (SSE):</strong>
+                        <li><strong>SSE-S3:</strong> S3 manages the keys. Easiest option.</li>
+                        <li><strong>SSE-KMS:</strong> You manage keys via KMS. Provides an audit trail.</li>
+                        <li><strong>SSE-C:</strong> You provide your own encryption keys with each request.</li>
+                    </li>
+                    <li><strong>Client-Side Encryption:</strong> You encrypt data *before* uploading it to S3.</li>
+                </ul>
+            </li>
+            <li><strong>Pre-signed URLs:</strong> Grant temporary access to a private object. The user who generates the URL uses their permissions.</li>
+        </ul>
+
+        <h3>🔄 Data Management</h3>
+        <ul>
+            <li><strong>Versioning:</strong> Keep a complete history of all object versions. Protects against accidental deletes (a delete adds a "delete marker").</li>
+            <li><strong>Replication (CRR & SRR):</strong> Automatically copy objects to another bucket.
+                <ul>
+                    <li><strong>Cross-Region Replication (CRR):</strong> For disaster recovery or lower latency access in different regions.</li>
+                    <li><strong>Same-Region Replication (SRR):</strong> For log aggregation or dev/test account sync.</li>
+                </ul>
+            </li>
+            <li><strong>Lifecycle Policies:</strong> Automate moving objects between storage classes or deleting them after a certain period.</li>
+        </ul>
+        <hr>
+
+        <!-- ============================================ -->
+        <!-- IAM SECTION                                  -->
+        <!-- ============================================ -->
+        <h2 id="iam">4. AWS IAM (Identity & Access Management)</h2>
+        
+        <div class="service-card tier-1">
+            <h2>🔷 Security Foundation</h2>
+            <div class="card-grid">
+                <div class="card-item"><h4>🎯 Exam Weight</h4><p><strong>~10%</strong> of total exam</p></div>
+                <div class="card-item"><h4>⚡ Core Purpose</h4><p>Manage access to AWS services securely</p></div>
+                <div class="card-item"><h4>🔑 Must-Know Topics</h4><ul><li>Users vs. Roles</li><li>Principle of Least Privilege</li><li>Policy Evaluation Logic</li></ul></div>
+                <div class="card-item"><h4>🎓 Study Priority</h4><p><strong>⭐⭐⭐⭐⭐ CRITICAL</strong></p></div>
+            </div>
+        </div>
+
+        <h3>🔑 Core Components</h3>
+        <ul>
+            <li><strong>Users:</strong> An entity that you create in AWS to represent the person or application that uses it to interact with AWS. Has long-term credentials (password, access keys).</li>
+            <li><strong>Groups:</strong> A collection of IAM users. A way to manage permissions for multiple users at once.</li>
+            <li><strong>Roles:</strong> An identity with temporary credentials that can be assumed by trusted entities (users, applications, or AWS services like EC2). **This is the preferred way to grant permissions to applications.**</li>
+            <li><strong>Policies:</strong> A JSON document that defines permissions.
+                <ul>
+                    <li><strong>Identity-based Policy:</strong> Attached to a user, group, or role.</li>
+                    <li><strong>Resource-based Policy:</strong> Attached to a resource (e.g., S3 bucket policy).</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>⚖️ Policy Evaluation Logic</h3>
+        <ol>
+            <li>Starts with an implicit **DENY**.</li>
+            <li>An explicit **ALLOW** in any policy overrides the implicit deny.</li>
+            <li>An explicit **DENY** in any policy overrides any allows.</li>
+        </ol>
+        <div class="highlight-box"><strong>Rule of Thumb:</strong> One explicit DENY beats any number of ALLOWs.</div>
+
+        <h3>✅ IAM Best Practices (Crucial for the Exam)</h3>
+        <ul>
+            <li><strong>Never use the root account</strong> for daily tasks.</li>
+            <li><strong>Apply the Principle of Least Privilege:</strong> Grant only the permissions required to perform a task.</li>
+            <li><strong>Use IAM Roles for applications</strong> running on EC2, ECS, or Lambda. Never store access keys in your code or on an instance.</li>
+            <li><strong>Enable MFA (Multi-Factor Authentication)</strong> for all users, especially the root account.</li>
+            <li><strong>Use IAM Access Analyzer</strong> to review policies and identify unintended access.</li>
+        </ul>
+        <hr>
+
+        <!-- ============================================ -->
+        <!-- RDS & Aurora SECTION                         -->
+        <!-- ============================================ -->
+        <h2 id="rds">5. RDS & Aurora</h2>
+        
+        <div class="service-card tier-1">
+            <h2>🔷 Managed Relational Databases</h2>
+            <div class="card-grid">
+                <div class="card-item"><h4>🎯 Exam Weight</h4><p><strong>~10%</strong> of total exam</p></div>
+                <div class="card-item"><h4>⚡ Core Purpose</h4><p>Operate and scale a relational database</p></div>
+                <div class="card-item"><h4>🔑 Must-Know Topics</h4><ul><li>Multi-AZ vs. Read Replicas</li><li>Aurora Features</li><li>RDS Proxy</li></ul></div>
+                <div class="card-item"><h4>🎓 Study Priority</h4><p><strong>⭐⭐⭐⭐⭐ CRITICAL</strong></p></div>
+            </div>
+        </div>
+
+        <h3>🔄 High Availability vs. Scalability (The MOST important RDS topic)</h3>
+        <div class="comparison-matrix">
+            <table>
+                <tr><th>Feature</th><th>Multi-AZ Deployment</th><th>Read Replicas</th></tr>
+                <tr><td><strong>Purpose</strong></td><td><strong>High Availability / Disaster Recovery</strong></td><td><strong>Read Scalability / Performance</strong></td></tr>
+                <tr><td><strong>Replication</strong></td><td><strong>Synchronous</strong> to a standby instance in a different AZ</td><td><strong>Asynchronous</strong> to one or more read-only copies</td></tr>
+                <tr><td><strong>Failover</strong></td><td><strong>Automatic</strong>, DNS endpoint points to standby</td><td><strong>Manual</strong> promotion to a standalone DB</td></tr>
+                <tr><td><strong>Use Case</strong></td><td>Production databases that cannot have downtime</td><td>Read-heavy applications, reporting, analytics</td></tr>
+            </table>
+        </div>
+        <div class="info-box"><strong>Mnemonic:</strong> **Multi-AZ** is for **A**vailability **Z**ones (Disaster Recovery). **Read Replicas** are for **R**eading (Performance).</div>
+
+        <h3>✨ Amazon Aurora</h3>
+        <ul>
+            <li>AWS's own high-performance, cloud-native database. Compatible with MySQL and PostgreSQL.</li>
+            <li><strong>Key Advantages over standard RDS:</strong>
+                <ul>
+                    <li><strong>Performance:</strong> Up to 5x faster than MySQL, 3x faster than PostgreSQL.</li>
+                    <li><strong>Storage:</strong> Auto-scales up to 128 TB. More resilient (copies data 6 times across 3 AZs).</li>
+                    <li><strong>Replicas:</strong> Supports up to 15 low-latency read replicas (vs. 5 for RDS).</li>
+                    <li><strong>Aurora Serverless:</strong> Automatically starts up, shuts down, and scales capacity based on application demand. Great for intermittent or unpredictable workloads.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>🔌 RDS Proxy</h3>
+        <ul>
+            <li>A fully managed, highly available database proxy for RDS.</li>
+            <li><strong>Main Purpose:</strong> To pool and share database connections, improving scalability.</li>
+            <li><strong>Key Use Case:</strong> For applications with many concurrent connections, especially **Lambda**, which can quickly exhaust database connection limits.</li>
+        </ul>
+        <hr>
+
+        <h2><span class="tier-badge tier-2">TIER 2 - ARCHITECTURAL BUILDING BLOCKS (20-25% điểm)</span></h2>
+        <hr>
+
+        <h2 id="route53">6. Route 53 - Global DNS</h2>
+        <ul>
+            <li><strong>Core Function:</strong> Domain Name System (DNS) service. Translates domain names (e.g., `www.amazon.com`) to IP addresses.</li>
+            <li><strong>Key Feature for SAA: Routing Policies</strong>
+                <ul>
+                    <li><strong>Simple:</strong> Default. Route traffic to a single resource.</li>
+                    <li><strong>Failover:</strong> Active-Passive. Redirects traffic to a secondary resource if the primary is unhealthy. Used for DR.</li>
+                    <li><strong>Geolocation:</strong> Route traffic based on the user's geographic location (e.g., continent, country).</li>
+                    <li><strong>Geoproximity:</strong> Route traffic based on the location of your resources, can shift traffic with biases.</li>
+                    <li><strong>Latency:</strong> Route traffic to the AWS region with the lowest latency for the user.</li>
+                    <li><strong>Weighted:</strong> Distribute traffic across multiple resources based on a specified weight (e.g., 80% to A, 20% to B). Used for A/B testing or blue-green deployments.</li>
+                </ul>
+            </li>
+        </ul>
+        <hr>
+
+        <h2 id="decoupling">7. Decoupling Services (SQS & SNS)</h2>
+        <div class="comparison-matrix">
+            <table>
+                <tr><th>Feature</th><th>SQS (Simple Queue Service)</th><th>SNS (Simple Notification Service)</th></tr>
+                <tr><td><strong>Model</strong></td><td><strong>Queue (Pull-based)</strong></td><td><strong>Topic (Push-based)</strong></td></tr>
+                <tr><td><strong>Communication</strong></td><td>One-to-one. A message is processed by one consumer.</td><td>One-to-many (Fan-out). A message is sent to all subscribers.</td></tr>
+                <tr><td><strong>Use Case</strong></td><td><strong>Decouple applications</strong>, buffer requests, throttle workloads.</td><td><strong>Send notifications</strong>, trigger parallel processing.</td></tr>
+            </table>
+        </div>
+        <div class="integration-patterns">
+            <h3>🔗 Common Pattern: SQS + SNS Fan-out</h3>
+            <p>Use SNS to send a single message to multiple SQS queues, allowing different parts of your application to process the same event in parallel, reliably.</p>
+            <pre class="architecture-diagram">
+   Event Source ──▶ SNS Topic ──┬──▶ SQS Queue A ──▶ Processor A
+                                 ├──▶ SQS Queue B ──▶ Processor B
+                                 └──▶ SQS Queue C ──▶ Processor C
+            </pre>
+        </div>
+        <hr>
+
+        <h2 id="cloudfront">8. CloudFront - Content Delivery Network (CDN)</h2>
+        <ul>
+            <li><strong>Purpose:</strong> Caches content at Edge Locations around the world to reduce latency for users.</li>
+            <li><strong>Origin:</strong> The source of the files for the CDN. Can be an S3 bucket, an EC2 instance, an ELB, or any custom HTTP server.</li>
+            <li><strong>Key Use Case:</strong>
+                <ul>
+                    <li>Speed up delivery of static content (images, videos, CSS) from S3.</li>
+                    <li>Cache dynamic content from an ALB or EC2 instance.</li>
+                </ul>
+            </li>
+            <li><strong>Security:</strong> Can use AWS WAF (Web Application Firewall) for protection. Can restrict access to S3 origins using an **Origin Access Identity (OAI)**.</li>
+        </ul>
+        <hr>
+
+        <h2><span class="tier-badge tier-3">TIER 3 - SPECIALIZED SERVICES (5-10% điểm)</span></h2>
+        <hr>
+
+        <h2 id="dynamodb">9. DynamoDB - Managed NoSQL Database</h2>
+        <ul>
+            <li><strong>Type:</strong> Fully managed, key-value and document NoSQL database.</li>
+            <li><strong>Key Features:</strong> Single-digit millisecond latency, fully serverless, auto-scaling.</li>
+            <li><strong>When to use it?</strong> When you need extreme scalability and performance for simple key-value lookups. Not suitable for complex relational queries (JOINs).</li>
+            <li><strong>DAX (DynamoDB Accelerator):</strong> An in-memory cache for DynamoDB, providing microsecond read performance.</li>
+        </ul>
+        <hr>
+
+        <h2 id="efs">10. EFS & FSx - Managed File Systems</h2>
+        <div class="comparison-matrix">
+            <table>
+                <tr><th>Service</th><th>EFS (Elastic File System)</th><th>FSx for Windows</th><th>FSx for Lustre</th></tr>
+                <tr><td><strong>Protocol</strong></td><td>NFS (Linux)</td><td>SMB (Windows)</td><td>Lustre (High-Performance Computing)</td></tr>
+                <tr><td><strong>Use Case</strong></td><td>Shared file storage for Linux-based EC2 instances, Lambda.</td><td>Shared file storage for Windows-based applications.</td><td>High-performance computing, machine learning, big data.</td></tr>
+            </table>
+        </div>
+        <div class="info-box"><strong>Exam Tip:</strong> If multiple Linux instances need to access the same file system simultaneously, the answer is **EFS**.</div>
+        <hr>
+
+        <h2 id="elasticache">11. ElastiCache - In-Memory Caching</h2>
+        <ul>
+            <li><strong>Purpose:</strong> A managed in-memory data store or cache to improve the performance of web applications.</li>
+            <li><strong>Engines:</strong>
+                <ul>
+                    <li><strong>Redis:</strong> More advanced data types, replication, high availability.</li>
+                    <li><strong>Memcached:</strong> Simpler, multi-threaded performance.</li>
+                </ul>
+            </li>
+            <li><strong>Use Case:</strong> Offload read traffic from a database (like RDS) to reduce latency and cost.</li>
+        </ul>
+        <hr>
+
+        <!-- ============================================ -->
+        <!-- COMPARISON MATRIX & DECISION TREES          -->
+        <!-- ============================================ -->
+        <h2>🔄 ARCHITECTURAL DECISION MAKING</h2>
+        
+        <div class="comparison-matrix">
+            <h3>📊 Key Service Comparisons</h3>
+            
+            <h4>🔹 Storage: S3 vs. EBS vs. EFS</h4>
+            <table>
+                <tr><th>Scenario</th><th>Use S3 (Object)</th><th>Use EBS (Block)</th><th>Use EFS (File)</th></tr>
+                <tr><td>Website static assets (images, videos)</td><td>✅ Perfect fit</td><td>❌ Wrong use case</td><td>❌ Overkill</td></tr>
+                <tr><td>Boot volume for an EC2 instance</td><td>❌ Cannot be a boot volume</td><td>✅ Required</td><td>❌ Cannot be a boot volume</td></tr>
+                <tr><td>Shared file system for many Linux EC2s</td><td>❌ Not a file system</td><td>❌ Single instance only</td><td>✅ Perfect fit</td></tr>
+                <tr><td>Store backups and archives</td><td>✅ Cost-effective</td><td>⚠️ Expensive</td><td>⚠️ Expensive</td></tr>
+            </table>
+            
+            <h4>🔹 Database: RDS vs. DynamoDB</h4>
+            <table>
+                <tr><th>Scenario</th><th>Use RDS (Relational)</th><th>Use DynamoDB (NoSQL)</th></tr>
+                <tr><td>Need complex queries, JOINs, transactions</td><td>✅ Full SQL support</td><td>❌ Limited query patterns</td></tr>
+                <tr><td>Need extreme read/write scale with simple lookups</td><td>⚠️ Can be a bottleneck</td><td>✅ Scales massively</td></tr>
+                <tr><td>Application has unpredictable traffic</td><td>⚠️ Manual scaling</td><td>✅ On-demand auto-scaling</td></tr>
+                <tr><td>Schema is flexible or changes often</td><td>❌ Rigid schema</td><td>✅ Schemaless</td></tr>
+            </table>
+        </div>
+        
+        <div class="decision-tree">
+            <h3>🌳 Decision Tree: Choosing a Disaster Recovery (DR) Strategy</h3>
+            <pre>
+Start: What are your RTO/RPO requirements?
+(RTO: Recovery Time Objective, RPO: Recovery Point Objective)
+│
+├─ RTO: Hours, RPO: Hours (Low cost, tolerant of downtime)
+│  └─ ▶ <strong>Backup and Restore</strong>
+│      └─ Regularly back up data (S3, EBS Snapshots) and restore to a new region when needed.
+│
+├─ RTO: Tens of minutes, RPO: Minutes (Core services running)
+│  └─ ▶ <strong>Pilot Light</strong>
+│      └─ Replicate data to the DR region. Keep a minimal version of the environment (the "pilot light") running.
+│
+├─ RTO: Minutes, RPO: Seconds (Scaled-down, fully functional copy)
+│  └─ ▶ <strong>Warm Standby</strong>
+│      └─ A scaled-down but fully functional copy of your production environment is always running in the DR region.
+│
+└─ RTO: Seconds, RPO: Near-zero (Full production scale in both regions)
+   └─ ▶ <strong>Multi-Site Active-Active</strong>
+      └─ Traffic is served from both regions simultaneously. Use Route 53 for routing. Most expensive and complex.
+            </pre>
+        </div>
+        
+        <div class="exam-notes-box">
+            <h3>🎯 Exam Scenario Playbook</h3>
+            
+            <h4>Pattern 1: "Design for High Availability"</h4>
+            <table>
+                <tr><th>Component</th><th>Solution</th></tr>
+                <tr><td>EC2 Instances</td><td>Use an Auto Scaling Group across multiple AZs.</td></tr>
+                <tr><td>RDS Database</td><td>Enable Multi-AZ deployment.</td></tr>
+                <tr><td>Load Balancer</td><td>ELB is highly available by default.</td></tr>
+                <tr><td>Static Content</td><td>S3 is highly available by default.</td></tr>
+            </table>
+            
+            <h4>Pattern 2: "Design for Cost Optimization"</h4>
+            <table>
+                <tr><th>Component</th><th>Solution</th></tr>
+                <tr><td>EC2 Compute</td><td>Use Spot Instances for fault-tolerant loads; Reserved Instances/Savings Plans for steady loads.</td></tr>
+                <tr><td>S3 Storage</td><td>Use Intelligent-Tiering or Lifecycle Policies to move data to cheaper classes.</td></tr>
+                <tr><td>Database</td><td>Use Aurora Serverless for unpredictable workloads.</td></tr>
+                <tr><td>Network Traffic</td><td>Use VPC Endpoints to avoid NAT Gateway data processing charges.</td></tr>
+            </table>
+        </div>
+
+        </div>
+    </div>
+
+    <script src="assets/script.js"></script>
+</body>
+</html>
