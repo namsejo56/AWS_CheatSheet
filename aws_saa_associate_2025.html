@@ -1,390 +1,520 @@
-<!DOCTYPE html><!DOCTYPE html>
-
-<html lang="vi"><html lang="vi">
-
-<head><head>
-
-    <meta charset="UTF-8">    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>AWS SAA-C03 Study Guide - 80/20 Master Blueprint</title>    <title>AWS SAA-C03 Study Guide - 80/20 Master Blueprint</title>
-
-    <link rel="stylesheet" href="assets/style.css">    <link rel="stylesheet" href="assets/style.css">
-
-</head></head>
-
-<body><body>
-
-    <div class="content-wrapper">    <div class="content-wrapper">
-
-        <nav class="toc" aria-label="Mục lục">        <nav class="toc" aria-label="Mục lục">
-
-            <h2>Mục lục</h2>            <h2>Mục lục</h2>
-
-            <ul id="toc-list" role="list"></ul>            <ul id="toc-list" role="list"></ul>
-
-        </nav>        </nav>
-
-        <div class="container">        <div class="container">
-
-        <h1>🎓 AWS SAA-C03 STUDY GUIDE - THE 80/20 MASTER BLUEPRINT</h1>        <h1>🎓 AWS SAA-C03 STUDY GUIDE - THE 80/20 MASTER BLUEPRINT</h1>
-
-                
-
-        <!-- EXECUTIVE SUMMARY -->        <!-- EXECUTIVE SUMMARY -->
-
-        <div class="executive-summary">        <div class="executive-summary">
-
-            <h2>📊 EXECUTIVE SUMMARY - Tổng quan bài thi</h2>            <h2>📊 EXECUTIVE SUMMARY - Tổng quan bài thi</h2>
-
-                        
-
-            <div class="summary-grid">            <div class="summary-grid">
-
-                <div class="summary-card">                <div class="summary-card">
-
-                    <h3>🎯 Exam Overview</h3>                    <h3>🎯 Exam Overview</h3>
-
-                    <ul>                    <ul>
-
-                        <li><strong>Thời gian:</strong> 130 phút</li>                        <li><strong>Thời gian:</strong> 130 phút</li>
-
-                        <li><strong>Câu hỏi:</strong> 65 câu</li>                        <li><strong>Câu hỏi:</strong> 65 câu</li>
-
-                        <li><strong>Điểm đạt:</strong> 720/1000</li>                        <li><strong>Điểm đạt:</strong> 720/1000</li>
-
-                        <li><strong>Format:</strong> Multiple choice + Multiple response</li>                        <li><strong>Format:</strong> Multiple choice + Multiple response</li>
-
-                        <li><strong>Giá:</strong> $150 USD</li>                        <li><strong>Giá:</strong> $150 USD</li>
-
-                    </ul>                    </ul>
-
-                </div>                </div>
-
-                                
-
-                <div class="summary-card">                <div class="summary-card">
-
-                    <h3>📈 Score Distribution</h3>                    <h3>📈 Score Distribution</h3>
-
-                    <ul>                    <ul>
-
-                        <li><strong>Domain 1:</strong> Design Resilient Architectures (30%)</li>                        <li><strong>Domain 1:</strong> Design Resilient Architectures (30%)</li>
-
-                        <li><strong>Domain 2:</strong> Design High-Performing Architectures (28%)</li>                        <li><strong>Domain 2:</strong> Design High-Performing Architectures (28%)</li>
-
-                        <li><strong>Domain 3:</strong> Design Secure Applications (24%)</li>                        <li><strong>Domain 3:</strong> Design Secure Applications (24%)</li>
-
-                        <li><strong>Domain 4:</strong> Design Cost-Optimized Architectures (18%)</li>                        <li><strong>Domain 4:</strong> Design Cost-Optimized Architectures (18%)</li>
-
-                    </ul>                    </ul>
-
-                </div>                </div>
-
-                                
-
-                <div class="summary-card">                <div class="summary-card">
-
-                    <h3>⚡ Top 6 Services (80% Score)</h3>                    <h3>⚡ Top 6 Services (80% Score)</h3>
-
-                    <ul>                    <ul>
-
-                        <li><strong>VPC:</strong> ~15% (Nền tảng mạng)</li>                        <li><strong>VPC:</strong> ~15% (Nền tảng mạng)</li>
-
-                        <li><strong>EC2 + ELB + ASG:</strong> ~20% (Nền tảng compute)</li>                        <li><strong>EC2 + ELB + ASG:</strong> ~20% (Nền tảng compute)</li>
-
-                        <li><strong>S3:</strong> ~15% (Nền tảng lưu trữ)</li>                        <li><strong>S3:</strong> ~15% (Nền tảng lưu trữ)</li>
-
-                        <li><strong>IAM:</strong> ~10% (Nền tảng bảo mật)</li>                        <li><strong>IAM:</strong> ~10% (Nền tảng bảo mật)</li>
-
-                        <li><strong>RDS & Aurora:</strong> ~10% (Nền tảng database)</li>                        <li><strong>RDS & Aurora:</strong> ~10% (Nền tảng database)</li>
-
-                        <li><strong>Route 53:</strong> ~10% (Định tuyến & HA)</li>                        <li><strong>Route 53:</strong> ~10% (Định tuyến & HA)</li>
-
-                    </ul>                    </ul>
-
-                </div>                </div>
-
-                                
-
-                <div class="summary-card">                <div class="summary-card">
-
-                    <h3>🎓 Study Strategy</h3>                    <h3>🎓 Study Strategy</h3>
-
-                    <ul>                    <ul>
-
-                        <li><strong>Week 1-2:</strong> TIER 1 (Foundations)</li>                        <li><strong>Week 1-2:</strong> TIER 1 (Foundations)</li>
-
-                        <li><strong>Week 3:</strong> TIER 2 (Building Blocks)</li>                        <li><strong>Week 3:</strong> TIER 2 (Building Blocks)</li>
-
-                        <li><strong>Week 4:</strong> TIER 3 + Integration Patterns</li>                        <li><strong>Week 4:</strong> TIER 3 + Integration Patterns</li>
-
-                        <li><strong>Week 5-6:</strong> Practice exams + Review</li>                        <li><strong>Week 5-6:</strong> Practice exams + Review</li>
-
-                        <li><strong>Target:</strong> 85%+ on practice tests</li>                        <li><strong>Target:</strong> 85%+ on practice tests</li>
-
-                    </ul>                    </ul>
-
-                </div>                </div>
-
-            </div>            </div>
-
-                        
-
-            <div style="margin-top: 25px; padding-top: 20px; border-top: 2px solid rgba(255,255,255,0.3);">            <div style="margin-top: 25px; padding-top: 20px; border-top: 2px solid rgba(255,255,255,0.3);">
-
-                <h3 style="color: #ffd700; border: none; padding: 0; margin: 0 0 15px 0;">🏛️ The 6 Pillars of the Well-Architected Framework</h3>                <h3 style="color: #ffd700; border: none; padding: 0; margin: 0 0 15px 0;">🏛️ The 6 Pillars of the Well-Architected Framework</h3>
-
-                <pre class="ascii-diagram">                <pre class="ascii-diagram">
-
-┌──────────────────────────────────────────────────────────────────────────┐┌──────────────────────────────────────────────────────────────────────────┐
-
-│                            YOUR APPLICATION                              ││                            YOUR APPLICATION                              │
-
-├──────────────────────────────────────────────────────────────────────────┤├──────────────────────────────────────────────────────────────────────────┤
-
-│ ┌───────────────┐  ┌───────────────┐  ┌───────────────┐  ┌───────────────┐ ││ ┌───────────────┐  ┌───────────────┐  ┌───────────────┐  ┌───────────────┐ │
-
-│ │  Operational  │  │   Security    │  │  Reliability  │  │ Performance   │ ││ │  Operational  │  │   Security    │  │  Reliability  │  │ Performance   │ │
-
-│ │   Excellence  │  │               │  │               │  │  Efficiency   │ ││ │   Excellence  │  │               │  │               │  │  Efficiency   │ │
-
-│ └───────────────┘  └───────────────┘  └───────────────┘  └───────────────┘ ││ └───────────────┘  └───────────────┘  └───────────────┘  └───────────────┘ │
-
-│ ┌───────────────┐  ┌───────────────┐                                      ││ ┌───────────────┐  ┌───────────────┐                                      │
-
-│ │ Cost          │  │ Sustainability│                                      ││ │ Cost          │  │ Sustainability│                                      │
-
-│ │ Optimization  │  │               │                                      ││ │ Optimization  │  │               │                                      │
-
-│ └───────────────┘  └───────────────┘                                      ││ └───────────────┘  └───────────────┘                                      │
-
-└──────────────────────────────────────────────────────────────────────────┘└──────────────────────────────────────────────────────────────────────────┘
-
-                </pre>                </pre>
-
-            </div>            </div>
-
-        </div>        </div>
-
-                
-
-        <!-- NAVIGATION HUB -->        <!-- NAVIGATION HUB -->
-
-        <div class="nav-hub">        <div class="nav-hub">
-
-            <h2>🧭 NAVIGATION HUB - Lộ trình học tập</h2>            <h2>🧭 NAVIGATION HUB - Lộ trình học tập</h2>
-
-                        
-
-            <div class="progress-tracker">            <div class="progress-tracker">
-
-                <h3>📊 Study Progress Tracker</h3>                <h3>📊 Study Progress Tracker</h3>
-
-                <div class="progress-bar-container">                <div class="progress-bar-container">
-
-                    <div class="progress-bar" id="overall-progress">0%</div>                    <div class="progress-bar" id="overall-progress">0%</div>
-
-                </div>                </div>
-
-                <p style="text-align: center; margin-top: 10px; color: #666;">                <p style="text-align: center; margin-top: 10px; color: #666;">
-
-                    <span id="completed-count">0</span> / <span id="total-count">15</span> topics completed                    <span id="completed-count">0</span> / <span id="total-count">15</span> topics completed
-
-                </p>                </p>
-
-            </div>            </div>
-
-                        
-
-            <div class="topic-checklist">            <div class="topic-checklist">
-
-                <div class="topic-item" data-tier="1">                <div class="topic-item" data-tier="1">
-
-                    <input type="checkbox" id="topic-vpc" onchange="updateProgress()">                    <input type="checkbox" id="topic-vpc" onchange="updateProgress()">
-
-                    <label for="topic-vpc"><strong>🔷 VPC</strong><br><small>⭐⭐⭐⭐⭐ Critical | Est: 8-10h</small></label>                    <label for="topic-vpc"><strong>🔷 VPC</strong><br><small>⭐⭐⭐⭐⭐ Critical | Est: 8-10h</small></label>
-
-                </div>                </div>
-
-                <div class="topic-item" data-tier="1">                <div class="topic-item" data-tier="1">
-
-                    <input type="checkbox" id="topic-ec2" onchange="updateProgress()">                    <input type="checkbox" id="topic-ec2" onchange="updateProgress()">
-
-                    <label for="topic-ec2"><strong>🔷 EC2, ELB, ASG</strong><br><small>⭐⭐⭐⭐⭐ Critical | Est: 10-12h</small></label>                    <label for="topic-ec2"><strong>🔷 EC2, ELB, ASG</strong><br><small>⭐⭐⭐⭐⭐ Critical | Est: 10-12h</small></label>
-
-                </div>                </div>
-
-                <div class="topic-item" data-tier="1">                <div class="topic-item" data-tier="1">
-
-                    <input type="checkbox" id="topic-s3" onchange="updateProgress()">                    <input type="checkbox" id="topic-s3" onchange="updateProgress()">
-
-                    <label for="topic-s3"><strong>🔷 S3</strong><br><small>⭐⭐⭐⭐⭐ Critical | Est: 8-10h</small></label>                    <label for="topic-s3"><strong>🔷 S3</strong><br><small>⭐⭐⭐⭐⭐ Critical | Est: 8-10h</small></label>
-
-                </div>                </div>
-
-                <div class="topic-item" data-tier="1">                <div class="topic-item" data-tier="1">
-
-                    <input type="checkbox" id="topic-iam" onchange="updateProgress()">                    <input type="checkbox" id="topic-iam" onchange="updateProgress()">
-
-                    <label for="topic-iam"><strong>🔷 IAM</strong><br><small>⭐⭐⭐⭐⭐ Critical | Est: 6-8h</small></label>                    <label for="topic-iam"><strong>🔷 IAM</strong><br><small>⭐⭐⭐⭐⭐ Critical | Est: 6-8h</small></label>
-
-                </div>                </div>
-
-                <div class="topic-item" data-tier="1">                <div class="topic-item" data-tier="1">
-
-                    <input type="checkbox" id="topic-rds" onchange="updateProgress()">                    <input type="checkbox" id="topic-rds" onchange="updateProgress()">
-
-                    <label for="topic-rds"><strong>🔷 RDS & Aurora</strong><br><small>⭐⭐⭐⭐⭐ Critical | Est: 6-8h</small></label>                    <label for="topic-rds"><strong>🔷 RDS & Aurora</strong><br><small>⭐⭐⭐⭐⭐ Critical | Est: 6-8h</small></label>
-
-                </div>                </div>
-
-                <div class="topic-item" data-tier="2">                <div class="topic-item" data-tier="2">
-
-                    <input type="checkbox" id="topic-route53" onchange="updateProgress()">                    <input type="checkbox" id="topic-route53" onchange="updateProgress()">
-
-                    <label for="topic-route53"><strong>🔶 Route 53</strong><br><small>⭐⭐⭐⭐ Important | Est: 4-5h</small></label>                    <label for="topic-route53"><strong>🔶 Route 53</strong><br><small>⭐⭐⭐⭐ Important | Est: 4-5h</small></label>
-
-                </div>                </div>
-
-                <div class="topic-item" data-tier="2">                <div class="topic-item" data-tier="2">
-
-                    <input type="checkbox" id="topic-decoupling" onchange="updateProgress()">                    <input type="checkbox" id="topic-decoupling" onchange="updateProgress()">
-
-                    <label for="topic-decoupling"><strong>🔶 Decoupling (SQS, SNS)</strong><br><small>⭐⭐⭐⭐ Important | Est: 4-5h</small></label>                    <label for="topic-decoupling"><strong>🔶 Decoupling (SQS, SNS)</strong><br><small>⭐⭐⭐⭐ Important | Est: 4-5h</small></label>
-
-                </div>                </div>
-
-                <div class="topic-item" data-tier="2">                <div class="topic-item" data-tier="2">
-
-                    <input type="checkbox" id="topic-serverless" onchange="updateProgress()">                    <input type="checkbox" id="topic-serverless" onchange="updateProgress()">
-
-                    <label for="topic-serverless"><strong>🔶 Serverless (Lambda, API GW)</strong><br><small>⭐⭐⭐ Good to know | Est: 3-4h</small></label>                    <label for="topic-serverless"><strong>🔶 Serverless (Lambda, API GW)</strong><br><small>⭐⭐⭐ Good to know | Est: 3-4h</small></label>
-
-                </div>                </div>
-
-                <div class="topic-item" data-tier="2">                <div class="topic-item" data-tier="2">
-
-                    <input type="checkbox" id="topic-cloudfront" onchange="updateProgress()">                    <input type="checkbox" id="topic-cloudfront" onchange="updateProgress()">
-
-                    <label for="topic-cloudfront"><strong>🔶 CloudFront</strong><br><small>⭐⭐⭐⭐ Important | Est: 3-4h</small></label>                    <label for="topic-cloudfront"><strong>🔶 CloudFront</strong><br><small>⭐⭐⭐⭐ Important | Est: 3-4h</small></label>
-
-                </div>                </div>
-
-                <div class="topic-item" data-tier="2">                <div class="topic-item" data-tier="2">
-
-                    <input type="checkbox" id="topic-monitoring" onchange="updateProgress()">                    <input type="checkbox" id="topic-monitoring" onchange="updateProgress()">
-
-                    <label for="topic-monitoring"><strong>🔶 Monitoring (CW, CT)</strong><br><small>⭐⭐⭐ Good to know | Est: 2-3h</small></label>                    <label for="topic-monitoring"><strong>🔶 Monitoring (CW, CT)</strong><br><small>⭐⭐⭐ Good to know | Est: 2-3h</small></label>
-
-                </div>                </div>
-
-                <div class="topic-item" data-tier="3">                <div class="topic-item" data-tier="3">
-
-                    <input type="checkbox" id="topic-dynamodb" onchange="updateProgress()">                    <input type="checkbox" id="topic-dynamodb" onchange="updateProgress()">
-
-                    <label for="topic-dynamodb"><strong>🔵 DynamoDB</strong><br><small>⭐⭐⭐ Good to know | Est: 3h</small></label>                    <label for="topic-dynamodb"><strong>🔵 DynamoDB</strong><br><small>⭐⭐⭐ Good to know | Est: 3h</small></label>
-
-                </div>                </div>
-
-                <div class="topic-item" data-tier="3">                <div class="topic-item" data-tier="3">
-
-                    <input type="checkbox" id="topic-efs" onchange="updateProgress()">                    <input type="checkbox" id="topic-efs" onchange="updateProgress()">
-
-                    <label for="topic-efs"><strong>🔵 EFS & FSx</strong><br><small>⭐⭐ Good to know | Est: 2h</small></label>                    <label for="topic-efs"><strong>🔵 EFS & FSx</strong><br><small>⭐⭐ Good to know | Est: 2h</small></label>
-
-                </div>                </div>
-
-                <div class="topic-item" data-tier="3">                <div class="topic-item" data-tier="3">
-
-                    <input type="checkbox" id="topic-elasticache" onchange="updateProgress()">                    <input type="checkbox" id="topic-elasticache" onchange="updateProgress()">
-
-                    <label for="topic-elasticache"><strong>🔵 ElastiCache</strong><br><small>⭐⭐⭐ Good to know | Est: 2h</small></label>                    <label for="topic-elasticache"><strong>🔵 ElastiCache</strong><br><small>⭐⭐⭐ Good to know | Est: 2h</small></label>
-
-                </div>                </div>
-
-                <div class="topic-item" data-tier="3">                <div class="topic-item" data-tier="3">
-
-                    <input type="checkbox" id="topic-dr" onchange="updateProgress()">                    <input type="checkbox" id="topic-dr" onchange="updateProgress()">
-
-                    <label for="topic-dr"><strong>🔗 Disaster Recovery</strong><br><small>⭐⭐⭐⭐ Important | Est: 4h</small></label>                    <label for="topic-dr"><strong>🔗 Disaster Recovery</strong><br><small>⭐⭐⭐⭐ Important | Est: 4h</small></label>
-
-                </div>                </div>
-
-                <div class="topic-item" data-tier="3">                <div class="topic-item" data-tier="3">
-
-                    <input type="checkbox" id="topic-practice" onchange="updateProgress()">                    <input type="checkbox" id="topic-practice" onchange="updateProgress()">
-
-                    <label for="topic-practice"><strong>📝 Practice Exams</strong><br><small>⭐⭐⭐⭐⭐ Critical | Est: 15h</small></label>                    <label for="topic-practice"><strong>📝 Practice Exams</strong><br><small>⭐⭐⭐⭐⭐ Critical | Est: 15h</small></label>
-
-                </div>                </div>
-
-            </div>            </div>
-
-        </div>        </div>
-
-                
-
-        <h2><span class="tier-badge tier-1">TIER 1 - ARCHITECTURAL FOUNDATIONS (60-70% điểm)</span></h2>        <h2><span class="tier-badge tier-1">TIER 1 - ARCHITECTURAL FOUNDATIONS (60-70% điểm)</span></h2>
-
-        <hr>        <hr>
-
-
-
-        <!-- ============================================ -->        <!-- ============================================ -->
-
-        <!-- VPC SECTION                                  -->        <!-- VPC SECTION                                  -->
-
-        <!-- ============================================ -->        <!-- ============================================ -->
-
-        <h2 id="vpc">1. AMAZON VPC (Virtual Private Cloud)</h2>        <h2 id="vpc">1. AMAZON VPC (Virtual Private Cloud)</h2>
-
-                
-
-        <div class="service-card tier-1">        <div class="service-card tier-1">
-
-            <h2>🔷 VPC - Your Private Datacenter in the Cloud</h2>            <h2>🔷 VPC - Your Private Datacenter in the Cloud</h2>
-
-            <div class="card-grid">            <div class="card-grid">
-
-                <div class="card-item"><h4>🎯 Exam Weight</h4><p><strong>~15%</strong> of total exam</p></div>                <div class="card-item"><h4>🎯 Exam Weight</h4><p><strong>~15%</strong> of total exam</p></div>
-
-                <div class="card-item"><h4>⚡ Core Purpose</h4><p>Network isolation and security</p></div>                <div class="card-item"><h4>⚡ Core Purpose</h4><p>Network isolation and security</p></div>
-
-                <div class="card-item"><h4>🔑 Must-Know Topics</h4><ul><li>Public vs. Private Subnets</li><li>Security Groups vs. NACLs</li><li>NAT Gateway vs. VPC Endpoints</li></ul></div>                <div class="card-item"><h4>🔑 Must-Know Topics</h4><ul><li>Public vs. Private Subnets</li><li>Security Groups vs. NACLs</li><li>NAT Gateway vs. VPC Endpoints</li></ul></div>
-
-                <div class="card-item"><h4>🎓 Study Priority</h4><p><strong>⭐⭐⭐⭐⭐ CRITICAL</strong></p></div>                <div class="card-item"><h4>🎓 Study Priority</h4><p><strong>⭐⭐⭐⭐⭐ CRITICAL</strong></p></div>
-
-            </div>            </div>
-
-        </div>        </div>
-
-
-
-        <div class="mental-model-box">        <div class="mental-model-box">
-
-            <h3>💡 Mental Model: VPC như "Mảnh đất riêng trên AWS"</h3>            <h3>💡 Mental Model: VPC như "Mảnh đất riêng trên AWS"</h3>
-
-            <pre class="ascii-diagram">            <pre class="ascii-diagram">
-
-┌──────────────────────────────────────────────────────────────────┐┌──────────────────────────────────────────────────────────────────┐
-
-│                            YOUR VPC (10.0.0.0/16)                ││                            YOUR VPC (10.0.0.0/16)                │
-
-│ ┌───────────────────────────┐    ┌───────────────────────────┐   ││ ┌──────────────────────────
-│ │  Public Subnet (Internet) │    │  Private Subnet (Secure)  │   │
-│ │  - Web Servers (EC2)      │    │  - Database (RDS)         │   │
-│ │  - Public ELB             │    │  - Internal Apps (EC2)    │   │
-│ └───────────┬───────────────┘    └───────────┬───────────────┘   │
-└─────────────┼────────────────────────────────┼───────────────────┘
-              │                                │
-      (Internet Gateway) ◀- 0.0.0.0/0 -▶ (Route Table) ◀- 0.0.0.0/0 -▶ (NAT Gateway)
-              │                                │
-      (Security Group: Allow 80/443)           (Security Group: Allow 3306 from Web SG)
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS SAA-C03 Study Guide - 80/20 Master Blueprint</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body>
+    <div class="content-wrapper">
+        <nav class="toc" aria-label="Mục lục">
+            <h2>Mục lục</h2>
+            <ul id="toc-list" role="list"></ul>
+        </nav>
+        <div class="container">
+            <h1>🎓 AWS SAA-C03 STUDY GUIDE - THE 80/20 MASTER BLUEPRINT</h1>
+            <!-- EXECUTIVE SUMMARY -->
+            <div class="executive-summary">
+                <h2>📊 EXECUTIVE SUMMARY - Tổng quan bài thi</h2>
+                <div class="summary-grid">
+                    <div class="summary-card">
+                        <h3>🎯 Exam Overview</h3>
+                        <ul>
+                            <li><strong>Thời gian:</strong> 130 phút</li>
+                            <li><strong>Câu hỏi:</strong> 65 câu</li>
+                            <li><strong>Điểm đạt:</strong> 720/1000</li>
+                            <li><strong>Format:</strong> Multiple choice + Multiple response</li>
+                            <li><strong>Giá:</strong> $150 USD</li>
+                        </ul>
+                    </div>
+                    <div class="summary-card">
+                        <h3>📈 Score Distribution</h3>
+                        <ul>
+                            <li><strong>Domain 1:</strong> Design Resilient Architectures (30%)</li>
+                            <li><strong>Domain 2:</strong> Design High-Performing Architectures (28%)</li>
+                            <li><strong>Domain 3:</strong> Design Secure Applications (24%)</li>
+                            <li><strong>Domain 4:</strong> Design Cost-Optimized Architectures (18%)</li>
+                        </ul>
+                    </div>
+                    <div class="summary-card">
+                        <h3>⚡ Top 6 Services (80% Score)</h3>
+                        <ul>
+                            <li><strong>VPC:</strong> ~15% (Nền tảng mạng)</li>
+                            <li><strong>EC2 + ELB + ASG:</strong> ~20% (Nền tảng compute)</li>
+                            <li><strong>S3:</strong> ~15% (Nền tảng lưu trữ)</li>
+                            <li><strong>IAM:</strong> ~10% (Nền tảng bảo mật)</li>
+                            <li><strong>RDS & Aurora:</strong> ~10% (Nền tảng database)</li>
+                            <li><strong>Route 53:</strong> ~10% (Định tuyến & HA)</li>
+                        </ul>
+                    </div>
+                    <div class="summary-card">
+                        <h3>🎓 Study Strategy</h3>
+                        <ul>
+                            <li><strong>Week 1-2:</strong> TIER 1 (Foundations)</li>
+                            <li><strong>Week 3:</strong> TIER 2 (Building Blocks)</li>
+                            <li><strong>Week 4:</strong> TIER 3 + Integration Patterns</li>
+                            <li><strong>Week 5-6:</strong> Practice exams + Review</li>
+                            <li><strong>Target:</strong> 85%+ on practice tests</li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="margin-top: 25px; padding-top: 20px; border-top: 2px solid rgba(255,255,255,0.3);">
+                    <h3 style="color: #ffd700; border: none; padding: 0; margin: 0 0 15px 0;">🏛️ The 6 Pillars of the
+                        Well-Architected
+                        Framework</h3>
+                    <pre class="ascii-diagram">
++----------------------------------------------------------------------------+
+| YOUR APPLICATION                                                           |
++----------------------------------------------------------------------------+
+| +----------------------+ +----------------------+ +----------------------+ |
+| | Operational          | | Security             | | Reliability          | |
+| | Excellence           | |                      | |                      | |
+| +----------------------+ +----------------------+ +----------------------+ |
+| +----------------------+ +----------------------+ +----------------------+ |
+| | Performance          | | Cost                 | | Sustainability       | |
+| | Efficiency           | | Optimization         | |                      | |
+| +----------------------+ +----------------------+ +----------------------+ |
++----------------------------------------------------------------------------+
+                </pre>
+                </div>
+            </div>
+            <!-- NAVIGATION HUB -->
+            <div class="nav-hub">
+                <h2>🧭 NAVIGATION HUB - Lộ trình học tập</h2>
+                <div class="progress-tracker">
+                    <h3>📊 Study Progress Tracker</h3>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="overall-progress">0%</div>
+                    </div>
+                    <p style="text-align: center; margin-top: 10px; color: #666;">
+                        <span id="completed-count">0</span> / <span id="total-count">18</span> topics completed
+                    </p>
+                </div>
+                <div class="topic-checklist">
+                    <div class="topic-item" data-tier="1">
+                        <input type="checkbox" id="topic-vpc" onchange="updateProgress()">
+                        <label for="topic-vpc"><strong>🔷 VPC</strong><br><small>⭐⭐⭐⭐⭐ Critical | Est:
+                                8-10h</small></label>
+                    </div>
+                    <div class="topic-item" data-tier="1">
+                        <input type="checkbox" id="topic-ec2" onchange="updateProgress()">
+                        <label for="topic-ec2"><strong>🔷 EC2, ELB, ASG</strong><br><small>⭐⭐⭐⭐⭐ Critical | Est:
+                                10-12h</small></label>
+                    </div>
+                    <div class="topic-item" data-tier="1">
+                        <input type="checkbox" id="topic-s3" onchange="updateProgress()">
+                        <label for="topic-s3"><strong>🔷 S3</strong><br><small>⭐⭐⭐⭐⭐ Critical | Est:
+                                8-10h</small></label>
+                    </div>
+                    <div class="topic-item" data-tier="1">
+                        <input type="checkbox" id="topic-iam" onchange="updateProgress()">
+                        <label for="topic-iam"><strong>🔷 IAM</strong><br><small>⭐⭐⭐⭐⭐ Critical | Est:
+                                6-8h</small></label>
+                    </div>
+                    <div class="topic-item" data-tier="1">
+                        <input type="checkbox" id="topic-rds" onchange="updateProgress()">
+                        <label for="topic-rds"><strong>🔷 RDS & Aurora</strong><br><small>⭐⭐⭐⭐⭐ Critical | Est:
+                                6-8h</small></label>
+                    </div>
+                    <div class="topic-item" data-tier="2">
+                        <input type="checkbox" id="topic-lambda" onchange="updateProgress()">
+                        <label for="topic-lambda"><strong>🔶 Lambda & Serverless</strong><br><small>⭐⭐⭐⭐⭐ Critical |
+                                Est: 6-8h</small></label>
+                    </div>
+                    <div class="topic-item" data-tier="2">
+                        <input type="checkbox" id="topic-cloudwatch" onchange="updateProgress()">
+                        <label for="topic-cloudwatch"><strong>🔶 CloudWatch & Monitoring</strong><br><small>⭐⭐⭐⭐
+                                Important | Est: 5-6h</small></label>
+                    </div>
+                    <div class="topic-item" data-tier="2">
+                        <input type="checkbox" id="topic-security" onchange="updateProgress()">
+                        <label for="topic-security"><strong>🔶 Security (KMS, Secrets)</strong><br><small>⭐⭐⭐⭐ Important
+                                | Est: 4-5h</small></label>
+                    </div>
+                    <div class="topic-item" data-tier="2">
+                        <input type="checkbox" id="topic-route53" onchange="updateProgress()">
+                        <label for="topic-route53"><strong>🔶 Route 53</strong><br><small>⭐⭐⭐⭐ Important | Est:
+                                4-5h</small></label>
+                    </div>
+                    <div class="topic-item" data-tier="2">
+                        <input type="checkbox" id="topic-decoupling" onchange="updateProgress()">
+                        <label for="topic-decoupling"><strong>🔶 Decoupling (SQS, SNS)</strong><br><small>⭐⭐⭐⭐ Important
+                                | Est:
+                                4-5h</small></label>
+                    </div>
+                    <div class="topic-item" data-tier="2">
+                        <input type="checkbox" id="topic-cloudfront" onchange="updateProgress()">
+                        <label for="topic-cloudfront"><strong>🔶 CloudFront</strong><br><small>⭐⭐⭐⭐ Important | Est:
+                                3-4h</small></label>
+                    </div>
+                    <div class="topic-item" data-tier="2">
+                        <input type="checkbox" id="topic-cloudformation" onchange="updateProgress()">
+                        <label for="topic-cloudformation"><strong>🔶 CloudFormation & IaC</strong><br><small>⭐⭐⭐
+                                Important | Est: 3-4h</small></label>
+                    </div>
+                    <div class="topic-item" data-tier="3">
+                        <input type="checkbox" id="topic-containers" onchange="updateProgress()">
+                        <label for="topic-containers"><strong>🔵 Containers (ECS, Fargate)</strong><br><small>⭐⭐⭐ Good
+                                to know | Est: 3-4h</small></label>
+                    </div>
+                    <div class="topic-item" data-tier="3">
+                        <input type="checkbox" id="topic-dynamodb" onchange="updateProgress()">
+                        <label for="topic-dynamodb"><strong>🔵 DynamoDB</strong><br><small>⭐⭐⭐ Good to know | Est:
+                                3h</small></label>
+                    </div>
+                    <div class="topic-item" data-tier="3">
+                        <input type="checkbox" id="topic-kinesis" onchange="updateProgress()">
+                        <label for="topic-kinesis"><strong>🔵 Data Streaming (Kinesis)</strong><br><small>⭐⭐⭐ Good to
+                                know | Est: 2-3h</small></label>
+                    </div>
+                    <div class="topic-item" data-tier="3">
+                        <input type="checkbox" id="topic-efs" onchange="updateProgress()">
+                        <label for="topic-efs"><strong>🔵 EFS & FSx</strong><br><small>⭐⭐ Good to know | Est:
+                                2h</small></label>
+                    </div>
+                    <div class="topic-item" data-tier="3">
+                        <input type="checkbox" id="topic-elasticache" onchange="updateProgress()">
+                        <label for="topic-elasticache"><strong>🔵 ElastiCache</strong><br><small>⭐⭐⭐ Good to know | Est:
+                                2h</small></label>
+                    </div>
+                    <div class="topic-item" data-tier="3">
+                        <input type="checkbox" id="topic-dr" onchange="updateProgress()">
+                        <label for="topic-dr"><strong>🔗 Disaster Recovery</strong><br><small>⭐⭐⭐⭐ Important | Est:
+                                4h</small></label>
+                    </div>
+                    <div class="topic-item" data-tier="3">
+                        <input type="checkbox" id="topic-practice" onchange="updateProgress()">
+                        <label for="topic-practice"><strong>📝 Practice Exams</strong><br><small>⭐⭐⭐⭐⭐ Critical | Est:
+                                15h</small></label>
+                    </div>
+                </div>
+            </div>
+            <h2 id="study-toolkit">?? STUDY TOOLKIT - LAST MILE ACCELERATORS</h2>
+            <div class="exam-notes-box">
+                <h3>?? Analogy Vault (Picture It)</h3>
+                <ul>
+                    <li><strong>VPC:</strong> Private city; subnets are districts, route tables are the street map,
+                        security groups are building guards.</li>
+                    <li><strong>EC2 + ASG:</strong> Elastic workforce; EC2 instances are contractors on call, Auto
+                        Scaling is HR scheduling more staff on demand.</li>
+                    <li><strong>S3:</strong> Massive locker warehouse; storage classes are temperature zones that trade
+                        speed vs. cost.</li>
+                    <li><strong>IAM:</strong> Hotel security desk; policies are the guest list telling who can enter
+                        which room.</li>
+                    <li><strong>RDS & Aurora:</strong> Managed restaurant kitchen; AWS keeps ovens hot, replicates
+                        dishes, and swaps chefs when one fails.</li>
+                    <li><strong>Route 53:</strong> Global GPS dispatcher sending every request to the safest and fastest
+                        branch.</li>
+                </ul>
+            </div>
+            <div class="exam-notes-box">
+                <h3>?? Mnemonics & Memory Tricks</h3>
+                <ul>
+                    <li><strong>Security:</strong> "SG = Stateful Guardians" at the instance, "NACL = Numbered ACL" at
+                        the subnet (rules evaluated by number).</li>
+                    <li><strong>EC2 Pricing:</strong> "ROSe Spot" = Reserved, On-Demand, Savings Plans, Spot.</li>
+                    <li><strong>S3 Encryption:</strong> "S3-K3" = SSE-S3, SSE-KMS, SSE-C (three server-side choices).
+                    </li>
+                    <li><strong>Route 53 Policies:</strong> "FLawLeSS" = Failover, Latency, Weighted, Location (Geo),
+                        Simple, Steering (Geoproximity).</li>
+                    <li><strong>Relational HA:</strong> "AZ = Availability, Replica = Reads" (Multi-AZ for uptime, Read
+                        Replica for scaling).</li>
+                </ul>
+            </div>
+            <div class="integration-patterns">
+                <h3>?? Integration Patterns You Must Name</h3>
+                <ul>
+                    <li><strong>Route 53 -> CloudFront -> ALB -> ASG -> RDS:</strong> Default highly available web stack
+                        for global users.</li>
+                    <li><strong>SNS fan-out -> SQS queues:</strong> One publish, many decoupled consumers (order
+                        processing, invoices, analytics).</li>
+                    <li><strong>API Gateway -> Lambda -> DynamoDB:</strong> Serverless microservice that scales to zero.
+                    </li>
+                    <li><strong>S3 Event -> Lambda -> Process file:</strong> Event-driven file processing (image
+                        thumbnails, data transformation).</li>
+                    <li><strong>Kinesis Firehose -> S3 -> Athena/QuickSight:</strong> Data lake ingestion and reporting
+                        with near real-time dashboards.</li>
+                    <li><strong>EventBridge -> Lambda -> Auto-remediation:</strong> Automated response to AWS events
+                        (e.g., stop untagged instances).</li>
+                    <li><strong>ALB -> ECS Fargate (multi-AZ):</strong> Containerized microservices with no
+                        infrastructure management.</li>
+                    <li><strong>CloudFormation StackSets:</strong> Deploy infrastructure to multiple accounts/regions
+                        from single template.</li>
+                    <li><strong>Secrets Manager + Lambda + RDS:</strong> Auto-rotating credentials for secure database
+                        access.</li>
+                    <li><strong>Direct Connect + VPN:</strong> Hybrid connectivity pattern for steady throughput plus
+                        encrypted failover.</li>
+                </ul>
+            </div>
+            <div class="exam-notes-box">
+                <h3>?? Self-Check Questions Before Mock Exams</h3>
+                <ol>
+                    <li>Private subnet needs internet for patching: do you choose NAT Gateway, VPC Endpoint, or move to
+                        public?</li>
+                    <li>Traffic is HTTP with path-based rules and needs multi-AZ: ALB, NLB, or Gateway Load Balancer?
+                    </li>
+                    <li>Archive for 7 years with rare restores: which S3 storage class keeps cost lowest yet meets
+                        compliance?</li>
+                    <li>Lambda gets AccessDenied on S3: should you edit the bucket policy, IAM role, or VPC endpoint
+                        policy?</li>
+                    <li>Cross-region HA database: RDS Multi-AZ, Aurora Global, or DynamoDB global tables?</li>
+                    <li>Keywords "health check" and "failover" appear: which Route 53 policy fires?</li>
+                    <li>Lambda execution timeout issue (task > 15 min): Lambda isn't the answer - what do you use? (ECS
+                        Fargate)</li>
+                    <li>Auto-rotate database password: Secrets Manager or Parameter Store?</li>
+                    <li>Load streaming data to S3: Kinesis Data Streams or Firehose?</li>
+                    <li>Detect who deleted an S3 bucket: CloudWatch, CloudTrail, or Config?</li>
+                    <li>Serverless containers with no EC2 management: ECS on EC2, ECS Fargate, or EKS?</li>
+                    <li>Encrypt large 5GB file with audit trail: SSE-S3, SSE-KMS, or SSE-C?</li>
+                </ol>
+            </div>
+            <div class="comparison-matrix">
+                <h3>?? Red-Flag Keywords & Instant Reactions</h3>
+                <table>
+                    <tr>
+                        <th>Keyword in scenario</th>
+                        <th>Go-to service</th>
+                        <th>Reason</th>
+                    </tr>
+                    <tr>
+                        <td>"0.0.0.0/0" + "private subnet"</td>
+                        <td><strong>NAT Gateway/Instance</strong></td>
+                        <td>Private subnets need managed egress, not IGW.</td>
+                    </tr>
+                    <tr>
+                        <td>"millisecond latency reads" + "NoSQL"</td>
+                        <td><strong>DynamoDB + DAX</strong></td>
+                        <td>DAX caches reads for microsecond responses.</td>
+                    </tr>
+                    <tr>
+                        <td>"automatic key rotation" + "audit"</td>
+                        <td><strong>AWS KMS CMK</strong></td>
+                        <td>KMS rotates yearly and logs to CloudTrail.</td>
+                    </tr>
+                    <tr>
+                        <td>"blue/green" + "database"</td>
+                        <td><strong>Aurora clone or RDS Blue/Green</strong></td>
+                        <td>Managed cutover without downtime.</td>
+                    </tr>
+                    <tr>
+                        <td>"global DNS failover"</td>
+                        <td><strong>Route 53 Failover policy</strong></td>
+                        <td>Only policy that swaps to standby on health check.</td>
+                    </tr>
+                    <tr>
+                        <td>"sudden spikes" + "control cost"</td>
+                        <td><strong>Auto Scaling + Spot</strong></td>
+                        <td>Scale out cheaply and terminate when demand drops.</td>
+                    </tr>
+                    <tr>
+                        <td>"serverless" + "event-driven"</td>
+                        <td><strong>Lambda</strong></td>
+                        <td>Pay per execution, scales to zero.</td>
+                    </tr>
+                    <tr>
+                        <td>"task takes 20+ minutes"</td>
+                        <td><strong>ECS Fargate or Batch</strong></td>
+                        <td>Lambda max 15 min timeout.</td>
+                    </tr>
+                    <tr>
+                        <td>"rotate database password"</td>
+                        <td><strong>Secrets Manager</strong></td>
+                        <td>Built-in rotation for RDS, Redshift.</td>
+                    </tr>
+                    <tr>
+                        <td>"who deleted this resource"</td>
+                        <td><strong>CloudTrail</strong></td>
+                        <td>API audit log (WHO did WHAT).</td>
+                    </tr>
+                    <tr>
+                        <td>"is config compliant"</td>
+                        <td><strong>AWS Config</strong></td>
+                        <td>Configuration compliance rules.</td>
+                    </tr>
+                    <tr>
+                        <td>"detect compromised EC2"</td>
+                        <td><strong>GuardDuty</strong></td>
+                        <td>ML-based threat detection.</td>
+                    </tr>
+                    <tr>
+                        <td>"load streaming data to S3"</td>
+                        <td><strong>Kinesis Firehose</strong></td>
+                        <td>Simplest, fully managed.</td>
+                    </tr>
+                    <tr>
+                        <td>"real-time < 1 second"</td>
+                        <td><strong>Kinesis Data Streams</strong></td>
+                        <td>Firehose has 60s+ buffer.</td>
+                    </tr>
+                    <tr>
+                        <td>"serverless containers"</td>
+                        <td><strong>ECS Fargate</strong></td>
+                        <td>No EC2 management needed.</td>
+                    </tr>
+                    <tr>
+                        <td>"infrastructure as code"</td>
+                        <td><strong>CloudFormation</strong></td>
+                        <td>Define infrastructure in templates.</td>
+                    </tr>
+                    <tr>
+                        <td>"deploy app easily, no infra"</td>
+                        <td><strong>Elastic Beanstalk</strong></td>
+                        <td>PaaS for developers.</td>
+                    </tr>
+                    <tr>
+                        <td>"monitor EC2 memory"</td>
+                        <td><strong>CloudWatch Agent</strong></td>
+                        <td>Memory NOT default metric.</td>
+                    </tr>
+                </table>
+            </div>
+            <tr>
+                <td>"millisecond latency reads" + "NoSQL"</td>
+                <td><strong>DynamoDB + DAX</strong></td>
+                <td>DAX caches reads for microsecond responses.</td>
+            </tr>
+            <tr>
+                <td>"automatic key rotation" + "audit"</td>
+                <td><strong>AWS KMS CMK</strong></td>
+                <td>KMS rotates yearly and logs to CloudTrail.</td>
+            </tr>
+            <tr>
+                <td>"blue/green" + "database"</td>
+                <td><strong>Aurora clone or RDS Blue/Green</strong></td>
+                <td>Managed cutover without downtime.</td>
+            </tr>
+            <tr>
+                <td>"global DNS failover"</td>
+                <td><strong>Route 53 Failover policy</strong></td>
+                <td>Only policy that swaps to standby on health check.</td>
+            </tr>
+            <tr>
+                <td>"sudden spikes" + "control cost"</td>
+                <td><strong>Auto Scaling + Spot</strong></td>
+                <td>Scale out cheaply and terminate when demand drops.</td>
+            </tr>
+            </table>
+            <div class="comparison-matrix">
+                <h3>?? Must-Memorize Numbers</h3>
+                <table>
+                    <tr>
+                        <th>Topic</th>
+                        <th>Number</th>
+                        <th>Why it matters</th>
+                    </tr>
+                    <tr>
+                        <td>S3 durability</td>
+                        <td>11 nines (99.999999999%)</td>
+                        <td>Argue for storing mission-critical backups.</td>
+                    </tr>
+                    <tr>
+                        <td>S3 Glacier Deep Archive retrieval</td>
+                        <td>12-48 hours</td>
+                        <td>Use only when cold archives are acceptable.</td>
+                    </tr>
+                    <tr>
+                        <td>RDS automated backup retention</td>
+                        <td>7-35 days</td>
+                        <td>Remember to schedule manual snapshots for longer.</td>
+                    </tr>
+                    <tr>
+                        <td>DynamoDB capacity math</td>
+                        <td>1 WCU = 1 KB/s write, 1 RCU = 4 KB/s strongly consistent read</td>
+                        <td>Needed for throughput sizing questions.</td>
+                    </tr>
+                    <tr>
+                        <td>Route 53 health check interval</td>
+                        <td>30 s default, 10 s fast</td>
+                        <td>Explains failover detection time.</td>
+                    </tr>
+                    <tr>
+                        <td>CloudFront default TTL</td>
+                        <td>24 hours</td>
+                        <td>Recognize caching behavior without custom headers.</td>
+                    </tr>
+                    <tr>
+                        <td>ELB cross-zone</td>
+                        <td>On by default for ALB, optional (billable) for NLB</td>
+                        <td>Cost/architecture trade-off question staple.</td>
+                    </tr>
+                    <tr>
+                        <td>Multi-AZ requirement</td>
+                        <td>At least 2 AZs per region</td>
+                        <td>Every HA design answer references two or more AZs.</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="exam-notes-box">
+                <h3>?? Exam-Specific Reminders</h3>
+                <ul>
+                    <li>Map scenario keywords to patterns above before reading answer choices.</li>
+                    <li>When you see "cost optimization", check storage class, data transfer, caching, and Spot/RI
+                        options.
+                    </li>
+                    <li>"Highly available" + "multi-region" usually wants Route 53, Global Accelerator, Aurora Global,
+                        or S3
+                        CRR.</li>
+                    <li>"Operational excellence" hints at CloudWatch alarms, Systems Manager automation, and
+                        Infrastructure
+                        as Code.</li>
+                    <li>Compliance acronyms (HIPAA, PCI, FedRAMP) scream encryption, CloudTrail, Config, GuardDuty, and
+                        centralized logging.</li>
+                    <li>Always ask: is there a managed or serverless alternative? The exam favors least operational
+                        effort.
+                    </li>
+                </ul>
+            </div>
+            <h2><span class="tier-badge tier-1">TIER 1 - ARCHITECTURAL FOUNDATIONS (60-70% điểm)</span></h2>
+            <hr>
+            <!-- ============================================ -->
+            <!-- VPC SECTION                                  -->
+            <!-- ============================================ -->
+            <h2 id="vpc">1. AMAZON VPC (Virtual Private Cloud)</h2>
+            <div class="service-card tier-1">
+                <h2>🔷 VPC - Your Private Datacenter in the Cloud</h2>
+                <div class="card-grid">
+                    <div class="card-item">
+                        <h4>🎯 Exam Weight</h4>
+                        <p><strong>~15%</strong> of total exam</p>
+                    </div>
+                    <div class="card-item">
+                        <h4>⚡ Core Purpose</h4>
+                        <p>Network isolation and security</p>
+                    </div>
+                    <div class="card-item">
+                        <h4>🔑 Must-Know Topics</h4>
+                        <ul>
+                            <li>Public vs. Private Subnets</li>
+                            <li>Security Groups vs. NACLs</li>
+                            <li>NAT Gateway vs. VPC Endpoints</li>
+                        </ul>
+                    </div>
+                    <div class="card-item">
+                        <h4>🎓 Study Priority</h4>
+                        <p><strong>⭐⭐⭐⭐⭐ CRITICAL</strong></p>
+                    </div>
+                </div>
+            </div>
+            <div class="mental-model-box">
+                <h3>💡 Mental Model: VPC như "Mảnh đất riêng trên AWS"</h3>
+                <pre class="ascii-diagram">
+        +----------------------------------------------------------------------------+
+        | YOUR VPC (10.0.0.0/16)                                                     |
+        | +-----------------------------+    +-----------------------------+         |
+        | | Public Subnet (Internet)    |    | Private Subnet (Secure)     |         |
+        | | - Web Servers (EC2)         |    | - Database (RDS)            |         |
+        | | - Public ELB                |    | - Internal Apps (EC2)       |         |
+        | +-----------------------------+    +-----------------------------+         |
+        +----------------------------------------------------------------------------+
+                      |                                |
+        (Internet Gateway) --0.0.0.0/0--> (Route Table) --0.0.0.0/0--> (NAT Gateway)
+                      |                                |
+         (SG: Allow 80/443)                  (SG: Allow 3306 from Web SG)
             </pre>
         </div>
-
         <h3>📚 Core Concepts</h3>
         <ul>
             <li><strong>VPC:</strong> A logically isolated section of the AWS Cloud. Spans all AZs in a region.</li>
@@ -395,7 +525,6 @@
             <li><strong>Internet Gateway (IGW):</strong> Allows communication between your VPC and the internet.</li>
             <li><strong>NAT Gateway:</strong> Allows instances in a private subnet to connect to the internet (e.g., for updates), but prevents the internet from initiating connections with those instances. Must be in a public subnet.</li>
         </ul>
-
         <h3>🛡️ Security: Security Groups vs. Network ACLs (NACLs)</h3>
         <div class="comparison-matrix">
             <table>
@@ -407,8 +536,8 @@
                 <tr><td><strong>Use Case</strong></td><td>Instance-level firewall</td><td>Subnet-level firewall (first line of defense)</td></tr>
             </table>
         </div>
-        <div class="info-box"><strong>Exam Tip:</strong> 90% of security questions can be solved with Security Groups. Only use NACLs for explicit DENY requirements or subnet-wide blocking.</div>
-
+        <div class="info-box"><strong>Exam Tip:</strong> 90% of security questions can be solved with Security Groups. Only use
+            NACLs for explicit DENY requirements or subnet-wide blocking.</div>
         <h3>🌐 Connectivity & Endpoints</h3>
         <ul>
             <li><strong>VPC Peering:</strong> Connect two VPCs privately. Non-transitive (A-B, B-C does not mean A-C).</li>
@@ -420,7 +549,6 @@
                 </ul>
             </li>
         </ul>
-
         <div class="mistake-box critical">
             <h3>⚠️ Common Mistakes & Exam Traps (VPC)</h3>
             <table>
@@ -431,13 +559,24 @@
                 <tr><td>Connect 10+ VPCs together</td><td>Use VPC Peering</td><td>Use a <strong>Transit Gateway</strong></td><td>"simplify" / "scale network"</td></tr>
             </table>
         </div>
+        <div class="exam-notes-box">
+            <h3>?? Memory Toolkit (VPC)</h3>
+            <ul>
+                <li><strong>Analogy:</strong> City planning mindset: IGW is the city gate, NAT Gateway is the guarded outbound
+                    tunnel, VPC Endpoints are private service elevators.</li>
+                <li><strong>Mnemonic:</strong> "16 is 65k" and "24 is 256" to size CIDR blocks quickly; pair each private subnet
+                    with a matching route table entry.</li>
+                <li><strong>Red-Flag Keywords:</strong> "private subnet + internet" -> pick NAT; "transitive connectivity" ->
+                    choose Transit Gateway, not peering.</li>
+                <li><strong>Self-Check:</strong> Ask (1) inbound or outbound? (2) cross-account or same VPC? (3) do we need
+                    audit logs? Answer sequence points to SG/NACL, endpoints, flow logs.</li>
+            </ul>
+        </div>
         <hr>
-
         <!-- ============================================ -->
         <!-- EC2, ELB, ASG SECTION                        -->
         <!-- ============================================ -->
         <h2 id="ec2">2. EC2, ELB & Auto Scaling</h2>
-        
         <div class="service-card tier-1">
             <h2>🔷 Compute & Scalability Engine</h2>
             <div class="card-grid">
@@ -447,7 +586,6 @@
                 <div class="card-item"><h4>🎓 Study Priority</h4><p><strong>⭐⭐⭐⭐⭐ CRITICAL</strong></p></div>
             </div>
         </div>
-
         <h3>⚙️ EC2 (Elastic Compute Cloud)</h3>
         <ul>
             <li><strong>Instance Types:</strong> Understand the families (e.g., General Purpose - T, M; Compute Optimized - C; Memory Optimized - R, X).</li>
@@ -461,7 +599,6 @@
             </li>
             <li><strong>EBS (Elastic Block Store):</strong> Network-attached storage for EC2. Think of it as a "hard drive". Tied to a specific AZ.</li>
         </ul>
-
         <h3>⚖️ ELB (Elastic Load Balancing)</h3>
         <div class="comparison-matrix">
             <table>
@@ -472,8 +609,9 @@
                 <tr><td><strong>Key Feature</strong></td><td>Path-based routing, host-based routing</td><td>Ultra-high performance, preserves source IP</td></tr>
             </table>
         </div>
-        <div class="info-box"><strong>Exam Tip:</strong> If the question mentions HTTP, HTTPS, paths, or microservices, the answer is almost always **ALB**. If it mentions extreme performance, TCP/UDP, or a static IP for the load balancer, think **NLB**.</div>
-
+        <div class="info-box"><strong>Exam Tip:</strong> If the question mentions HTTP, HTTPS, paths, or microservices, the
+            answer is almost always **ALB**. If it mentions extreme performance, TCP/UDP, or a static IP for the load balancer,
+            think **NLB**.</div>
         <h3>📈 Auto Scaling Groups (ASG)</h3>
         <ul>
             <li><strong>Purpose:</strong> Automatically adjust the number of EC2 instances to meet demand. Ensures high availability and fault tolerance.</li>
@@ -486,23 +624,33 @@
                 </ul>
             </li>
         </ul>
-
         <div class="integration-patterns">
             <h3>🔗 Common Architectural Pattern: The "Well-Architected" Web App</h3>
             <pre class="architecture-diagram">
-  User  ──▶ Route 53 ──▶ CloudFront ──▶ ALB ──▶ EC2 Auto Scaling Group
-                                                 │      (in multiple AZs)
-                                                 │
-                                                 └─────▶ RDS Multi-AZ DB
+User --> Route 53 --> CloudFront --> ALB --> EC2 Auto Scaling Group
+| (in multiple AZs)
+v
+RDS Multi-AZ DB
             </pre>
         </div>
+        <div class="exam-notes-box">
+            <h3>?? Memory Toolkit (EC2, ELB, ASG)</h3>
+            <ul>
+                <li><strong>Analogy:</strong> Treat Auto Scaling like a smart thermostat: scaling policies are temperature
+                    thresholds, load balancers are the house doors directing guests.</li>
+                <li><strong>Mnemonic:</strong> "7-4" reminder: ALB lives at Layer 7 (HTTP brains), NLB lives at Layer 4 (network
+                    muscle).</li>
+                <li><strong>Red-Flag Keywords:</strong> "static IP", "long-lived TCP", "extreme performance" -> choose NLB;
+                    "per-second billing", "interrupt tolerant" -> Spot with interruption handling.</li>
+                <li><strong>Self-Check:</strong> Before picking an instance family, answer (1) CPU vs memory heavy? (2) Need
+                    burst credits? (3) Buying pattern steady or spiky? Map to M/C/R, T burst, or Spot/RI/Savings Plan.</li>
+            </ul>
+        </div>
         <hr>
-
         <!-- ============================================ -->
         <!-- S3 SECTION                                   -->
         <!-- ============================================ -->
         <h2 id="s3">3. AMAZON S3 (Simple Storage Service)</h2>
-        
         <div class="service-card tier-1">
             <h2>🔷 Infinite Object Storage</h2>
             <div class="card-grid">
@@ -512,7 +660,6 @@
                 <div class="card-item"><h4>🎓 Study Priority</h4><p><strong>⭐⭐⭐⭐⭐ CRITICAL</strong></p></div>
             </div>
         </div>
-
         <h3>🗂️ S3 Storage Classes</h3>
         <table>
             <tr><th>Class</th><th>Use Case</th><th>Key Feature</th></tr>
@@ -524,8 +671,9 @@
             <tr><td><strong>S3 Glacier Flexible Retrieval</strong></td><td>Archive data, minutes to hours access</td><td>Flexible retrieval options</td></tr>
             <tr><td><strong>S3 Glacier Deep Archive</strong></td><td>Long-term archive, cheapest storage</td><td>12-48 hour retrieval</td></tr>
         </table>
-        <div class="info-box"><strong>Exam Tip:</strong> For cost optimization questions, the answer is often **Intelligent-Tiering** for unpredictable access or a **Lifecycle Policy** to move data to IA/Glacier for predictable access.</div>
-
+        <div class="info-box"><strong>Exam Tip:</strong> For cost optimization questions, the answer is often
+            **Intelligent-Tiering** for unpredictable access or a **Lifecycle Policy** to move data to IA/Glacier for
+            predictable access.</div>
         <h3>🛡️ S3 Security</h3>
         <ul>
             <li><strong>IAM Policies vs. Bucket Policies:</strong> Both control access. Bucket Policies are attached to the bucket itself and are great for cross-account access or making a whole bucket public.</li>
@@ -542,7 +690,6 @@
             </li>
             <li><strong>Pre-signed URLs:</strong> Grant temporary access to a private object. The user who generates the URL uses their permissions.</li>
         </ul>
-
         <h3>🔄 Data Management</h3>
         <ul>
             <li><strong>Versioning:</strong> Keep a complete history of all object versions. Protects against accidental deletes (a delete adds a "delete marker").</li>
@@ -554,13 +701,24 @@
             </li>
             <li><strong>Lifecycle Policies:</strong> Automate moving objects between storage classes or deleting them after a certain period.</li>
         </ul>
+        <div class="exam-notes-box">
+            <h3>?? Memory Toolkit (S3)</h3>
+            <ul>
+                <li><strong>Analogy:</strong> Think library shelves: buckets are rooms, objects are books, access points are
+                    dedicated doorways for different teams.</li>
+                <li><strong>Mnemonic:</strong> "Block, Bucket, IAM" order for troubleshooting access (check Block Public Access
+                    -> bucket policy -> IAM policy).</li>
+                <li><strong>Red-Flag Keywords:</strong> "audit trail", "encryption key control" -> SSE-KMS; "compliance copy in
+                    another region" -> Cross-Region Replication.</li>
+                <li><strong>Self-Check:</strong> Ask (1) access pattern? (2) retention window? (3) cross-account or public?
+                    Those answers drive class, lifecycle, and policy selection.</li>
+            </ul>
+        </div>
         <hr>
-
         <!-- ============================================ -->
         <!-- IAM SECTION                                  -->
         <!-- ============================================ -->
         <h2 id="iam">4. AWS IAM (Identity & Access Management)</h2>
-        
         <div class="service-card tier-1">
             <h2>🔷 Security Foundation</h2>
             <div class="card-grid">
@@ -570,7 +728,6 @@
                 <div class="card-item"><h4>🎓 Study Priority</h4><p><strong>⭐⭐⭐⭐⭐ CRITICAL</strong></p></div>
             </div>
         </div>
-
         <h3>🔑 Core Components</h3>
         <ul>
             <li><strong>Users:</strong> An entity that you create in AWS to represent the person or application that uses it to interact with AWS. Has long-term credentials (password, access keys).</li>
@@ -583,15 +740,26 @@
                 </ul>
             </li>
         </ul>
-
         <h3>⚖️ Policy Evaluation Logic</h3>
         <ol>
             <li>Starts with an implicit **DENY**.</li>
             <li>An explicit **ALLOW** in any policy overrides the implicit deny.</li>
             <li>An explicit **DENY** in any policy overrides any allows.</li>
         </ol>
+        <div class="exam-notes-box">
+            <h3>?? Memory Toolkit (IAM)</h3>
+            <ul>
+                <li><strong>Analogy:</strong> IAM is the badge office: users hold permanent badges, roles are temporary visitor
+                    stickers, policies are the rule book.</li>
+                <li><strong>Mnemonic:</strong> "Deny beats Allow" and "Roles for Resources" (never embed keys) should flash
+                    before answering any access question.</li>
+                <li><strong>Red-Flag Keywords:</strong> "short-lived credentials", "cross-account" -> create a role with trust
+                    policy; "auditable key usage" -> use KMS with CloudTrail.</li>
+                <li><strong>Self-Check:</strong> Work policy questions left-to-right: identity policy -> resource policy ->
+                    session policy -> explicit denies.</li>
+            </ul>
+        </div>
         <div class="highlight-box"><strong>Rule of Thumb:</strong> One explicit DENY beats any number of ALLOWs.</div>
-
         <h3>✅ IAM Best Practices (Crucial for the Exam)</h3>
         <ul>
             <li><strong>Never use the root account</strong> for daily tasks.</li>
@@ -601,12 +769,10 @@
             <li><strong>Use IAM Access Analyzer</strong> to review policies and identify unintended access.</li>
         </ul>
         <hr>
-
         <!-- ============================================ -->
         <!-- RDS & Aurora SECTION                         -->
         <!-- ============================================ -->
         <h2 id="rds">5. RDS & Aurora</h2>
-        
         <div class="service-card tier-1">
             <h2>🔷 Managed Relational Databases</h2>
             <div class="card-grid">
@@ -616,7 +782,6 @@
                 <div class="card-item"><h4>🎓 Study Priority</h4><p><strong>⭐⭐⭐⭐⭐ CRITICAL</strong></p></div>
             </div>
         </div>
-
         <h3>🔄 High Availability vs. Scalability (The MOST important RDS topic)</h3>
         <div class="comparison-matrix">
             <table>
@@ -627,8 +792,8 @@
                 <tr><td><strong>Use Case</strong></td><td>Production databases that cannot have downtime</td><td>Read-heavy applications, reporting, analytics</td></tr>
             </table>
         </div>
-        <div class="info-box"><strong>Mnemonic:</strong> **Multi-AZ** is for **A**vailability **Z**ones (Disaster Recovery). **Read Replicas** are for **R**eading (Performance).</div>
-
+        <div class="info-box"><strong>Mnemonic:</strong> **Multi-AZ** is for **A**vailability **Z**ones (Disaster Recovery).
+            **Read Replicas** are for **R**eading (Performance).</div>
         <h3>✨ Amazon Aurora</h3>
         <ul>
             <li>AWS's own high-performance, cloud-native database. Compatible with MySQL and PostgreSQL.</li>
@@ -641,23 +806,1147 @@
                 </ul>
             </li>
         </ul>
-
         <h3>🔌 RDS Proxy</h3>
         <ul>
             <li>A fully managed, highly available database proxy for RDS.</li>
             <li><strong>Main Purpose:</strong> To pool and share database connections, improving scalability.</li>
             <li><strong>Key Use Case:</strong> For applications with many concurrent connections, especially **Lambda**, which can quickly exhaust database connection limits.</li>
         </ul>
+        <div class="exam-notes-box">
+            <h3>?? Memory Toolkit (RDS & Aurora)</h3>
+            <ul>
+                <li><strong>Analogy:</strong> Multi-AZ is the hot standby kitchen; read replicas are extra serving windows for
+                    hungry readers.</li>
+                <li><strong>Mnemonic:</strong> "6-3-2" for Aurora storage copies (6 total, across 3 AZs, survive 2 failures).
+                </li>
+                <li><strong>Red-Flag Keywords:</strong> "reader endpoint", "cluster cache management" -> Aurora; "thousands of
+                    Lambda connections" -> RDS Proxy.</li>
+                <li><strong>Self-Check:</strong> Decide first: high availability, read scaling, or write scaling? That choice
+                    maps to Multi-AZ, Read Replica, or sharding with Aurora/DynamoDB.</li>
+            </ul>
+        </div>
+        <hr>
+        
+        <!-- ============================================ -->
+        <!-- LAMBDA & SERVERLESS SECTION                  -->
+        <!-- ============================================ -->
+        <h2 id="lambda">6. AWS Lambda - Serverless Compute</h2>
+        <div class="service-card tier-2">
+            <h2>🔷 Lambda - The Serverless Revolution</h2>
+            <div class="card-grid">
+                <div class="card-item">
+                    <h4>🎯 Exam Weight</h4>
+                    <p><strong>~8-10%</strong> of total exam</p>
+                </div>
+                <div class="card-item">
+                    <h4>⚡ Core Purpose</h4>
+                    <p>Run code without managing servers</p>
+                </div>
+                <div class="card-item">
+                    <h4>🔑 Must-Know Topics</h4>
+                    <ul>
+                        <li>Execution models & triggers</li>
+                        <li>Limits & optimization</li>
+                        <li>Integration patterns</li>
+                    </ul>
+                </div>
+                <div class="card-item">
+                    <h4>🎓 Study Priority</h4>
+                    <p><strong>⭐⭐⭐⭐⭐ CRITICAL</strong></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mental-model-box">
+            <h3>💡 Mental Model: Lambda như "Nhân viên làm việc theo giờ"</h3>
+            <pre class="ascii-diagram">
+                        ┌────────────────────────────────────────────────────────────────┐
+                        │ TRADITIONAL SERVER                  vs.        LAMBDA          │
+                        ├────────────────────────────────────────────────────────────────┤
+                        │ Rent whole building 24/7                  Pay per task         │
+                        │ Manage infrastructure                     AWS handles servers  │
+                        │ Scale manually                            Auto-scales          │
+                        │ Idle cost = $$$$                          Idle cost = $0       │
+                        └────────────────────────────────────────────────────────────────┘
+                        
+                        EVENT SOURCES (Triggers):
+                        ┌──────────────┐     ┌──────────────┐     ┌──────────────┐
+                        │ API Gateway  │────▶│   LAMBDA     │────▶│  DynamoDB   │
+                        │   (HTTP)     │     │  (Process)   │     │   (Store)   │
+                        └──────────────┘     └──────────────┘     └──────────────┘
+                               │                    ▲                     │
+                               │                    │                     │
+                        ┌──────▼────────┐    ┌──────┴─────────┐   ┌──────▼────────┐
+                        │  S3 Events    │    │  EventBridge   │   │  DDB Streams  │
+                        │ (File upload) │    │  (Scheduled)   │   │  (Changes)    │
+                        └───────────────┘    └────────────────┘   └───────────────┘
+                                    </pre>
+        </div>
+        
+        <h3>📚 Core Concepts</h3>
+        <ul>
+            <li><strong>Lambda Function:</strong> Your code + runtime + configuration. Executes in response to events.</li>
+            <li><strong>Execution Models:</strong>
+                <ul>
+                    <li><strong>Synchronous (Request-Response):</strong> Caller waits for response (e.g., API Gateway, ALB,
+                        Cognito)</li>
+                    <li><strong>Asynchronous (Event-based):</strong> Lambda queues event, returns immediately (e.g., S3, SNS,
+                        EventBridge)</li>
+                    <li><strong>Stream/Poll-based:</strong> Lambda polls source and invokes function (e.g., DynamoDB Streams,
+                        Kinesis, SQS)</li>
+                </ul>
+            </li>
+            <li><strong>Cold Start vs. Warm Start:</strong>
+                <ul>
+                    <li><strong>Cold Start:</strong> First request or after idle period. AWS must provision execution
+                        environment (~100-1000ms)</li>
+                    <li><strong>Warm Start:</strong> Execution environment already exists. Much faster (~1-10ms)</li>
+                    <li><strong>Provisioned Concurrency:</strong> Pre-warm functions to eliminate cold starts (costs more)</li>
+                </ul>
+            </li>
+        </ul>
+        
+        <h3>⚡ Lambda Limits (MEMORIZE THESE!)</h3>
+        <div class="comparison-matrix">
+            <table>
+                <tr>
+                    <th>Resource</th>
+                    <th>Limit</th>
+                    <th>Exam Relevance</th>
+                </tr>
+                <tr>
+                    <td><strong>Execution Timeout</strong></td>
+                    <td><strong>Max 15 minutes</strong></td>
+                    <td>⭐⭐⭐⭐⭐ For long-running tasks, use ECS/Fargate instead</td>
+                </tr>
+                <tr>
+                    <td><strong>Memory</strong></td>
+                    <td>128 MB - 10 GB</td>
+                    <td>⭐⭐⭐⭐ More memory = more CPU = faster execution</td>
+                </tr>
+                <tr>
+                    <td><strong>Deployment Package</strong></td>
+                    <td>50 MB (zipped), 250 MB (unzipped)</td>
+                    <td>⭐⭐⭐ Large dependencies? Use Lambda Layers or Container Images</td>
+                </tr>
+                <tr>
+                    <td><strong>Concurrent Executions</strong></td>
+                    <td>1000 per region (soft limit)</td>
+                    <td>⭐⭐⭐⭐ Use Reserved Concurrency to prevent throttling</td>
+                </tr>
+                <tr>
+                    <td><strong>/tmp Storage</strong></td>
+                    <td>512 MB - 10 GB</td>
+                    <td>⭐⭐⭐ Ephemeral storage, cleared after execution</td>
+                </tr>
+                <tr>
+                    <td><strong>Environment Variables</strong></td>
+                    <td>4 KB total</td>
+                    <td>⭐⭐ For large configs, use Parameter Store/Secrets Manager</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="info-box"><strong>Exam Tip:</strong> If a question mentions "long-running batch jobs" or "processing takes
+            20+ minutes", Lambda is NOT the answer. Choose ECS Fargate or Batch instead.</div>
+        
+        <h3>🔗 Lambda Integration Patterns (High Exam Probability)</h3>
+        
+        <h4>Pattern 1: Serverless Web API</h4>
+        <div class="integration-patterns">
+            <pre class="architecture-diagram">
+                        User Request → API Gateway → Lambda → DynamoDB
+                                     ↓
+                                CloudFront (optional caching)
+                                
+                        <strong>Use Case:</strong> REST API, mobile backend, single-page apps
+                        <strong>Benefits:</strong> Auto-scaling, pay-per-request, no server management
+                        <strong>Exam Keywords:</strong> "serverless", "cost-effective API", "scales to zero"
+                                    </pre>
+        </div>
+        
+        <h4>Pattern 2: Real-time File Processing</h4>
+        <div class="integration-patterns">
+            <pre class="architecture-diagram">
+                        S3 (Upload) → Lambda (Process) → S3 (Output)
+                                         ↓
+                                    SNS (Notify completion)
+                                
+                        <strong>Use Case:</strong> Image thumbnails, video transcoding, data transformation
+                        <strong>Benefits:</strong> Event-driven, parallel processing
+                        <strong>Exam Keywords:</strong> "process uploaded files", "trigger on S3 event"
+                                    </pre>
+        </div>
+        
+        <h4>Pattern 3: Stream Processing</h4>
+        <div class="integration-patterns">
+            <pre class="architecture-diagram">
+                        DynamoDB Streams → Lambda → ElastiCache/S3/Another DDB
+                        Kinesis Data Stream → Lambda → Data Lake (S3)
+                        
+                        <strong>Use Case:</strong> Real-time analytics, data replication, audit logging
+                        <strong>Benefits:</strong> Batch processing, automatic retries
+                        <strong>Exam Keywords:</strong> "real-time data processing", "react to changes"
+                                    </pre>
+        </div>
+        
+        <h4>Pattern 4: Scheduled Tasks</h4>
+        <div class="integration-patterns">
+            <pre class="architecture-diagram">
+                        EventBridge (Cron) → Lambda → Task (backup, cleanup, reports)
+                        
+                        <strong>Use Case:</strong> Scheduled backups, daily reports, cleanup jobs
+                        <strong>Benefits:</strong> No server to maintain, runs only when needed
+                        <strong>Exam Keywords:</strong> "scheduled task", "cron job", "run daily/hourly"
+                                    </pre>
+        </div>
+        
+        <h3>🛡️ Lambda Security & Best Practices</h3>
+        <ul>
+            <li><strong>Execution Role (IAM Role):</strong> Grants Lambda permission to access AWS services (e.g., read from S3,
+                write to DynamoDB). **ALWAYS use IAM roles, NEVER hardcode credentials.**</li>
+            <li><strong>Resource-based Policy:</strong> Controls who/what can invoke the Lambda function (e.g., allow API
+                Gateway, S3 bucket).</li>
+            <li><strong>VPC Integration:</strong>
+                <ul>
+                    <li>By default, Lambda runs in AWS-managed VPC (has internet access, but no access to your VPC resources)
+                    </li>
+                    <li>Configure Lambda to run in YOUR VPC to access RDS, ElastiCache, or internal APIs</li>
+                    <li>⚠️ VPC Lambda needs NAT Gateway for internet access (or VPC Endpoints for AWS services)</li>
+                </ul>
+            </li>
+            <li><strong>Environment Variables:</strong> Store configuration. Can be encrypted with KMS.</li>
+            <li><strong>Lambda Layers:</strong> Share code/dependencies across multiple functions (e.g., common libraries,
+                SDKs).</li>
+            <li><strong>Versions & Aliases:</strong>
+                <ul>
+                    <li><strong>Version:</strong> Immutable snapshot of function code + config</li>
+                    <li><strong>Alias:</strong> Pointer to a version (e.g., "prod" → v3, "dev" → v5). Supports weighted traffic
+                        splitting for blue/green deployments</li>
+                </ul>
+            </li>
+        </ul>
+        
+        <h3>💰 Lambda Pricing & Cost Optimization</h3>
+        <ul>
+            <li><strong>Pricing Model:</strong>
+                <ul>
+                    <li>Number of requests: $0.20 per 1M requests</li>
+                    <li>Duration: Charged per GB-second (memory × execution time)</li>
+                    <li><strong>Free Tier:</strong> 1M requests/month + 400,000 GB-seconds/month</li>
+                </ul>
+            </li>
+            <li><strong>Cost Optimization Tips:</strong>
+                <ul>
+                    <li>Right-size memory (more memory = faster execution = lower cost)</li>
+                    <li>Reduce cold starts with Provisioned Concurrency (only for critical workloads)</li>
+                    <li>Use Lambda Layers to reduce deployment package size</li>
+                    <li>Set appropriate timeout to avoid paying for stuck functions</li>
+                </ul>
+            </li>
+        </ul>
+        
+        <div class="mistake-box critical">
+            <h3>⚠️ Common Mistakes & Exam Traps (Lambda)</h3>
+            <table>
+                <tr>
+                    <th>Trap</th>
+                    <th>Wrong Answer</th>
+                    <th>Correct Answer</th>
+                </tr>
+                <tr>
+                    <td>Task needs 20 minutes</td>
+                    <td>Use Lambda with 20 min timeout</td>
+                    <td>Lambda max 15 min! Use ECS Fargate or Batch</td>
+                </tr>
+                <tr>
+                    <td>Lambda needs database access</td>
+                    <td>Put connection string in code</td>
+                    <td>Use environment variables + Secrets Manager</td>
+                </tr>
+                <tr>
+                    <td>High concurrent requests throttling</td>
+                    <td>Increase memory</td>
+                    <td>Increase Reserved Concurrency or request limit increase</td>
+                </tr>
+                <tr>
+                    <td>Lambda accessing RDS runs out of connections</td>
+                    <td>Increase Lambda memory</td>
+                    <td>Use RDS Proxy to pool connections</td>
+                </tr>
+                <tr>
+                    <td>Large deployment package (300 MB)</td>
+                    <td>Split into multiple functions</td>
+                    <td>Use Lambda Layers or Container Images (10 GB limit)</td>
+                </tr>
+                <tr>
+                    <td>Lambda needs internet + VPC resources</td>
+                    <td>Configure VPC only</td>
+                    <td>VPC Lambda needs NAT Gateway for internet access</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="exam-notes-box">
+            <h3>?? Memory Toolkit (Lambda)</h3>
+            <ul>
+                <li><strong>Analogy:</strong> Lambda is like hiring Uber drivers: you call them when needed, pay only for the
+                    ride, AWS manages the fleet.</li>
+                <li><strong>Mnemonic:</strong> "15-10-50-250-1000" limits: 15 min timeout, 10 GB memory max, 50 MB zip, 250 MB
+                    unzip, 1000 concurrent executions.</li>
+                <li><strong>Red-Flag Keywords:</strong> "serverless", "event-driven", "scales to zero" → Lambda; "long-running",
+                    "20+ minutes" → ECS/Fargate.</li>
+                <li><strong>Self-Check:</strong> Ask: (1) Duration < 15 min? (2) Stateless? (3) Event-driven? If all YES →
+                        Lambda. If NO to any → EC2/ECS.</li>
+                <li><strong>Integration Pattern Recognition:</strong>
+                    <ul>
+                        <li>"REST API + database" → API Gateway + Lambda + DynamoDB</li>
+                        <li>"Process uploaded files" → S3 Event + Lambda</li>
+                        <li>"Scheduled task" → EventBridge + Lambda</li>
+                        <li>"Real-time analytics" → Kinesis/DDB Streams + Lambda</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <hr>
+        
+        <!-- ============================================ -->
+        <!-- CLOUDWATCH & MONITORING SECTION              -->
+        <!-- ============================================ -->
+        <h2 id="cloudwatch">7. CloudWatch & Monitoring</h2>
+        <div class="service-card tier-2">
+            <h2>🔷 CloudWatch - Observability Platform</h2>
+            <div class="card-grid">
+                <div class="card-item">
+                    <h4>🎯 Exam Weight</h4>
+                    <p><strong>~6-8%</strong> of total exam</p>
+                </div>
+                <div class="card-item">
+                    <h4>⚡ Core Purpose</h4>
+                    <p>Monitor, collect, analyze AWS resources & applications</p>
+                </div>
+                <div class="card-item">
+                    <h4>🔑 Must-Know Topics</h4>
+                    <ul>
+                        <li>Logs, Metrics, Alarms</li>
+                        <li>EventBridge rules</li>
+                        <li>Integration patterns</li>
+                    </ul>
+                </div>
+                <div class="card-item">
+                    <h4>🎓 Study Priority</h4>
+                    <p><strong>⭐⭐⭐⭐ IMPORTANT</strong></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mental-model-box">
+            <h3>💡 Mental Model: CloudWatch như "Security Camera System"</h3>
+            <pre class="ascii-diagram">
+                        ┌────────────────────────────────────────────────────────────────┐
+                        │                    CLOUDWATCH ECOSYSTEM                        │
+                        ├────────────────────────────────────────────────────────────────┤
+                        │                                                                │
+                        │  📹 CloudWatch LOGS          📊 CloudWatch METRICS             │
+                        │  (What happened?)            (How much/many?)                  │
+                        │  - Application logs          - CPU, Memory, Network            │
+                        │  - System logs               - Custom business metrics         │
+                        │  - VPC Flow Logs             - Auto Scaling triggers           │
+                        │                                                                │
+                        │  🚨 CloudWatch ALARMS        ⏰ EventBridge (CloudWatch Events)│
+                        │  (Alert me when...)          (Do something when...)            │
+                        │  - Threshold breached        - Schedule (cron)                 │
+                        │  - SNS notification          - Trigger Lambda                  │
+                        │  - Auto Scaling action       - Event patterns                  │
+                        │                                                                │
+                        │  📈 CloudWatch DASHBOARDS    🔍 CloudWatch Insights            │
+                        │  (Visualization)             (Query & analyze logs)            │
+                        └────────────────────────────────────────────────────────────────┘
+                                    </pre>
+        </div>
+        
+        <h3>📊 CloudWatch Metrics</h3>
+        <ul>
+            <li><strong>What are Metrics?</strong> Time-ordered data points (e.g., CPU utilization over time).</li>
+            <li><strong>Default Metrics:</strong> AWS services automatically send metrics to CloudWatch
+                <ul>
+                    <li>EC2: CPU, Network, Disk I/O (every 5 minutes, or 1 minute with detailed monitoring)</li>
+                    <li>⚠️ <strong>EC2 does NOT send memory/disk usage by default!</strong> Need CloudWatch Agent.</li>
+                    <li>RDS: Database connections, CPU, storage</li>
+                    <li>Lambda: Invocations, duration, errors, throttles</li>
+                    <li>S3: Storage metrics, request metrics</li>
+                </ul>
+            </li>
+            <li><strong>Custom Metrics:</strong> Send your own application metrics using PutMetricData API or CloudWatch Agent.
+                <ul>
+                    <li>Standard Resolution: 1-minute granularity</li>
+                    <li>High Resolution: Up to 1-second granularity</li>
+                </ul>
+            </li>
+        </ul>
+        
+        <div class="info-box"><strong>Exam Trap:</strong> EC2 memory and disk usage are NOT default metrics! If question asks
+            "monitor EC2 memory", answer is **CloudWatch Agent** or **custom script pushing metrics**.</div>
+        
+        <h3>🚨 CloudWatch Alarms</h3>
+        <ul>
+            <li><strong>Purpose:</strong> Trigger actions based on metric thresholds.</li>
+            <li><strong>States:</strong>
+                <ul>
+                    <li><strong>OK:</strong> Metric is within threshold</li>
+                    <li><strong>ALARM:</strong> Metric breached threshold</li>
+                    <li><strong>INSUFFICIENT_DATA:</strong> Not enough data to evaluate</li>
+                </ul>
+            </li>
+            <li><strong>Actions:</strong>
+                <ul>
+                    <li>Send notification to <strong>SNS</strong> (email, SMS, Lambda)</li>
+                    <li>Trigger <strong>Auto Scaling</strong> policy</li>
+                    <li>Perform <strong>EC2 action</strong> (stop, terminate, reboot, recover)</li>
+                </ul>
+            </li>
+            <li><strong>Composite Alarms:</strong> Combine multiple alarms with AND/OR logic to reduce alarm noise.</li>
+        </ul>
+        
+        <h3>📝 CloudWatch Logs</h3>
+        <ul>
+            <li><strong>Structure:</strong>
+                <ul>
+                    <li><strong>Log Group:</strong> Collection of log streams (e.g., `/aws/lambda/my-function`)</li>
+                    <li><strong>Log Stream:</strong> Sequence of log events from same source (e.g., each Lambda execution)</li>
+                    <li><strong>Log Event:</strong> Single log entry with timestamp and message</li>
+                </ul>
+            </li>
+            <li><strong>Sources:</strong>
+                <ul>
+                    <li>Lambda functions (automatic)</li>
+                    <li>EC2 instances (via CloudWatch Agent)</li>
+                    <li>ECS/EKS containers</li>
+                    <li>VPC Flow Logs</li>
+                    <li>CloudTrail (API audit logs)</li>
+                    <li>Route 53 DNS query logs</li>
+                </ul>
+            </li>
+            <li><strong>CloudWatch Logs Insights:</strong> Query language to search and analyze logs
+                <pre style="background: #1e1e1e; color: #d4d4d4; padding: 10px; border-radius: 5px;">
+                        fields @timestamp, @message
+                        | filter @message like /ERROR/
+                        | sort @timestamp desc
+                        | limit 20
+                                        </pre>
+            </li>
+            <li><strong>Log Retention:</strong> Configurable from 1 day to 10 years, or never expire. <strong>Costs increase
+                    with retention period.</strong></li>
+            <li><strong>Export & Archive:</strong>
+                <ul>
+                    <li>Export to <strong>S3</strong> for long-term storage (cheaper than CloudWatch Logs)</li>
+                    <li>Stream to <strong>Kinesis</strong>, <strong>Lambda</strong>, or <strong>Elasticsearch</strong> for
+                        real-time analysis</li>
+                </ul>
+            </li>
+        </ul>
+        
+        <h3>⏰ EventBridge (formerly CloudWatch Events)</h3>
+        <ul>
+            <li><strong>Purpose:</strong> Serverless event bus for building event-driven applications.</li>
+            <li><strong>Event Sources:</strong>
+                <ul>
+                    <li><strong>AWS Services:</strong> EC2 state change, S3 upload, CodePipeline stage change, etc.</li>
+                    <li><strong>Schedule:</strong> Cron expressions or rate expressions (e.g., "every 5 minutes")</li>
+                    <li><strong>Custom Applications:</strong> Your app sends events via PutEvents API</li>
+                    <li><strong>SaaS Integrations:</strong> Zendesk, Datadog, Auth0, etc.</li>
+                </ul>
+            </li>
+            <li><strong>Targets:</strong> Lambda, SQS, SNS, Kinesis, Step Functions, ECS Tasks, etc.</li>
+            <li><strong>Event Pattern Matching:</strong> Filter events based on JSON structure
+                <pre style="background: #1e1e1e; color: #d4d4d4; padding: 10px; border-radius: 5px;">
+                        {
+                          "source": ["aws.ec2"],
+                          "detail-type": ["EC2 Instance State-change Notification"],
+                          "detail": {
+                            "state": ["terminated"]
+                          }
+                        }
+                                        </pre>
+            </li>
+        </ul>
+        
+        <div class="integration-patterns">
+            <h3>🔗 Common CloudWatch Patterns</h3>
+        
+            <h4>Pattern 1: Auto Scaling based on custom metrics</h4>
+            <pre class="architecture-diagram">
+                        Application → Custom Metric (Active Users) → CloudWatch Alarm 
+                                                                    ↓
+                                                            Auto Scaling Policy
+                                                                    ↓
+                                                            Scale EC2/ECS tasks
+                        
+                        <strong>Use Case:</strong> Scale based on business metrics, not just CPU
+                        <strong>Exam Keywords:</strong> "scale based on queue length", "active connections"
+                                    </pre>
+        
+            <h4>Pattern 2: Centralized Logging</h4>
+            <pre class="architecture-diagram">
+                        Multiple EC2/ECS → CloudWatch Logs → CloudWatch Logs Insights (Query)
+                                                           ↓
+                                                    S3 (Archive, Athena analysis)
+                        
+                        <strong>Use Case:</strong> Aggregate logs from multiple sources, long-term storage
+                        <strong>Exam Keywords:</strong> "centralized logging", "log aggregation", "analyze logs"
+                                    </pre>
+        
+            <h4>Pattern 3: Automated Remediation</h4>
+            <pre class="architecture-diagram">
+                        AWS Event → EventBridge → Lambda → Remediation Action
+                        (e.g., EC2 stopped → detect → restart instance)
+                        
+                        <strong>Use Case:</strong> Auto-recover from failures, compliance enforcement
+                        <strong>Exam Keywords:</strong> "automated response", "self-healing", "compliance automation"
+                                    </pre>
+        
+            <h4>Pattern 4: Scheduled Tasks</h4>
+            <pre class="architecture-diagram">
+                        EventBridge (Cron: 0 2 * * ? *) → Lambda → Backup/Cleanup Task
+                        
+                        <strong>Use Case:</strong> Daily backups, weekly reports, monthly cleanup
+                        <strong>Exam Keywords:</strong> "scheduled", "run every day/week", "cron job"
+                                    </pre>
+        </div>
+        
+        <h3>🔧 CloudWatch Agent</h3>
+        <ul>
+            <li><strong>Purpose:</strong> Collect additional metrics and logs from EC2 and on-premises servers.</li>
+            <li><strong>What it collects:</strong>
+                <ul>
+                    <li><strong>System-level metrics:</strong> Memory usage, disk usage, swap usage (NOT available by default)
+                    </li>
+                    <li><strong>Custom metrics:</strong> Application-specific metrics</li>
+                    <li><strong>Log files:</strong> Application logs, system logs</li>
+                </ul>
+            </li>
+            <li><strong>Configuration:</strong> JSON config file, can be stored in Parameter Store for easy deployment.</li>
+        </ul>
+        
+        <h3>🆚 CloudWatch vs. CloudTrail vs. Config</h3>
+        <div class="comparison-matrix">
+            <table>
+                <tr>
+                    <th>Service</th>
+                    <th>Purpose</th>
+                    <th>What it tracks</th>
+                    <th>Use Case</th>
+                </tr>
+                <tr>
+                    <td><strong>CloudWatch</strong></td>
+                    <td><strong>Performance monitoring</strong></td>
+                    <td>Metrics, logs, alarms</td>
+                    <td>"Is my app healthy?" "High CPU usage"</td>
+                </tr>
+                <tr>
+                    <td><strong>CloudTrail</strong></td>
+                    <td><strong>Audit logging (WHO did WHAT)</strong></td>
+                    <td>API calls, user activity</td>
+                    <td>"Who deleted this S3 bucket?" "Compliance audit"</td>
+                </tr>
+                <tr>
+                    <td><strong>Config</strong></td>
+                    <td><strong>Configuration compliance</strong></td>
+                    <td>Resource config changes over time</td>
+                    <td>"Is my security group compliant?" "Config drift"</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="mistake-box critical">
+            <h3>⚠️ Common Mistakes & Exam Traps (CloudWatch)</h3>
+            <table>
+                <tr>
+                    <th>Trap</th>
+                    <th>Wrong Answer</th>
+                    <th>Correct Answer</th>
+                </tr>
+                <tr>
+                    <td>Monitor EC2 memory usage</td>
+                    <td>CloudWatch default metrics</td>
+                    <td>CloudWatch Agent (memory NOT default)</td>
+                </tr>
+                <tr>
+                    <td>Long-term log storage (years)</td>
+                    <td>Keep in CloudWatch Logs</td>
+                    <td>Export to S3 (much cheaper)</td>
+                </tr>
+                <tr>
+                    <td>Query logs across multiple sources</td>
+                    <td>Manual log download</td>
+                    <td>CloudWatch Logs Insights</td>
+                </tr>
+                <tr>
+                    <td>React to EC2 state change</td>
+                    <td>Poll EC2 API</td>
+                    <td>EventBridge event pattern</td>
+                </tr>
+                <tr>
+                    <td>Schedule Lambda every hour</td>
+                    <td>CloudWatch Alarms</td>
+                    <td>EventBridge scheduled rule</td>
+                </tr>
+                <tr>
+                    <td>Reduce alarm noise (too many alerts)</td>
+                    <td>Increase threshold</td>
+                    <td>Composite Alarms (combine with AND/OR logic)</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="exam-notes-box">
+            <h3>?? Memory Toolkit (CloudWatch)</h3>
+            <ul>
+                <li><strong>Analogy:</strong> CloudWatch is your IT operations control room: cameras (logs), gauges (metrics),
+                    alert buttons (alarms), and scheduled tasks (EventBridge).</li>
+                <li><strong>Mnemonic:</strong> "MALE" for CloudWatch components: Metrics, Alarms, Logs, Events (EventBridge).
+                </li>
+                <li><strong>Red-Flag Keywords:</strong>
+                    <ul>
+                        <li>"Memory usage" → CloudWatch Agent (not default)</li>
+                        <li>"Who did what" → CloudTrail (not CloudWatch)</li>
+                        <li>"Scheduled task" → EventBridge (not Alarms)</li>
+                        <li>"Log query" → Logs Insights</li>
+                        <li>"Long-term storage" → Export to S3</li>
+                    </ul>
+                </li>
+                <li><strong>Self-Check:</strong>
+                    <ul>
+                        <li>Performance monitoring → CloudWatch</li>
+                        <li>Audit trail → CloudTrail</li>
+                        <li>Configuration compliance → Config</li>
+                        <li>Event-driven automation → EventBridge</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <hr>
+        
+        <!-- ============================================ -->
+        <!-- SECURITY SERVICES SECTION                    -->
+        <!-- ============================================ -->
+        <h2 id="security">Security Services - Deep Dive</h2>
+        <div class="service-card tier-2">
+            <h2>🔷 Security - Defense in Depth</h2>
+            <div class="card-grid">
+                <div class="card-item">
+                    <h4>🎯 Exam Weight</h4>
+                    <p><strong>~8-10%</strong> of total exam</p>
+                </div>
+                <div class="card-item">
+                    <h4>⚡ Core Purpose</h4>
+                    <p>Encryption, secrets management, audit, compliance</p>
+                </div>
+                <div class="card-item">
+                    <h4>🔑 Must-Know Topics</h4>
+                    <ul>
+                        <li>KMS & encryption</li>
+                        <li>Secrets Manager vs Parameter Store</li>
+                        <li>CloudTrail & Config</li>
+                    </ul>
+                </div>
+                <div class="card-item">
+                    <h4>🎓 Study Priority</h4>
+                    <p><strong>⭐⭐⭐⭐⭐ CRITICAL</strong></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mental-model-box">
+            <h3>💡 Mental Model: AWS Security Layers</h3>
+            <pre class="ascii-diagram">
+                        ┌────────────────────────────────────────────────────────────────┐
+                        │                    SECURITY LAYERS                             │
+                        ├────────────────────────────────────────────────────────────────┤
+                        │                                                                │
+                        │  🔐 LAYER 1: ENCRYPTION (Data Protection)                      │
+                        │  ┌──────────────────────────────────────────────────────┐      │
+                        │  │ KMS → Manages encryption keys                         │      │
+                        │  │ CloudHSM → Hardware security module for compliance   │      │
+                        │  └──────────────────────────────────────────────────────┘      │
+                        │                                                                │
+                        │  🔑 LAYER 2: SECRETS & CREDENTIALS                             │
+                        │  ┌──────────────────────────────────────────────────────┐      │
+                        │  │ Secrets Manager → Rotate DB passwords, API keys      │      │
+                        │  │ Parameter Store → Store config, lightweight secrets  │      │
+                        │  └──────────────────────────────────────────────────────┘      │
+                        │                                                                │
+                        │  🔍 LAYER 3: AUDIT & COMPLIANCE                                │
+                        │  ┌──────────────────────────────────────────────────────┐      │
+                        │  │ CloudTrail → WHO did WHAT (API audit)                │      │
+                        │  │ Config → Resource config compliance                  │      │
+                        │  │ GuardDuty → Threat detection (ML-based)              │      │
+                        │  └──────────────────────────────────────────────────────┘      │
+                        │                                                                │
+                        │  🛡️ LAYER 4: NETWORK PROTECTION                                │
+                        │  ┌──────────────────────────────────────────────────────┐      │
+                        │  │ WAF → Web app firewall (SQL injection, XSS)          │      │
+                        │  │ Shield → DDoS protection                             │      │
+                        │  │ Firewall Manager → Centralized firewall rules        │      │
+                        │  └──────────────────────────────────────────────────────┘      │
+                        └────────────────────────────────────────────────────────────────┘
+                                    </pre>
+        </div>
+        
+        <h3>🔐 AWS KMS (Key Management Service)</h3>
+        
+        <h4>Core Concepts</h4>
+        <ul>
+            <li><strong>Purpose:</strong> Managed service to create and control encryption keys.</li>
+            <li><strong>Key Types:</strong>
+                <ul>
+                    <li><strong>AWS Managed Keys:</strong> Free, automatic rotation, used by AWS services (e.g., `aws/s3`,
+                        `aws/rds`)</li>
+                    <li><strong>Customer Managed Keys (CMK):</strong> You control rotation, key policies, and audit.
+                        <strong>This is what you use for custom encryption.</strong>
+                    </li>
+                    <li><strong>AWS Owned Keys:</strong> Used internally by AWS, you can't view or manage</li>
+                    <li><strong>Custom Key Store (CloudHSM):</strong> For regulatory compliance requiring dedicated hardware
+                    </li>
+                </ul>
+            </li>
+            <li><strong>Key Material Origin:</strong>
+                <ul>
+                    <li><strong>KMS:</strong> AWS generates key material (default, recommended)</li>
+                    <li><strong>External:</strong> You import your own key material</li>
+                    <li><strong>CloudHSM:</strong> Key material in dedicated HSM cluster</li>
+                </ul>
+            </li>
+        </ul>
+        
+        <h4>⚡ Envelope Encryption (Critical Concept)</h4>
+        <div class="mental-model-box">
+            <pre class="ascii-diagram">
+                        WHY ENVELOPE ENCRYPTION?
+                        - Encrypting large data with KMS is slow (4KB limit per API call)
+                        - Solution: Use data key to encrypt data, use master key to encrypt data key
+                        
+                        PROCESS:
+                        1. Call KMS GenerateDataKey → Get plaintext + encrypted data key
+                        2. Use plaintext data key to encrypt your file locally
+                        3. Store encrypted file + encrypted data key together
+                        4. Delete plaintext data key from memory
+                        
+                        DECRYPTION:
+                        1. Call KMS Decrypt with encrypted data key → Get plaintext data key
+                        2. Use plaintext data key to decrypt file
+                        3. Delete plaintext data key from memory
+                        
+                        ┌─────────────────────────────────────────────────────────┐
+                        │  KMS Master Key (never leaves KMS)                      │
+                        │         │                                               │
+                        │         ├──▶ Encrypts Data Key                          │
+                        │         │                                               │
+                        │  Data Key (plaintext) ──▶ Encrypts actual data         │
+                        │                                                         │
+                        │  Stored: Encrypted Data + Encrypted Data Key           │
+                        └─────────────────────────────────────────────────────────┘
+                                    </pre>
+        </div>
+        
+        <h4>🔑 Key Policies & Permissions</h4>
+        <ul>
+            <li><strong>Key Policy:</strong> Resource-based policy attached to KMS key. <strong>Required for all KMS
+                    keys.</strong>
+                <ul>
+                    <li>Defines who can use and manage the key</li>
+                    <li>Default: Root account has full access</li>
+                </ul>
+            </li>
+            <li><strong>Grants:</strong> Temporary, programmatic permissions (used by AWS services)</li>
+            <li><strong>IAM Policies:</strong> Work together with key policies (both must allow)</li>
+        </ul>
+        
+        <h4>📊 KMS Integration with AWS Services</h4>
+        <div class="comparison-matrix">
+            <table>
+                <tr>
+                    <th>Service</th>
+                    <th>Encryption Options</th>
+                    <th>Exam Tip</th>
+                </tr>
+                <tr>
+                    <td><strong>S3</strong></td>
+                    <td>SSE-S3, SSE-KMS, SSE-C</td>
+                    <td>SSE-KMS for audit trail + key control</td>
+                </tr>
+                <tr>
+                    <td><strong>EBS</strong></td>
+                    <td>Encrypted with KMS</td>
+                    <td>Encrypted EBS → Encrypted snapshots (different regions need re-encryption)</td>
+                </tr>
+                <tr>
+                    <td><strong>RDS</strong></td>
+                    <td>Encrypt at rest with KMS</td>
+                    <td>Can't encrypt existing DB, must snapshot → restore to encrypted</td>
+                </tr>
+                <tr>
+                    <td><strong>Lambda</strong></td>
+                    <td>Environment variables encrypted with KMS</td>
+                    <td>Default or custom CMK</td>
+                </tr>
+                <tr>
+                    <td><strong>DynamoDB</strong></td>
+                    <td>Encryption at rest (default AWS managed, optional CMK)</td>
+                    <td>CMK for compliance + audit</td>
+                </tr>
+            </table>
+        </div>
+        
+        <h4>🔄 Key Rotation</h4>
+        <ul>
+            <li><strong>Automatic Rotation (Customer Managed Keys):</strong>
+                <ul>
+                    <li>Enabled per key, rotates every <strong>1 year</strong></li>
+                    <li>AWS keeps old key versions for decryption</li>
+                    <li>No application changes needed</li>
+                </ul>
+            </li>
+            <li><strong>Manual Rotation:</strong>
+                <ul>
+                    <li>Create new key, update applications to use new key</li>
+                    <li>Use key aliases to simplify rotation</li>
+                </ul>
+            </li>
+            <li><strong>AWS Managed Keys:</strong> Automatically rotated every 3 years (you can't change this)</li>
+        </ul>
+        
+        <div class="info-box"><strong>Exam Tip:</strong> If question asks for "audit trail of key usage" or "automatic key
+            rotation", the answer is <strong>KMS with Customer Managed Key (CMK)</strong>. KMS integrates with CloudTrail to log
+            all key operations.</div>
+        
+        <h3>🔑 Secrets Manager vs. Parameter Store</h3>
+        <div class="comparison-matrix">
+            <table>
+                <tr>
+                    <th>Feature</th>
+                    <th>Secrets Manager</th>
+                    <th>Systems Manager Parameter Store</th>
+                </tr>
+                <tr>
+                    <td><strong>Purpose</strong></td>
+                    <td><strong>Store & rotate secrets</strong></td>
+                    <td><strong>Store config & secrets</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Pricing</strong></td>
+                    <td><strong>$0.40/secret/month + $0.05/10k API calls</strong></td>
+                    <td><strong>Free (Standard), $0.05/parameter/month (Advanced)</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Automatic Rotation</strong></td>
+                    <td><strong>✅ Built-in for RDS, Redshift, DocumentDB</strong></td>
+                    <td>❌ Manual only</td>
+                </tr>
+                <tr>
+                    <td><strong>Cross-account Access</strong></td>
+                    <td>✅ Via resource policy</td>
+                    <td>❌ Not supported</td>
+                </tr>
+                <tr>
+                    <td><strong>Size Limit</strong></td>
+                    <td>64 KB</td>
+                    <td>4 KB (Standard), 8 KB (Advanced)</td>
+                </tr>
+                <tr>
+                    <td><strong>Encryption</strong></td>
+                    <td>Always encrypted with KMS</td>
+                    <td>Optional KMS encryption (SecureString)</td>
+                </tr>
+                <tr>
+                    <td><strong>Versioning</strong></td>
+                    <td>✅ Automatic</td>
+                    <td>✅ Yes</td>
+                </tr>
+                <tr>
+                    <td><strong>Best For</strong></td>
+                    <td><strong>Database passwords, API keys (need rotation)</strong></td>
+                    <td><strong>App config, feature flags, static secrets</strong></td>
+                </tr>
+            </table>
+        </div>
+        
+        <h4>Decision Tree: When to use which?</h4>
+        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 5px;">
+                        Question: Do you need AUTOMATIC ROTATION?
+                        │
+                        ├─ YES → <strong>Secrets Manager</strong>
+                        │   └─ Examples: RDS passwords, 3rd party API keys
+                        │
+                        └─ NO → Do you need to store secrets?
+                            │
+                            ├─ YES → <strong>Parameter Store (SecureString)</strong>
+                            │   └─ Examples: Static passwords, connection strings
+                            │
+                            └─ NO (just config) → <strong>Parameter Store (String)</strong>
+                                └─ Examples: App settings, feature flags, URLs
+                                </pre>
+        
+        <div class="integration-patterns">
+            <h3>🔗 Common Security Patterns</h3>
+        
+            <h4>Pattern 1: Lambda accessing RDS with rotated credentials</h4>
+            <pre class="architecture-diagram">
+                        Secrets Manager (RDS password, auto-rotate every 30 days)
+                                 ↓
+                        Lambda function (retrieves secret at runtime)
+                                 ↓
+                        RDS (connects with fresh password)
+                        
+                        <strong>Exam Keywords:</strong> "rotate database password", "Lambda + RDS security"
+                                    </pre>
+        
+            <h4>Pattern 2: Multi-account secrets access</h4>
+            <pre class="architecture-diagram">
+                        Account A: Secrets Manager secret
+                                 ↓ (resource policy allows Account B)
+                        Account B: Lambda function retrieves secret
+                        
+                        <strong>Exam Keywords:</strong> "cross-account secret access", "central secrets management"
+                                    </pre>
+        </div>
+        
+        <h3>📋 AWS CloudTrail - API Audit Logging</h3>
+        <ul>
+            <li><strong>Purpose:</strong> Records AWS API calls for audit and compliance. Answers "WHO did WHAT, WHEN, and from
+                WHERE".</li>
+            <li><strong>What it logs:</strong>
+                <ul>
+                    <li>User identity (who made the call)</li>
+                    <li>Time of request</li>
+                    <li>Source IP address</li>
+                    <li>Request parameters</li>
+                    <li>Response elements</li>
+                </ul>
+            </li>
+            <li><strong>Trail Types:</strong>
+                <ul>
+                    <li><strong>Management Events:</strong> Control plane operations (e.g., CreateBucket, TerminateInstance)
+                    </li>
+                    <li><strong>Data Events:</strong> Data plane operations (e.g., GetObject, PutObject in S3, Lambda
+                        invocations) - <strong>High volume, costs more</strong></li>
+                    <li><strong>Insights Events:</strong> Detect unusual activity (e.g., burst of IAM actions, spike in resource
+                        provisioning)</li>
+                </ul>
+            </li>
+            <li><strong>Storage:</strong> Logs delivered to S3 bucket (can encrypt with SSE-S3 or SSE-KMS). Can also stream to
+                CloudWatch Logs.</li>
+            <li><strong>Log File Integrity:</strong> Optional validation to detect if logs were modified or deleted.</li>
+        </ul>
+        
+        <div class="info-box"><strong>Exam Tip:</strong> CloudTrail is enabled by default (90-day history), but to keep logs
+            longer, you must create a trail with S3 storage. For compliance, enable log file validation and MFA delete on S3
+            bucket.</div>
+        
+        <h3>🔧 AWS Config - Resource Configuration Compliance</h3>
+        <ul>
+            <li><strong>Purpose:</strong> Continuously monitor and record AWS resource configurations. Evaluate compliance
+                against desired configurations.</li>
+            <li><strong>What it does:</strong>
+                <ul>
+                    <li>Tracks configuration changes over time (who changed what security group rule?)</li>
+                    <li>Evaluates resources against <strong>Config Rules</strong> (managed or custom)</li>
+                    <li>Generates compliance reports</li>
+                    <li>Can trigger auto-remediation (e.g., via Lambda or Systems Manager)</li>
+                </ul>
+            </li>
+            <li><strong>Config Rules Examples:</strong>
+                <ul>
+                    <li>Is S3 bucket public? (s3-bucket-public-read-prohibited)</li>
+                    <li>Are EBS volumes encrypted? (encrypted-volumes)</li>
+                    <li>Is MFA enabled for root account? (root-account-mfa-enabled)</li>
+                    <li>Is CloudTrail enabled? (cloudtrail-enabled)</li>
+                </ul>
+            </li>
+            <li><strong>Aggregator:</strong> Centralize Config data from multiple accounts and regions.</li>
+        </ul>
+        
+        <h3>🛡️ GuardDuty - Threat Detection</h3>
+        <ul>
+            <li><strong>Purpose:</strong> Intelligent threat detection service using ML. Monitors for malicious activity and
+                unauthorized behavior.</li>
+            <li><strong>Data Sources:</strong>
+                <ul>
+                    <li>VPC Flow Logs (unusual network traffic)</li>
+                    <li>CloudTrail logs (suspicious API calls)</li>
+                    <li>DNS logs (queries to malicious domains)</li>
+                </ul>
+            </li>
+            <li><strong>Findings:</strong> GuardDuty generates findings for detected threats (e.g., EC2 instance communicating
+                with known malware C&C server).</li>
+            <li><strong>Integration:</strong> Send findings to EventBridge → Lambda/SNS for automated remediation.</li>
+            <li><strong>Pricing:</strong> Pay per million events analyzed. <strong>No upfront cost, no infrastructure to
+                    manage.</strong></li>
+        </ul>
+        
+        <h3>🔒 WAF & Shield - Web Application Protection</h3>
+        <ul>
+            <li><strong>AWS WAF (Web Application Firewall):</strong>
+                <ul>
+                    <li>Protects web apps from common exploits (SQL injection, XSS, etc.)</li>
+                    <li>Rules based on IP, geo, rate limiting, request patterns</li>
+                    <li>Integrates with: CloudFront, ALB, API Gateway, AppSync</li>
+                    <li><strong>Managed Rules:</strong> Pre-configured rule sets (AWS or marketplace)</li>
+                </ul>
+            </li>
+            <li><strong>AWS Shield:</strong>
+                <ul>
+                    <li><strong>Shield Standard:</strong> Free, automatic DDoS protection for all AWS customers</li>
+                    <li><strong>Shield Advanced:</strong> $3,000/month, enhanced DDoS protection + 24/7 DDoS response team
+                        (DRT), cost protection</li>
+                </ul>
+            </li>
+        </ul>
+        
+        <h3>🆚 Security Services Comparison</h3>
+        <div class="comparison-matrix">
+            <table>
+                <tr>
+                    <th>Question</th>
+                    <th>Answer</th>
+                </tr>
+                <tr>
+                    <td>Who deleted this S3 bucket?</td>
+                    <td><strong>CloudTrail</strong> (API audit)</td>
+                </tr>
+                <tr>
+                    <td>Is my security group compliant with our policy?</td>
+                    <td><strong>Config</strong> (compliance rules)</td>
+                </tr>
+                <tr>
+                    <td>Detect if EC2 instance is compromised</td>
+                    <td><strong>GuardDuty</strong> (threat detection)</td>
+                </tr>
+                <tr>
+                    <td>Protect web app from SQL injection</td>
+                    <td><strong>WAF</strong> (web firewall)</td>
+                </tr>
+                <tr>
+                    <td>Rotate RDS password automatically</td>
+                    <td><strong>Secrets Manager</strong></td>
+                </tr>
+                <tr>
+                    <td>Encrypt data at rest</td>
+                    <td><strong>KMS</strong> (encryption keys)</td>
+                </tr>
+                <tr>
+                    <td>Audit all KMS key usage</td>
+                    <td><strong>CloudTrail</strong> (KMS is integrated)</td>
+                </tr>
+                <tr>
+                    <td>Store app config (non-sensitive)</td>
+                    <td><strong>Parameter Store</strong></td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="mistake-box critical">
+            <h3>⚠️ Common Mistakes & Exam Traps (Security)</h3>
+            <table>
+                <tr>
+                    <th>Trap</th>
+                    <th>Wrong Answer</th>
+                    <th>Correct Answer</th>
+                </tr>
+                <tr>
+                    <td>Rotate database password automatically</td>
+                    <td>Parameter Store</td>
+                    <td>Secrets Manager (has built-in rotation)</td>
+                </tr>
+                <tr>
+                    <td>Encrypt existing RDS database</td>
+                    <td>Enable encryption on existing DB</td>
+                    <td>Can't encrypt in-place! Snapshot → Restore encrypted</td>
+                </tr>
+                <tr>
+                    <td>Audit who accessed S3 objects</td>
+                    <td>Config</td>
+                    <td>CloudTrail Data Events + S3 Server Access Logging</td>
+                </tr>
+                <tr>
+                    <td>Cross-account secret sharing</td>
+                    <td>Parameter Store</td>
+                    <td>Secrets Manager (supports resource policy)</td>
+                </tr>
+                <tr>
+                    <td>Encrypt large file (1 GB) with KMS</td>
+                    <td>Call KMS Encrypt directly</td>
+                    <td>Use Envelope Encryption (GenerateDataKey)</td>
+                </tr>
+                <tr>
+                    <td>Detect compromised EC2 instance</td>
+                    <td>CloudWatch Alarms</td>
+                    <td>GuardDuty (ML-based threat detection)</td>
+                </tr>
+                <tr>
+                    <td>Store 10 KB secret</td>
+                    <td>Secrets Manager</td>
+                    <td>Both work, but Parameter Store is free (Advanced tier)</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="exam-notes-box">
+            <h3>?? Memory Toolkit (Security Services)</h3>
+            <ul>
+                <li><strong>Analogy:</strong> KMS is the safe deposit box, Secrets Manager is the key rotation service,
+                    CloudTrail is the security camera, Config is the compliance inspector, GuardDuty is the night watchman.</li>
+                <li><strong>Mnemonic:</strong> "KSCCG" for security services: KMS, Secrets, CloudTrail, Config, GuardDuty.</li>
+                <li><strong>Red-Flag Keywords:</strong>
+                    <ul>
+                        <li>"Rotate" → Secrets Manager</li>
+                        <li>"Audit API" → CloudTrail</li>
+                        <li>"Compliance" → Config</li>
+                        <li>"Threat detection" → GuardDuty</li>
+                        <li>"Encrypt" → KMS</li>
+                        <li>"Web protection" → WAF</li>
+                        <li>"DDoS" → Shield</li>
+                    </ul>
+                </li>
+                <li><strong>Decision Flow:</strong>
+                    <pre style="background: #2d2d2d; padding: 10px; border-radius: 5px; color: #d4d4d4;">
+                        Need to store credentials?
+                        ├─ Need rotation? → Secrets Manager
+                        └─ No rotation? → Parameter Store
+                        
+                        Need audit trail?
+                        ├─ WHO did WHAT? → CloudTrail
+                        └─ Is config compliant? → Config
+                        
+                        Need to detect threats? → GuardDuty
+                        Need to protect web app? → WAF
+                                            </pre>
+                </li>
+                <li><strong>Exam Pattern:</strong> Multi-service security questions are common. Example: "Encrypt S3 with
+                    customer-managed keys + audit all key access" = KMS CMK + CloudTrail.</li>
+            </ul>
+        </div>
         <hr>
 
         <h2><span class="tier-badge tier-2">TIER 2 - ARCHITECTURAL BUILDING BLOCKS (20-25% điểm)</span></h2>
         <hr>
-
-        <h2 id="route53">6. Route 53 - Global DNS</h2>
+        <h2 id="route53">8. Route 53 - Global DNS</h2>
         <ul>
             <li><strong>Core Function:</strong> Domain Name System (DNS) service. Translates domain names (e.g., `www.amazon.com`) to IP addresses.</li>
             <li><strong>Key Feature for SAA: Routing Policies</strong>
                 <ul>
+        <div class="exam-notes-box">
+            <h3>?? Memory Toolkit (Route 53)</h3>
+            <ul>
+                <li><strong>Analogy:</strong> Global switchboard operator deciding which branch picks up each call.</li>
+                <li><strong>Mnemonic:</strong> "Fail-Lat-Weight-Location-Simple-Steer" sequence to recall every routing policy.
+                </li>
+                <li><strong>Red-Flag Keywords:</strong> "active/passive" -> Failover, "closest region" -> Latency/Geolocation,
+                    "test new version" -> Weighted.</li>
+                <li><strong>Self-Check:</strong> Note the decision driver: health, geography, performance, or experiment? Then
+                    choose the matching policy.</li>
+            </ul>
+        </div>
                     <li><strong>Simple:</strong> Default. Route traffic to a single resource.</li>
                     <li><strong>Failover:</strong> Active-Passive. Redirects traffic to a secondary resource if the primary is unhealthy. Used for DR.</li>
                     <li><strong>Geolocation:</strong> Route traffic based on the user's geographic location (e.g., continent, country).</li>
@@ -668,7 +1957,6 @@
             </li>
         </ul>
         <hr>
-
         <h2 id="decoupling">7. Decoupling Services (SQS & SNS)</h2>
         <div class="comparison-matrix">
             <table>
@@ -682,13 +1970,12 @@
             <h3>🔗 Common Pattern: SQS + SNS Fan-out</h3>
             <p>Use SNS to send a single message to multiple SQS queues, allowing different parts of your application to process the same event in parallel, reliably.</p>
             <pre class="architecture-diagram">
-   Event Source ──▶ SNS Topic ──┬──▶ SQS Queue A ──▶ Processor A
-                                 ├──▶ SQS Queue B ──▶ Processor B
-                                 └──▶ SQS Queue C ──▶ Processor C
+Event Source --> SNS Topic --> SQS Queue A --> Processor A
+\--> SQS Queue B --> Processor B
+\--> SQS Queue C --> Processor C
             </pre>
         </div>
         <hr>
-
         <h2 id="cloudfront">8. CloudFront - Content Delivery Network (CDN)</h2>
         <ul>
             <li><strong>Purpose:</strong> Caches content at Edge Locations around the world to reduce latency for users.</li>
@@ -702,11 +1989,958 @@
             <li><strong>Security:</strong> Can use AWS WAF (Web Application Firewall) for protection. Can restrict access to S3 origins using an **Origin Access Identity (OAI)**.</li>
         </ul>
         <hr>
-
+        
+        <!-- ============================================ -->
+        <!-- CLOUDFORMATION & IaC SECTION                 -->
+        <!-- ============================================ -->
+        <h2 id="cloudformation">CloudFormation & Infrastructure as Code</h2>
+        <div class="service-card tier-2">
+            <h2>🔷 CloudFormation - Automate Infrastructure</h2>
+            <div class="card-grid">
+                <div class="card-item">
+                    <h4>🎯 Exam Weight</h4>
+                    <p><strong>~5-7%</strong> of total exam</p>
+                </div>
+                <div class="card-item">
+                    <h4>⚡ Core Purpose</h4>
+                    <p>Define infrastructure as code (IaC)</p>
+                </div>
+                <div class="card-item">
+                    <h4>🔑 Must-Know Topics</h4>
+                    <ul>
+                        <li>Templates & Stacks</li>
+                        <li>DependsOn & DeletionPolicy</li>
+                        <li>Drift Detection</li>
+                    </ul>
+                </div>
+                <div class="card-item">
+                    <h4>🎓 Study Priority</h4>
+                    <p><strong>⭐⭐⭐⭐ IMPORTANT</strong></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mental-model-box">
+            <h3>💡 Mental Model: CloudFormation như "Blueprint của tòa nhà"</h3>
+            <pre class="ascii-diagram">
+                        ┌────────────────────────────────────────────────────────────────┐
+                        │ TRADITIONAL (Manual)        vs.     CloudFormation (IaC)       │
+                        ├────────────────────────────────────────────────────────────────┤
+                        │ Click in console                    Write template (YAML/JSON) │
+                        │ Manual steps                        Automated deployment       │
+                        │ Hard to replicate                   Version controlled         │
+                        │ Prone to errors                     Consistent & repeatable    │
+                        │ No audit trail                      Full change history        │
+                        └────────────────────────────────────────────────────────────────┘
+                        
+                        CLOUDFORMATION WORKFLOW:
+                        ┌──────────────┐      ┌──────────────┐      ┌──────────────┐
+                        │   Template   │─────▶│    Stack     │─────▶│  Resources   │
+                        │ (YAML/JSON)  │      │  (Created)   │      │   (Running)  │
+                        └──────────────┘      └──────────────┘      └──────────────┘
+                                                     │
+                                                     ├─ Update Stack → Change Set (preview)
+                                                     ├─ Delete Stack → All resources deleted
+                                                     └─ Rollback on failure (automatic)
+                                    </pre>
+        </div>
+        
+        <h3>📚 Core Concepts</h3>
+        <ul>
+            <li><strong>Template:</strong> JSON or YAML file that describes your infrastructure.
+                <ul>
+                    <li><strong>Resources:</strong> (Required) AWS resources to create (EC2, S3, RDS, etc.)</li>
+                    <li><strong>Parameters:</strong> Input values to customize templates (e.g., instance type, key name)</li>
+                    <li><strong>Mappings:</strong> Fixed variables, conditional values (e.g., AMI per region)</li>
+                    <li><strong>Outputs:</strong> Values to export (e.g., Load Balancer DNS name)</li>
+                    <li><strong>Conditions:</strong> Control resource creation based on parameters</li>
+                </ul>
+            </li>
+            <li><strong>Stack:</strong> A collection of AWS resources managed as a single unit. Created from a template.</li>
+            <li><strong>Stack Set:</strong> Deploy stacks across multiple accounts and regions from a single template.</li>
+        </ul>
+        
+        <h3>⚙️ Key CloudFormation Features</h3>
+        
+        <h4>1. Change Sets (Preview Changes)</h4>
+        <ul>
+            <li>Before updating a stack, create a <strong>Change Set</strong> to preview what will change.</li>
+            <li>Shows: Resources to be added, modified, replaced, or deleted.</li>
+            <li>⚠️ <strong>Replacement</strong> means resource will be deleted and recreated (can cause downtime!).</li>
+        </ul>
+        
+        <h4>2. DependsOn Attribute</h4>
+        <ul>
+            <li>Explicitly declare dependency between resources.</li>
+            <li>By default, CloudFormation creates resources in parallel. Use <code>DependsOn</code> to enforce order.</li>
+            <li><strong>Example:</strong> Create RDS instance only after security group is created.</li>
+        </ul>
+        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 10px; border-radius: 5px;">
+                        Resources:
+                          MyDB:
+                            Type: AWS::RDS::DBInstance
+                            DependsOn: MySecurityGroup  # Wait for SG first
+                            Properties:
+                              ...
+                                </pre>
+        
+        <h4>3. DeletionPolicy</h4>
+        <ul>
+            <li>Controls what happens to a resource when its stack is deleted.</li>
+            <li><strong>Delete:</strong> (Default) Resource is deleted with stack</li>
+            <li><strong>Retain:</strong> Resource is kept even after stack deletion (e.g., S3 bucket with important data)</li>
+            <li><strong>Snapshot:</strong> Create snapshot before deletion (RDS, EBS, Redshift)</li>
+        </ul>
+        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 10px; border-radius: 5px;">
+                        Resources:
+                          MyDatabase:
+                            Type: AWS::RDS::DBInstance
+                            DeletionPolicy: Snapshot  # Create snapshot before deleting
+                                </pre>
+        
+        <h4>4. UpdateReplacePolicy</h4>
+        <ul>
+            <li>Similar to DeletionPolicy, but applies when resource is <strong>replaced</strong> during stack update.</li>
+            <li>Use <code>Snapshot</code> to preserve data before replacement.</li>
+        </ul>
+        
+        <h4>5. Stack Policy</h4>
+        <ul>
+            <li>Prevents accidental updates or deletes of critical resources.</li>
+            <li>JSON document that defines which resources can be updated.</li>
+            <li><strong>Example:</strong> Protect production database from accidental updates.</li>
+        </ul>
+        
+        <h4>6. Drift Detection</h4>
+        <ul>
+            <li>Detects if resources were manually modified outside CloudFormation.</li>
+            <li>Compares current state vs. template definition.</li>
+            <li><strong>Use Case:</strong> Ensure infrastructure matches IaC template (detect manual changes).</li>
+        </ul>
+        
+        <h4>7. Rollback Behavior</h4>
+        <ul>
+            <li><strong>Create Failure:</strong> Rollback enabled by default (deletes all created resources)</li>
+            <li><strong>Update Failure:</strong> Rollback to previous working state</li>
+            <li><strong>Continue Update Rollback:</strong> If rollback itself fails, manually fix and continue</li>
+            <li>⚠️ Can disable rollback for troubleshooting (not recommended for production)</li>
+        </ul>
+        
+        <h3>🔗 Cross-Stack References</h3>
+        <ul>
+            <li>Share resources between stacks using <strong>Outputs</strong> and <strong>Import</strong>.</li>
+            <li><strong>Stack A</strong> exports a value (e.g., VPC ID)</li>
+            <li><strong>Stack B</strong> imports that value</li>
+        </ul>
+        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 10px; border-radius: 5px;">
+                        # Stack A (Network Stack)
+                        Outputs:
+                          VPCId:
+                            Value: !Ref MyVPC
+                            Export:
+                              Name: NetworkStack-VPCID
+                        
+                        # Stack B (App Stack)
+                        Resources:
+                          MyInstance:
+                            Type: AWS::EC2::Instance
+                            Properties:
+                              SubnetId: !ImportValue NetworkStack-VPCID
+                                </pre>
+        <div class="info-box"><strong>Exam Tip:</strong> Can't delete a stack if its exports are being imported by another
+            stack!</div>
+        
+        <h3>🆚 CloudFormation vs. Other Deployment Tools</h3>
+        <div class="comparison-matrix">
+            <table>
+                <tr>
+                    <th>Tool</th>
+                    <th>Purpose</th>
+                    <th>Best For</th>
+                    <th>Exam Relevance</th>
+                </tr>
+                <tr>
+                    <td><strong>CloudFormation</strong></td>
+                    <td>Infrastructure as Code</td>
+                    <td>Define entire infrastructure, multi-resource stacks</td>
+                    <td>⭐⭐⭐⭐⭐</td>
+                </tr>
+                <tr>
+                    <td><strong>Elastic Beanstalk</strong></td>
+                    <td>Platform as a Service (PaaS)</td>
+                    <td>Deploy apps quickly without infrastructure knowledge</td>
+                    <td>⭐⭐⭐ Know when to use</td>
+                </tr>
+                <tr>
+                    <td><strong>SAM (Serverless Application Model)</strong></td>
+                    <td>Serverless IaC (simplified CloudFormation)</td>
+                    <td>Lambda, API Gateway, DynamoDB serverless apps</td>
+                    <td>⭐⭐ Aware of existence</td>
+                </tr>
+                <tr>
+                    <td><strong>CDK (Cloud Development Kit)</strong></td>
+                    <td>Define infrastructure with programming languages</td>
+                    <td>Developers who prefer code over YAML/JSON</td>
+                    <td>⭐ Mention in passing</td>
+                </tr>
+                <tr>
+                    <td><strong>OpsWorks</strong></td>
+                    <td>Configuration management (Chef/Puppet)</td>
+                    <td>Complex app configuration, legacy systems</td>
+                    <td>⭐ Low priority</td>
+                </tr>
+            </table>
+        </div>
+        
+        <h4>When to use what?</h4>
+        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 5px;">
+                        <strong>CloudFormation:</strong>
+                        - Full control over infrastructure
+                        - Complex multi-tier architectures
+                        - Need to manage 10+ AWS resources together
+                        - Version control and audit trail required
+                        
+                        <strong>Elastic Beanstalk:</strong>
+                        - "Just deploy my app, I don't care about infrastructure"
+                        - Standard web apps (Node.js, Python, Java, .NET, PHP, Ruby, Go)
+                        - Auto-scaling, load balancing handled automatically
+                        - Developer-friendly, less control
+                        
+                        <strong>SAM:</strong>
+                        - Serverless applications (Lambda + API Gateway + DynamoDB)
+                        - Simplified syntax for serverless (less boilerplate than CloudFormation)
+                        - Local testing with SAM CLI
+                        
+                        <strong>Exam Decision Tree:</strong>
+                        Question mentions "infrastructure as code" + complex resources → CloudFormation
+                        Question mentions "developer wants to deploy app easily" → Elastic Beanstalk
+                        Question mentions "serverless" + "simplified template" → SAM
+                                </pre>
+        
+        <h3>💡 Advanced CloudFormation Concepts</h3>
+        
+        <h4>Nested Stacks</h4>
+        <ul>
+            <li>Stack that creates other stacks as resources.</li>
+            <li><strong>Use Case:</strong> Reusable components (e.g., common VPC template used by multiple stacks).</li>
+            <li><strong>Benefit:</strong> Modular, easier to maintain.</li>
+            <li>⚠️ Parent stack manages lifecycle of nested stacks.</li>
+        </ul>
+        
+        <h4>StackSets</h4>
+        <ul>
+            <li>Deploy same stack across <strong>multiple accounts and regions</strong> from a single template.</li>
+            <li><strong>Use Case:</strong> Multi-account governance, compliance (e.g., deploy CloudTrail to all accounts).</li>
+            <li>Requires AWS Organizations or manual permission setup.</li>
+        </ul>
+        
+        <h4>Custom Resources</h4>
+        <ul>
+            <li>Extend CloudFormation to manage resources not natively supported.</li>
+            <li>Backed by <strong>Lambda</strong> or <strong>SNS</strong>.</li>
+            <li><strong>Example:</strong> Call external API, clean up S3 bucket before deletion, fetch data from DynamoDB.</li>
+        </ul>
+        
+        <h3>🔍 Troubleshooting CloudFormation</h3>
+        <div class="comparison-matrix">
+            <table>
+                <tr>
+                    <th>Issue</th>
+                    <th>Cause</th>
+                    <th>Solution</th>
+                </tr>
+                <tr>
+                    <td>Stack stuck in CREATE_IN_PROGRESS</td>
+                    <td>Resource creation timeout or dependency issue</td>
+                    <td>Check CloudFormation Events, verify resource limits (e.g., VPC limit)</td>
+                </tr>
+                <tr>
+                    <td>Stack rollback on create</td>
+                    <td>Resource creation failed</td>
+                    <td>Check Events tab for error details, fix template, retry</td>
+                </tr>
+                <tr>
+                    <td>UPDATE_ROLLBACK_FAILED</td>
+                    <td>Rollback itself failed (e.g., resource manually deleted)</td>
+                    <td>Use Continue Update Rollback, manually fix issue</td>
+                </tr>
+                <tr>
+                    <td>Can't delete stack (DELETE_FAILED)</td>
+                    <td>Resource has dependencies or can't be deleted</td>
+                    <td>Check Events, manually delete problem resource, retry stack delete</td>
+                </tr>
+                <tr>
+                    <td>Drift detected</td>
+                    <td>Someone manually changed resources</td>
+                    <td>Import drift (update template) or revert manual change</td>
+                </tr>
+                <tr>
+                    <td>Can't update (exports in use)</td>
+                    <td>Another stack imports this stack's exports</td>
+                    <td>Delete dependent stack first, or change export name</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="mistake-box critical">
+            <h3>⚠️ Common Mistakes & Exam Traps (CloudFormation)</h3>
+            <table>
+                <tr>
+                    <th>Trap</th>
+                    <th>Wrong Answer</th>
+                    <th>Correct Answer</th>
+                </tr>
+                <tr>
+                    <td>Preserve database on stack deletion</td>
+                    <td>Use Retain on stack</td>
+                    <td>Set DeletionPolicy: Retain or Snapshot on resource</td>
+                </tr>
+                <tr>
+                    <td>Preview changes before update</td>
+                    <td>Update stack directly</td>
+                    <td>Create Change Set first, review, then execute</td>
+                </tr>
+                <tr>
+                    <td>Deploy to 50 accounts</td>
+                    <td>Run CloudFormation 50 times</td>
+                    <td>Use StackSets for multi-account deployment</td>
+                </tr>
+                <tr>
+                    <td>Reuse VPC template across stacks</td>
+                    <td>Copy-paste template code</td>
+                    <td>Use Nested Stacks or Cross-Stack References</td>
+                </tr>
+                <tr>
+                    <td>Detect manual infrastructure changes</td>
+                    <td>Manually compare</td>
+                    <td>Use Drift Detection</td>
+                </tr>
+                <tr>
+                    <td>Resource replacement will cause downtime</td>
+                    <td>Update immediately</td>
+                    <td>Check Change Set, use blue/green deployment pattern</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="exam-notes-box">
+            <h3>?? Memory Toolkit (CloudFormation)</h3>
+            <ul>
+                <li><strong>Analogy:</strong> CloudFormation is like LEGO instructions: template is the manual, stack is the
+                    built model, resources are the bricks.</li>
+                <li><strong>Mnemonic:</strong> "TSPRCO" for template sections: Template, Stack, Parameters, Resources,
+                    Conditions, Outputs.</li>
+                <li><strong>Red-Flag Keywords:</strong>
+                    <ul>
+                        <li>"Infrastructure as code" → CloudFormation</li>
+                        <li>"Deploy quickly, don't care about infra" → Elastic Beanstalk</li>
+                        <li>"Preserve on delete" → DeletionPolicy: Retain</li>
+                        <li>"Preview changes" → Change Set</li>
+                        <li>"Multi-account" → StackSets</li>
+                        <li>"Manual changes detected" → Drift Detection</li>
+                    </ul>
+                </li>
+                <li><strong>Decision Flow:</strong>
+                    <pre style="background: #2d2d2d; padding: 10px; border-radius: 5px; color: #d4d4d4;">
+                        Need automation?
+                        ├─ Full infrastructure control? → CloudFormation
+                        ├─ Just deploy app easily? → Elastic Beanstalk
+                        └─ Serverless app? → SAM (or CloudFormation)
+                        
+                        CloudFormation features:
+                        ├─ Preview changes? → Change Set
+                        ├─ Preserve data on delete? → DeletionPolicy: Retain/Snapshot
+                        ├─ Multi-account/region? → StackSets
+                        ├─ Reusable components? → Nested Stacks
+                        └─ Detect manual changes? → Drift Detection
+                                            </pre>
+                </li>
+                <li><strong>Exam Pattern:</strong> CloudFormation questions often test:
+                    <ul>
+                        <li>DeletionPolicy vs UpdateReplacePolicy</li>
+                        <li>When to use Change Sets</li>
+                        <li>Cross-stack references (Outputs/Imports)</li>
+                        <li>StackSets for multi-account</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <hr>
         <h2><span class="tier-badge tier-3">TIER 3 - SPECIALIZED SERVICES (5-10% điểm)</span></h2>
         <hr>
-
-        <h2 id="dynamodb">9. DynamoDB - Managed NoSQL Database</h2>
+        
+        <!-- ============================================ -->
+        <!-- CONTAINERS SECTION                           -->
+        <!-- ============================================ -->
+        <h2 id="containers">Containers - ECS & Fargate</h2>
+        <div class="service-card tier-3">
+            <h2>🔷 ECS - Elastic Container Service</h2>
+            <div class="card-grid">
+                <div class="card-item">
+                    <h4>🎯 Exam Weight</h4>
+                    <p><strong>~3-5%</strong> of total exam</p>
+                </div>
+                <div class="card-item">
+                    <h4>⚡ Core Purpose</h4>
+                    <p>Run Docker containers on AWS</p>
+                </div>
+                <div class="card-item">
+                    <h4>🔑 Must-Know Topics</h4>
+                    <ul>
+                        <li>ECS vs Fargate vs EKS</li>
+                        <li>Task definitions</li>
+                        <li>Service types</li>
+                    </ul>
+                </div>
+                <div class="card-item">
+                    <h4>🎓 Study Priority</h4>
+                    <p><strong>⭐⭐⭐ GOOD TO KNOW</strong></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mental-model-box">
+            <h3>💡 Mental Model: Container Services Comparison</h3>
+            <pre class="ascii-diagram">
+                        ┌────────────────────────────────────────────────────────────────┐
+                        │               AWS CONTAINER SERVICES                           │
+                        ├────────────────────────────────────────────────────────────────┤
+                        │                                                                │
+                        │  🐳 ECS (Elastic Container Service)                            │
+                        │  ├─ ECS on EC2: You manage EC2 instances                       │
+                        │  │  └─ More control, can use Reserved Instances/Spot          │
+                        │  └─ ECS on Fargate: Serverless, AWS manages infrastructure     │
+                        │     └─ No EC2 management, pay per task                         │
+                        │                                                                │
+                        │  ☸️ EKS (Elastic Kubernetes Service)                            │
+                        │  └─ Managed Kubernetes for complex container orchestration    │
+                        │     └─ Use if you need Kubernetes, multi-cloud portability    │
+                        │                                                                │
+                        │  📦 ECR (Elastic Container Registry)                            │
+                        │  └─ Docker image registry (like Docker Hub)                   │
+                        │     └─ Store and manage container images                      │
+                        └────────────────────────────────────────────────────────────────┘
+                        
+                        ARCHITECTURE:
+                        ┌──────────────────────────────────────────────────────────────┐
+                        │  ALB (Load Balancer)                                         │
+                        │    ↓                                                         │
+                        │  ECS Service (maintains desired count of tasks)             │
+                        │    ↓                                                         │
+                        │  ECS Tasks (running containers)                             │
+                        │    ├─ Task 1 (Container A + Container B)                    │
+                        │    ├─ Task 2 (Container A + Container B)                    │
+                        │    └─ Task 3 (Container A + Container B)                    │
+                        │    ↓                                                         │
+                        │  Launch Type: EC2 (your instances) or Fargate (serverless)  │
+                        └──────────────────────────────────────────────────────────────┘
+                                    </pre>
+        </div>
+        
+        <h3>📚 Core ECS Concepts</h3>
+        <ul>
+            <li><strong>Task Definition:</strong> Blueprint for your application. Defines:
+                <ul>
+                    <li>Docker image to use</li>
+                    <li>CPU & memory requirements</li>
+                    <li>Environment variables</li>
+                    <li>Networking mode</li>
+                    <li>IAM role for task</li>
+                </ul>
+            </li>
+            <li><strong>Task:</strong> Instance of a task definition. One or more containers running together.</li>
+            <li><strong>Service:</strong> Manages long-running tasks. Ensures desired number of tasks are running.
+                <ul>
+                    <li>Integrates with ELB for load balancing</li>
+                    <li>Auto-restart failed tasks</li>
+                    <li>Auto Scaling based on metrics</li>
+                </ul>
+            </li>
+            <li><strong>Cluster:</strong> Logical grouping of tasks or services. Can span multiple AZs.</li>
+        </ul>
+        
+        <h3>⚖️ ECS Launch Types</h3>
+        <div class="comparison-matrix">
+            <table>
+                <tr>
+                    <th>Feature</th>
+                    <th>ECS on EC2</th>
+                    <th>ECS on Fargate</th>
+                </tr>
+                <tr>
+                    <td><strong>Infrastructure</strong></td>
+                    <td>You manage EC2 instances</td>
+                    <td>Serverless, AWS manages</td>
+                </tr>
+                <tr>
+                    <td><strong>Pricing</strong></td>
+                    <td>Pay for EC2 instances (RI/Spot available)</td>
+                    <td>Pay per vCPU + memory per second</td>
+                </tr>
+                <tr>
+                    <td><strong>Use Case</strong></td>
+                    <td>Need control, optimize cost with RI/Spot, large workloads</td>
+                    <td>Simplicity, no ops, variable workloads</td>
+                </tr>
+                <tr>
+                    <td><strong>Scaling</strong></td>
+                    <td>Scale EC2 instances (slower) + tasks</td>
+                    <td>Scale tasks instantly</td>
+                </tr>
+                <tr>
+                    <td><strong>Networking</strong></td>
+                    <td>EC2 instance network</td>
+                    <td>Each task has its own ENI (Elastic Network Interface)</td>
+                </tr>
+                <tr>
+                    <td><strong>Storage</strong></td>
+                    <td>EBS volumes</td>
+                    <td>Ephemeral (20 GB) or EFS</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="info-box"><strong>Exam Tip:</strong> If question says "no infrastructure management" or "serverless
+            containers", choose <strong>Fargate</strong>. If mentions cost optimization with Reserved Instances or need
+            EC2-level control, choose <strong>ECS on EC2</strong>.</div>
+        
+        <h3>🆚 ECS vs EKS vs Lambda</h3>
+        <div class="comparison-matrix">
+            <table>
+                <tr>
+                    <th>Scenario</th>
+                    <th>Use Lambda</th>
+                    <th>Use ECS/Fargate</th>
+                    <th>Use EKS</th>
+                </tr>
+                <tr>
+                    <td>Short-lived tasks (< 15 min)</td>
+                    <td>✅ Perfect fit</td>
+                    <td>❌ Overkill</td>
+                    <td>❌ Too complex</td>
+                </tr>
+                <tr>
+                    <td>Long-running services (24/7)</td>
+                    <td>❌ Expensive</td>
+                    <td>✅ Ideal</td>
+                    <td>✅ If need K8s</td>
+                </tr>
+                <tr>
+                    <td>Need Docker/containers</td>
+                    <td>⚠️ Can use container images</td>
+                    <td>✅ Native support</td>
+                    <td>✅ Native support</td>
+                </tr>
+                <tr>
+                    <td>Microservices architecture</td>
+                    <td>✅ Serverless microservices</td>
+                    <td>✅ Containerized microservices</td>
+                    <td>✅ Complex orchestration</td>
+                </tr>
+                <tr>
+                    <td>Need Kubernetes</td>
+                    <td>❌ Not supported</td>
+                    <td>❌ Not Kubernetes</td>
+                    <td>✅ Managed Kubernetes</td>
+                </tr>
+                <tr>
+                    <td>Multi-cloud portability</td>
+                    <td>❌ AWS-specific</td>
+                    <td>⚠️ Docker portable</td>
+                    <td>✅ K8s is portable</td>
+                </tr>
+            </table>
+        </div>
+        
+        <h4>Decision Tree:</h4>
+        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 5px;">
+                        Need to run containers?
+                        │
+                        ├─ NO → Use EC2 or Lambda
+                        │
+                        └─ YES → Do you already use Kubernetes?
+                            │
+                            ├─ YES → <strong>EKS</strong> (Elastic Kubernetes Service)
+                            │
+                            └─ NO → Do you want to manage EC2 instances?
+                                │
+                                ├─ YES → <strong>ECS on EC2</strong> (cost optimization with RI/Spot)
+                                │
+                                └─ NO → <strong>ECS on Fargate</strong> (serverless, simplest)
+                                </pre>
+        
+        <h3>📦 ECR (Elastic Container Registry)</h3>
+        <ul>
+            <li><strong>Purpose:</strong> Fully managed Docker container registry (alternative to Docker Hub).</li>
+            <li><strong>Features:</strong>
+                <ul>
+                    <li>Store, manage, and deploy Docker images</li>
+                    <li>Integration with ECS/EKS</li>
+                    <li>Encryption at rest (S3) and in transit (TLS)</li>
+                    <li>Image scanning for vulnerabilities</li>
+                    <li>Lifecycle policies (auto-delete old images)</li>
+                </ul>
+            </li>
+            <li><strong>Access Control:</strong> IAM-based. Cross-account access via repository policies.</li>
+        </ul>
+        
+        <h3>🔗 ECS Integration Patterns</h3>
+        
+        <h4>Pattern 1: Microservices with ALB</h4>
+        <div class="integration-patterns">
+            <pre class="architecture-diagram">
+                        ALB (Path-based routing)
+                         ├─ /api/users → ECS Service A (User microservice)
+                         ├─ /api/orders → ECS Service B (Order microservice)
+                         └─ /api/products → ECS Service C (Product microservice)
+                        
+                        Each service:
+                        - ECS Service with Auto Scaling
+                        - Fargate tasks in multiple AZs
+                        - Connected to RDS/DynamoDB
+                        
+                        <strong>Exam Keywords:</strong> "microservices", "containerized", "path-based routing"
+                                    </pre>
+        </div>
+        
+        <h4>Pattern 2: Batch Processing</h4>
+        <div class="integration-patterns">
+            <pre class="architecture-diagram">
+                        S3 Event → EventBridge → ECS Task (Fargate, run once)
+                                                   ↓
+                                            Process file → Output to S3
+                        
+                        <strong>Use Case:</strong> Video transcoding, image processing, data transformation
+                        <strong>Exam Keywords:</strong> "batch", "event-driven containers", "run once"
+                                    </pre>
+        </div>
+        
+        <div class="exam-notes-box">
+            <h3>?? Memory Toolkit (ECS/Fargate)</h3>
+            <ul>
+                <li><strong>Analogy:</strong> ECS is like a shipping port: task definitions are shipping manifests, tasks are
+                    loaded containers, services are shipping schedules ensuring containers keep moving.</li>
+                <li><strong>Mnemonic:</strong> "FARGATE = Forget About Running & Managing EC2" (serverless containers).</li>
+                <li><strong>Red-Flag Keywords:</strong>
+                    <ul>
+                        <li>"Serverless containers" → Fargate</li>
+                        <li>"Kubernetes" → EKS</li>
+                        <li>"Docker registry" → ECR</li>
+                        <li>"No infra management" + "containers" → Fargate</li>
+                        <li>"Cost optimize" + "containers" → ECS on EC2 with Spot/RI</li>
+                    </ul>
+                </li>
+                <li><strong>Exam Pattern:</strong> Questions test when to use Lambda vs ECS vs EKS. Key differentiators:
+                    execution time (Lambda < 15 min), Kubernetes requirement (EKS), infrastructure preference (Fargate vs
+                        EC2).</li>
+            </ul>
+        </div>
+        <hr>
+        
+        <!-- ============================================ -->
+        <!-- KINESIS & DATA STREAMING SECTION             -->
+        <!-- ============================================ -->
+        <h2 id="kinesis">Data Streaming - Kinesis Family</h2>
+        <div class="service-card tier-3">
+            <h2>🔷 Kinesis - Real-time Data Streaming</h2>
+            <div class="card-grid">
+                <div class="card-item">
+                    <h4>🎯 Exam Weight</h4>
+                    <p><strong>~3-4%</strong> of total exam</p>
+                </div>
+                <div class="card-item">
+                    <h4>⚡ Core Purpose</h4>
+                    <p>Collect, process, analyze real-time streaming data</p>
+                </div>
+                <div class="card-item">
+                    <h4>🔑 Must-Know Topics</h4>
+                    <ul>
+                        <li>Data Streams vs Firehose</li>
+                        <li>Analytics use cases</li>
+                        <li>Video Streams</li>
+                    </ul>
+                </div>
+                <div class="card-item">
+                    <h4>🎓 Study Priority</h4>
+                    <p><strong>⭐⭐⭐ GOOD TO KNOW</strong></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mental-model-box">
+            <h3>💡 Mental Model: Kinesis Family Overview</h3>
+            <pre class="ascii-diagram">
+                        ┌────────────────────────────────────────────────────────────────┐
+                        │                    KINESIS FAMILY                              │
+                        ├────────────────────────────────────────────────────────────────┤
+                        │                                                                │
+                        │  📊 Kinesis Data Streams                                       │
+                        │  ├─ Real-time data streaming (custom processing)              │
+                        │  ├─ Retain data 1-365 days                                    │
+                        │  ├─ Manual scaling (shards)                                   │
+                        │  └─ Use: Custom real-time analytics, complex processing       │
+                        │                                                                │
+                        │  🚰 Kinesis Data Firehose                                      │
+                        │  ├─ Load streaming data to destinations                       │
+                        │  ├─ Near real-time (60s buffer)                               │
+                        │  ├─ Auto-scaling (serverless)                                 │
+                        │  └─ Use: Load data to S3, Redshift, Elasticsearch, Splunk     │
+                        │                                                                │
+                        │  🔬 Kinesis Data Analytics                                     │
+                        │  ├─ SQL queries on streaming data                             │
+                        │  ├─ Real-time dashboards                                      │
+                        │  └─ Use: Real-time metrics, anomaly detection                 │
+                        │                                                                │
+                        │  📹 Kinesis Video Streams                                      │
+                        │  └─ Capture, process, store video streams                     │
+                        │     └─ Use: IoT, security cameras, ML on video                │
+                        └────────────────────────────────────────────────────────────────┘
+                        
+                        DATA FLOW COMPARISON:
+                        ┌───────────────────────────────────────────────────────────────┐
+                        │ Kinesis Data Streams:                                         │
+                        │ Producers → Data Stream (shards) → Consumers (custom apps)   │
+                        │              ↓ (store 1-365 days)                             │
+                        │            Lambda/KCL                                          │
+                        │                                                               │
+                        │ Kinesis Firehose:                                             │
+                        │ Producers → Firehose → S3/Redshift/Elasticsearch/Splunk      │
+                        │              ↓ (optional Lambda transform)                    │
+                        │          No storage, direct delivery                          │
+                        └───────────────────────────────────────────────────────────────┘
+                                    </pre>
+        </div>
+        
+        <h3>📊 Kinesis Data Streams (Deep Dive)</h3>
+        <ul>
+            <li><strong>Purpose:</strong> Real-time data streaming for custom processing. <strong>You write the consumer
+                    code.</strong></li>
+            <li><strong>Key Concepts:</strong>
+                <ul>
+                    <li><strong>Shard:</strong> Unit of capacity. Each shard: 1 MB/s write, 2 MB/s read, 1000 records/s write.
+                    </li>
+                    <li><strong>Partition Key:</strong> Determines which shard data goes to. Same key = same shard (ordered
+                        within shard).</li>
+                    <li><strong>Retention:</strong> 24 hours (default), up to 365 days.</li>
+                </ul>
+            </li>
+            <li><strong>Producers:</strong> Applications, Kinesis Agent, SDK, Kinesis Producer Library (KPL)</li>
+            <li><strong>Consumers:</strong>
+                <ul>
+                    <li><strong>Lambda:</strong> Serverless, auto-scales</li>
+                    <li><strong>KCL (Kinesis Client Library):</strong> Java library for custom consumers on EC2/ECS</li>
+                    <li><strong>Kinesis Data Analytics:</strong> SQL queries</li>
+                    <li><strong>Kinesis Firehose:</strong> Forward to destinations</li>
+                </ul>
+            </li>
+            <li><strong>Scaling:</strong> Add/remove shards manually (resharding). Split (increase) or merge (decrease) shards.
+            </li>
+        </ul>
+        
+        <h3>🚰 Kinesis Data Firehose</h3>
+        <ul>
+            <li><strong>Purpose:</strong> <strong>Easiest way</strong> to load streaming data to data stores. Fully managed,
+                auto-scales.</li>
+            <li><strong>Destinations:</strong>
+                <ul>
+                    <li>AWS: S3, Redshift (via S3), Elasticsearch, Splunk</li>
+                    <li>3rd party: Datadog, New Relic, MongoDB, Splunk</li>
+                    <li>Custom: HTTP endpoints</li>
+                </ul>
+            </li>
+            <li><strong>Near Real-Time:</strong> Buffers data (60 seconds minimum or 1 MB minimum). <strong>Not
+                    real-time!</strong></li>
+            <li><strong>Data Transformation:</strong> Optional Lambda function to transform records before delivery.</li>
+            <li><strong>No Data Retention:</strong> Data is delivered, not stored in Firehose.</li>
+            <li><strong>Pricing:</strong> Pay for data volume processed.</li>
+        </ul>
+        
+        <h3>⚖️ Data Streams vs Firehose (Critical Comparison)</h3>
+        <div class="comparison-matrix">
+            <table>
+                <tr>
+                    <th>Feature</th>
+                    <th>Kinesis Data Streams</th>
+                    <th>Kinesis Firehose</th>
+                </tr>
+                <tr>
+                    <td><strong>Purpose</strong></td>
+                    <td>Custom real-time processing</td>
+                    <td>Load data to destinations</td>
+                </tr>
+                <tr>
+                    <td><strong>Real-time</strong></td>
+                    <td>✅ Real-time (70-200 ms)</td>
+                    <td>⚠️ Near real-time (60s+ buffer)</td>
+                </tr>
+                <tr>
+                    <td><strong>Data Retention</strong></td>
+                    <td>✅ 1-365 days</td>
+                    <td>❌ No retention</td>
+                </tr>
+                <tr>
+                    <td><strong>Scaling</strong></td>
+                    <td>Manual (add/remove shards)</td>
+                    <td>Auto-scaling (serverless)</td>
+                </tr>
+                <tr>
+                    <td><strong>Consumers</strong></td>
+                    <td>Custom (Lambda, KCL, Analytics)</td>
+                    <td>Fixed destinations (S3, Redshift, ES, Splunk)</td>
+                </tr>
+                <tr>
+                    <td><strong>Replay</strong></td>
+                    <td>✅ Can replay data (retained)</td>
+                    <td>❌ Cannot replay</td>
+                </tr>
+                <tr>
+                    <td><strong>Complexity</strong></td>
+                    <td>More complex (manage shards)</td>
+                    <td>Simpler (fully managed)</td>
+                </tr>
+                <tr>
+                    <td><strong>Use Case</strong></td>
+                    <td>Custom analytics, ML, complex processing</td>
+                    <td>Load to S3/Redshift for analysis</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="info-box"><strong>Exam Tip:</strong> If question asks "load data to S3" or mentions specific destinations
+            (Redshift, Elasticsearch), answer is <strong>Firehose</strong>. If mentions "custom processing", "replay data", or
+            "real-time < 1s", answer is <strong>Data Streams</strong>.</div>
+        
+        <h3>🔬 Kinesis Data Analytics</h3>
+        <ul>
+            <li><strong>Purpose:</strong> Run SQL queries on streaming data. No need to write consumer code.</li>
+            <li><strong>Input:</strong> Kinesis Data Streams or Firehose</li>
+            <li><strong>Output:</strong> Kinesis Data Streams, Firehose, or Lambda</li>
+            <li><strong>Use Cases:</strong>
+                <ul>
+                    <li>Real-time dashboards</li>
+                    <li>Real-time metrics (e.g., top 10 products sold in last 5 minutes)</li>
+                    <li>Anomaly detection</li>
+                    <li>Time-series analytics</li>
+                </ul>
+            </li>
+            <li><strong>Pricing:</strong> Pay for resources consumed (processing units).</li>
+        </ul>
+        
+        <h3>🔗 Common Kinesis Patterns</h3>
+        
+        <h4>Pattern 1: Real-time Analytics Pipeline</h4>
+        <div class="integration-patterns">
+            <pre class="architecture-diagram">
+                        IoT Devices → Kinesis Data Streams → Lambda (process) → DynamoDB
+                                                            ↓
+                                                  Kinesis Data Analytics (SQL)
+                                                            ↓
+                                                      QuickSight (Dashboard)
+                        
+                        <strong>Use Case:</strong> IoT sensor data, real-time monitoring, live dashboards
+                        <strong>Exam Keywords:</strong> "real-time analytics", "streaming data", "dashboard"
+                                    </pre>
+        </div>
+        
+        <h4>Pattern 2: Data Lake Ingestion</h4>
+        <div class="integration-patterns">
+            <pre class="architecture-diagram">
+                        Application Logs → Kinesis Firehose → S3 (Data Lake)
+                                                  ↓                ↓
+                                           (optional Lambda)    Athena (query)
+                                                                  ↓
+                                                            QuickSight (reports)
+                        
+                        <strong>Use Case:</strong> Log aggregation, batch analytics, data warehousing
+                        <strong>Exam Keywords:</strong> "load to S3", "data lake", "batch analysis"
+                                    </pre>
+        </div>
+        
+        <h4>Pattern 3: Real-time ETL</h4>
+        <div class="integration-patterns">
+            <pre class="architecture-diagram">
+                        Data Sources → Kinesis Firehose → Lambda (transform) → Redshift
+                                                                             ↓
+                                                                           S3 backup
+                        
+                        <strong>Use Case:</strong> Data warehouse, business intelligence
+                        <strong>Exam Keywords:</strong> "transform and load", "Redshift", "ETL"
+                                    </pre>
+        </div>
+        
+        <div class="mistake-box critical">
+            <h3>⚠️ Common Mistakes & Exam Traps (Kinesis)</h3>
+            <table>
+                <tr>
+                    <th>Trap</th>
+                    <th>Wrong Answer</th>
+                    <th>Correct Answer</th>
+                </tr>
+                <tr>
+                    <td>Load streaming data to S3</td>
+                    <td>Data Streams + custom Lambda</td>
+                    <td>Firehose (simplest, fully managed)</td>
+                </tr>
+                <tr>
+                    <td>Real-time processing < 1 second</td>
+                    <td>Firehose</td>
+                    <td>Data Streams (Firehose has 60s+ buffer)</td>
+                </tr>
+                <tr>
+                    <td>Replay data from yesterday</td>
+                    <td>Firehose</td>
+                    <td>Data Streams (Firehose has no retention)</td>
+                </tr>
+                <tr>
+                    <td>Custom ML processing on stream</td>
+                    <td>Firehose</td>
+                    <td>Data Streams + Lambda/KCL</td>
+                </tr>
+                <tr>
+                    <td>SQL query on streaming data</td>
+                    <td>Athena</td>
+                    <td>Kinesis Data Analytics (Athena is for S3)</td>
+                </tr>
+                <tr>
+                    <td>High throughput, need to scale</td>
+                    <td>Firehose (auto-scales)</td>
+                    <td>Both work; Firehose simpler if loading to destination</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="exam-notes-box">
+            <h3>?? Memory Toolkit (Kinesis)</h3>
+            <ul>
+                <li><strong>Analogy:</strong> Kinesis is like a river system: Data Streams is the river (flows, retained),
+                    Firehose is the dam outlet (direct to destination), Analytics is the water quality sensor (analyze as it
+                    flows).</li>
+                <li><strong>Mnemonic:</strong> "SFA" for Kinesis family: Streams (custom), Firehose (load), Analytics (SQL).
+                </li>
+                <li><strong>Red-Flag Keywords:</strong>
+                    <ul>
+                        <li>"Load to S3/Redshift" → Firehose</li>
+                        <li>"Custom processing", "replay" → Data Streams</li>
+                        <li>"SQL on streaming" → Data Analytics</li>
+                        <li>"Real-time < 1s" → Data Streams</li>
+                        <li>"Near real-time", "60s acceptable" → Firehose</li>
+                    </ul>
+                </li>
+                <li><strong>Decision Flow:</strong>
+                    <pre style="background: #2d2d2d; padding: 10px; border-radius: 5px; color: #d4d4d4;">
+                        Streaming data scenario:
+                        ├─ Need to load to S3/Redshift/ES? → Firehose
+                        ├─ Need real-time < 1s? → Data Streams
+                        ├─ Need to replay data? → Data Streams
+                        ├─ SQL queries on stream? → Data Analytics
+                        └─ Custom ML/processing? → Data Streams + Lambda
+                                            </pre>
+                </li>
+            </ul>
+        </div>
+        <hr>
+        
+        <h2 id="dynamodb">DynamoDB - Managed NoSQL Database</h2>
         <ul>
             <li><strong>Type:</strong> Fully managed, key-value and document NoSQL database.</li>
             <li><strong>Key Features:</strong> Single-digit millisecond latency, fully serverless, auto-scaling.</li>
@@ -714,7 +2948,6 @@
             <li><strong>DAX (DynamoDB Accelerator):</strong> An in-memory cache for DynamoDB, providing microsecond read performance.</li>
         </ul>
         <hr>
-
         <h2 id="efs">10. EFS & FSx - Managed File Systems</h2>
         <div class="comparison-matrix">
             <table>
@@ -725,7 +2958,6 @@
         </div>
         <div class="info-box"><strong>Exam Tip:</strong> If multiple Linux instances need to access the same file system simultaneously, the answer is **EFS**.</div>
         <hr>
-
         <h2 id="elasticache">11. ElastiCache - In-Memory Caching</h2>
         <ul>
             <li><strong>Purpose:</strong> A managed in-memory data store or cache to improve the performance of web applications.</li>
@@ -738,15 +2970,12 @@
             <li><strong>Use Case:</strong> Offload read traffic from a database (like RDS) to reduce latency and cost.</li>
         </ul>
         <hr>
-
         <!-- ============================================ -->
         <!-- COMPARISON MATRIX & DECISION TREES          -->
         <!-- ============================================ -->
         <h2>🔄 ARCHITECTURAL DECISION MAKING</h2>
-        
         <div class="comparison-matrix">
             <h3>📊 Key Service Comparisons</h3>
-            
             <h4>🔹 Storage: S3 vs. EBS vs. EFS</h4>
             <table>
                 <tr><th>Scenario</th><th>Use S3 (Object)</th><th>Use EBS (Block)</th><th>Use EFS (File)</th></tr>
@@ -755,7 +2984,6 @@
                 <tr><td>Shared file system for many Linux EC2s</td><td>❌ Not a file system</td><td>❌ Single instance only</td><td>✅ Perfect fit</td></tr>
                 <tr><td>Store backups and archives</td><td>✅ Cost-effective</td><td>⚠️ Expensive</td><td>⚠️ Expensive</td></tr>
             </table>
-            
             <h4>🔹 Database: RDS vs. DynamoDB</h4>
             <table>
                 <tr><th>Scenario</th><th>Use RDS (Relational)</th><th>Use DynamoDB (NoSQL)</th></tr>
@@ -765,34 +2993,31 @@
                 <tr><td>Schema is flexible or changes often</td><td>❌ Rigid schema</td><td>✅ Schemaless</td></tr>
             </table>
         </div>
-        
         <div class="decision-tree">
             <h3>🌳 Decision Tree: Choosing a Disaster Recovery (DR) Strategy</h3>
             <pre>
 Start: What are your RTO/RPO requirements?
 (RTO: Recovery Time Objective, RPO: Recovery Point Objective)
-│
-├─ RTO: Hours, RPO: Hours (Low cost, tolerant of downtime)
-│  └─ ▶ <strong>Backup and Restore</strong>
-│      └─ Regularly back up data (S3, EBS Snapshots) and restore to a new region when needed.
-│
-├─ RTO: Tens of minutes, RPO: Minutes (Core services running)
-│  └─ ▶ <strong>Pilot Light</strong>
-│      └─ Replicate data to the DR region. Keep a minimal version of the environment (the "pilot light") running.
-│
-├─ RTO: Minutes, RPO: Seconds (Scaled-down, fully functional copy)
-│  └─ ▶ <strong>Warm Standby</strong>
-│      └─ A scaled-down but fully functional copy of your production environment is always running in the DR region.
-│
-└─ RTO: Seconds, RPO: Near-zero (Full production scale in both regions)
-   └─ ▶ <strong>Multi-Site Active-Active</strong>
-      └─ Traffic is served from both regions simultaneously. Use Route 53 for routing. Most expensive and complex.
+|
++-- RTO: Hours, RPO: Hours (Low cost, tolerant of downtime)
+| `-- <strong>Backup and Restore</strong>
+| `-- Regularly back up data (S3, EBS Snapshots) and restore to a new region when needed.
+|
++-- RTO: Tens of minutes, RPO: Minutes (Core services running)
+| `-- <strong>Pilot Light</strong>
+| `-- Replicate data to the DR region. Keep a minimal version of the environment (the "pilot light") running.
+|
++-- RTO: Minutes, RPO: Seconds (Scaled-down, fully functional copy)
+| `-- <strong>Warm Standby</strong>
+| `-- A scaled-down but fully functional copy of your production environment is always running in the DR region.
+|
+`-- RTO: Seconds, RPO: Near-zero (Full production scale in both regions)
+`-- <strong>Multi-Site Active-Active</strong>
+`-- Traffic is served from both regions simultaneously. Use Route 53 for routing. Most expensive and complex.
             </pre>
         </div>
-        
         <div class="exam-notes-box">
             <h3>🎯 Exam Scenario Playbook</h3>
-            
             <h4>Pattern 1: "Design for High Availability"</h4>
             <table>
                 <tr><th>Component</th><th>Solution</th></tr>
@@ -801,7 +3026,6 @@ Start: What are your RTO/RPO requirements?
                 <tr><td>Load Balancer</td><td>ELB is highly available by default.</td></tr>
                 <tr><td>Static Content</td><td>S3 is highly available by default.</td></tr>
             </table>
-            
             <h4>Pattern 2: "Design for Cost Optimization"</h4>
             <table>
                 <tr><th>Component</th><th>Solution</th></tr>
@@ -811,10 +3035,9 @@ Start: What are your RTO/RPO requirements?
                 <tr><td>Network Traffic</td><td>Use VPC Endpoints to avoid NAT Gateway data processing charges.</td></tr>
             </table>
         </div>
-
         </div>
     </div>
-
+    </div>
     <script src="assets/script.js"></script>
 </body>
 </html>
